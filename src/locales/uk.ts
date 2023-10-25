@@ -188,4 +188,8 @@ export default {
     'read-more': 'Читати повністю',
     'watch-video': 'Переглянути відео',
   },
+  projects: {
+    title: 'Проєкти',
+    loading: 'Завантаження... Будь ласка зачекайте...',
+  },
 } as const;

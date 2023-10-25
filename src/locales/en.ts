@@ -189,4 +189,8 @@ export default {
     'read-more': 'Read More',
     'watch-video': 'Watch Video',
   },
+  projects: {
+    title: 'Projects',
+    loading: 'Loading... Please wait...',
+  },
 } as const;
