@@ -1,0 +1,22 @@
+.content p {
+  @apply indent-4 mt-2;
+}
+
+.content ul {
+  @apply list-disc ml-8;
+}
+
+.content a {
+  @apply text-primary hover:underline duration-300;
+}
+
+.content h2,
+h3,
+h4 {
+  @apply mt-10 mb-5;
+}
+
+.content h5,
+h6 {
+  @apply mt-5 mb-2;
+}
