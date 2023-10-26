@@ -190,5 +190,11 @@ export default {
   },
   projects: {
     title: 'Проєкти',
+    filters: {
+      location: {
+        title: 'Локації',
+        'all-locations': 'Всі локації',
+      },
+    },
   },
 } as const;

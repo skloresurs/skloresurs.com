@@ -105,7 +105,6 @@ export async function POST(request: NextRequest) {
 
     return new NextResponse(JSON.stringify({ success: true }), { status: 200 });
   } catch (err) {
-    console.log(err);
     return new NextResponse(
       JSON.stringify({
         error: 'Unknown error',

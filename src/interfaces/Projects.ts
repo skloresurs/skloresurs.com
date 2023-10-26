@@ -1,8 +1,13 @@
 export default interface IProject {
   id: number;
   title: string;
-  location: string;
+  location: ILocation;
   glass: string;
   year: number;
   images: string[];
+}
+
+export interface ILocation {
+  id: number;
+  title: string;
 }

@@ -4,30 +4,37 @@ import axios from '@/utils/axios-cms';
 
 export async function GET(request: NextRequest) {
   try {
-    const query = await request.nextUrl.searchParams;
-    const locale = query.get('locale') || 'uk';
-    const page = query.get('page') || 1;
+    const query = request.nextUrl.searchParams;
+    const locale = query.get('locale') ?? 'uk';
+    const page = query.get('page') ?? 1;
+    const location = query.get('location');
 
     const { data } = await axios.get(`/api/projects`, {
       params: {
         locale,
+        'pagination[page]': page,
+        'pagination[pageSize]': 8,
+        'populate[0]': 'location',
+        'populate[1]': 'images',
         'sort[0]': 'year:desc',
         'sort[1]': 'title',
-        'populate[0]': 'images',
-        'pagination[pageSize]': 8,
-        'pagination[page]': page,
+        'filters[location][id][$eq]': location,
       },
     });
-    if (!data.data[0]) {
+
+    if (!data.data) {
       return new NextResponse(null, { status: 404 });
     }
     return new NextResponse(
-      JSON.stringify(
-        data.data.map((e: any) => {
+      JSON.stringify({
+        data: data.data.map((e: any) => {
           return {
             id: e.id,
             title: e.attributes.title,
-            location: e.attributes.location,
+            location: {
+              id: e.attributes.location.data.id,
+              title: e.attributes.location.data.attributes.title,
+            },
             glass: e.attributes.glass,
             year: e.attributes.year,
             images: e.attributes.images.data.map(
@@ -35,7 +42,10 @@ export async function GET(request: NextRequest) {
             ),
           };
         }),
-      ),
+        meta: {
+          total: data.meta.pagination.total,
+        },
+      }),
       { status: 200 },
     );
   } catch (error) {
