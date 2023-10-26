@@ -5,8 +5,8 @@ import ErrorLoaded from '@/components/ErrorLoad';
 import { MdiEye } from '@/components/icons/MdiEye';
 import { MdiFilePdf } from '@/components/icons/MdiFilePdf';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import { getI18n } from '@/utils/i18nServer';
 import getAllReportings from '@/strapi/get-all-reportings';
+import { getI18n } from '@/utils/i18nServer';
 
 export default async function Reportings() {
   const t = await getI18n();

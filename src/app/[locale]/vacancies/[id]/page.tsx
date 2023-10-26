@@ -6,8 +6,8 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import { getCurrentLocale } from '@/utils/i18nServer';
 import getVacancyById from '@/strapi/get-vacancy-by-id';
+import { getCurrentLocale } from '@/utils/i18nServer';
 
 export default async function Vacancy({ params }: { params: { id: string } }) {
   if (!params.id) {

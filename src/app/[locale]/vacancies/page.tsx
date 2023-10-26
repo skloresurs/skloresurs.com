@@ -13,8 +13,8 @@ import {
   CardHeader,
 } from '@/components/ui/card';
 import type IVacancy from '@/interfaces/Vacancy';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 import getAllVacancies from '@/strapi/get-all-vacancies';
+import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 async function Vacancy({ data }: { data: IVacancy }) {
   const t = await getI18n();

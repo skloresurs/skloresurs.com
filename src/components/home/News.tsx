@@ -3,8 +3,8 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import type INews from '@/interfaces/News';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 import getLatestNews from '@/strapi/get-latest-news';
+import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 import MdiChevronRight from '../icons/MdiChevronRight';
 import { buttonVariants } from '../ui/button';

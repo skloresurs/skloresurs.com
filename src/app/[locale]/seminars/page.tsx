@@ -4,8 +4,8 @@ import parse from 'html-react-parser';
 import React from 'react';
 
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 import getSeminars from '@/strapi/get-seminars';
+import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 export default async function Seminars() {
   const t = await getI18n();
