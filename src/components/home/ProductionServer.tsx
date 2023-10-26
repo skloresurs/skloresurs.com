@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { getCurrentLocale } from '@/utils/i18nServer';
 import getAllProductions from '@/strapi/get-all-productions';
+import { getCurrentLocale } from '@/utils/i18nServer';
 
 import I18nProvider from '../I18nProvider';
 import Production from './Production';
