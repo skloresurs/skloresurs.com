@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
         'sort[0]': 'year:desc',
         'sort[1]': 'title',
         'populate[0]': 'images',
-        'pagination[pageSize]': 5,
+        'pagination[pageSize]': 8,
         'pagination[page]': page,
       },
     });

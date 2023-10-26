@@ -28,12 +28,12 @@ function GenerateTelegramMessage(
   message: string,
 ) {
   return `🔔 Нове сповіщення з сайту
-  🧑 Від: ${username}
-  📧 E-mail: ${email}
-  📞 Номер телефону: ${phone ?? missingOptionalParams}
+🧑 Від: ${username}
+📧 E-mail: ${email}
+📞 Номер телефону: ${phone ?? missingOptionalParams}
 
-  💬 Повідомлення:
-  ${message}`;
+💬 Повідомлення:
+${message}`;
 }
 
 export async function POST(request: NextRequest) {

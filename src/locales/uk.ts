@@ -190,6 +190,5 @@ export default {
   },
   projects: {
     title: 'Проєкти',
-    loading: 'Завантаження... Будь ласка зачекайте...',
   },
 } as const;

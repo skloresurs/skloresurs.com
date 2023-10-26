@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { getI18n } from '@/utils/i18nServer';
 import getAllCertificates from '@/strapi/get-all-certificates';
+import { getI18n } from '@/utils/i18nServer';
 
 import CertificatesGallery from './CertificatesGallery';
 

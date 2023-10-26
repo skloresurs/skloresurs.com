@@ -191,6 +191,5 @@ export default {
   },
   projects: {
     title: 'Projects',
-    loading: 'Loading... Please wait...',
   },
 } as const;

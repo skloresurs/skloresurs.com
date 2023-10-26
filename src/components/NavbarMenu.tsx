@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { cn } from '@/lib/shadcnUtils';
 import { useChangeLocale, useCurrentLocale, useI18n } from '@/utils/i18nClient';
+import { cn } from '@/utils/shadcnUtils';
 
 import CircleFlagsUa from './icons/CircleFlagsUa';
 import CircleFlagsUk from './icons/CircleFlagsUk';

@@ -46,7 +46,7 @@
       }
     ]
   },
-  "exclude": ["./dist/**/*", "./node_modules/**/*"],
+  "exclude": ["./dist/**/*", "./node_modules/**/*", "./.vscode/**/*"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",

@@ -39,3 +39,7 @@
     border: 3px solid #9be3de;
   }
 }
+
+.image-gallery-svg {
+  max-height: 40px;
+}
