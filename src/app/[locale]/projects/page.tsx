@@ -1,49 +1,39 @@
-import axios from 'axios';
 import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
 import I18nProvider from '@/components/I18nProvider';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
+import ProjectFilter from '@/components/projects/ProjectFilter';
 import ProjectsClient from '@/components/projects/ProjectsClient';
-import type IProject from '@/interfaces/Projects';
+import { Separator } from '@/components/ui/separator';
+import getAllProjectGlassCategories from '@/strapi/get-all-project-glass-categories';
 import getAllProjectLocations from '@/strapi/get-all-project-locations';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
-export default async function Projects({
-  searchParams,
-}: {
-  searchParams: {
-    location?: string;
-  };
-}) {
+export default async function Projects() {
   const locale = getCurrentLocale();
-  const {
-    data,
-  }: {
-    data: {
-      data: IProject[];
-      meta: { total: number };
-    };
-  } = await axios.get(
-    `http://localhost:3000/api/projects?locale${locale}${
-      searchParams.location ? `&location=${searchParams.location}` : ''
-    }`,
-  );
   const locations = await getAllProjectLocations(locale);
+  const glassCategories = await getAllProjectGlassCategories(locale);
 
   const t = await getI18n();
   return (
     <PageTransitionWrapper>
-      {(!data || !locations) && <ErrorLoaded />}
-      {data && locations && (
+      {(!locations || !glassCategories) && <ErrorLoaded />}
+      {locations && glassCategories && (
         <div className="mx-auto max-w-6xl px-5">
           <h1 className="mb-5 text-center">{t('projects.title')}</h1>
-          <I18nProvider locale={getCurrentLocale()}>
-            <ProjectsClient
-              data={data.data}
-              projectsCount={data.meta.total}
-              locations={locations}
-            />
+          <I18nProvider locale={locale}>
+            <div className="flex h-full flex-col gap-3 md:flex-row">
+              <ProjectFilter
+                locations={locations}
+                glassCategories={glassCategories}
+              />
+              <Separator
+                orientation="vertical"
+                className="hidden h-auto md:block"
+              />
+              <ProjectsClient locations={locations} />
+            </div>
           </I18nProvider>
         </div>
       )}

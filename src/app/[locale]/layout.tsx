@@ -1,7 +1,7 @@
 import '../globals.css';
 import '../image-gallery.css';
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Raleway } from 'next/font/google';
 import type { ReactNode } from 'react';
 import React from 'react';
@@ -23,7 +23,6 @@ export async function generateMetadata(): Promise<Metadata> {
     generator: 'Next.js',
     applicationName: 'Skloresurs website',
     authors: [{ name: 'HighError', url: 'https://github.com/higherror' }],
-    colorScheme: 'dark',
     creator: 'HighError',
     publisher: 'HighError',
     title: {
@@ -59,11 +58,6 @@ export async function generateMetadata(): Promise<Metadata> {
       creator: '@higherrorua',
       creatorId: '1045759364584353792',
     },
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      maximumScale: 1,
-    },
     category: 'website',
     other: {
       'geo.placename':
@@ -73,6 +67,13 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   };
 }
+
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export default async function RootLayout({
   params: { locale },

@@ -190,10 +190,17 @@ export default {
   },
   projects: {
     title: 'Проєкти',
+    none: 'Не знайдено жодного проєкту',
+    show: 'Показано: ',
     filters: {
+      title: 'Фільтри',
       location: {
         title: 'Локації',
         'all-locations': 'Всі локації',
+      },
+      glass: {
+        title: 'Тип скла',
+        'all-types': 'Всі типи скла',
       },
     },
   },

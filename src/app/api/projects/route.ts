@@ -8,17 +8,19 @@ export async function GET(request: NextRequest) {
     const locale = query.get('locale') ?? 'uk';
     const page = query.get('page') ?? 1;
     const location = query.get('location');
+    const glass = query.get('glass');
 
     const { data } = await axios.get(`/api/projects`, {
       params: {
         locale,
         'pagination[page]': page,
-        'pagination[pageSize]': 8,
+        'pagination[pageSize]': 100,
         'populate[0]': 'location',
         'populate[1]': 'images',
         'sort[0]': 'year:desc',
         'sort[1]': 'title',
         'filters[location][id][$eq]': location,
+        'filters[glass_category][id][$in]': glass,
       },
     });
 

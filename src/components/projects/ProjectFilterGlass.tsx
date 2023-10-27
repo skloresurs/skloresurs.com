@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 
-import type { ILocation } from '@/interfaces/Projects';
+import type { IGlassCategory } from '@/interfaces/Projects';
 import { useI18n } from '@/utils/i18nClient';
 
 import { ScrollArea } from '../ui/scroll-area';
@@ -17,16 +17,16 @@ import {
   SelectValue,
 } from '../ui/select';
 
-export default function ProjectFilterLocation({
-  locations,
+export default function ProjectFilterGlass({
+  glassCategories,
 }: {
-  locations: ILocation[];
+  glassCategories: IGlassCategory[];
 }) {
   const query = useSearchParams();
   const router = useRouter();
   const [value, setValue] = React.useState<string>(
-    locations
-      .find((e) => e.id.toString() === query.get('location'))
+    glassCategories
+      .find((e) => e.id.toString() === query.get('glass'))
       ?.id.toString() ?? 'none',
   );
   const t = useI18n();
@@ -34,9 +34,9 @@ export default function ProjectFilterLocation({
   function search(currentValue: string) {
     const current = new URLSearchParams(Array.from(query.entries()));
     if (currentValue === 'none') {
-      current.delete('location');
+      current.delete('glass');
     } else {
-      current.set('location', currentValue);
+      current.set('glass', currentValue);
     }
     setValue(currentValue);
 
@@ -48,16 +48,16 @@ export default function ProjectFilterLocation({
   return (
     <Select value={value} onValueChange={(e) => search(e)}>
       <SelectTrigger className="w-max md:w-full">
-        <SelectValue placeholder={t('projects.filters.location.title')} />
+        <SelectValue placeholder={t('projects.filters.glass.title')} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>{t('projects.filters.location.title')}</SelectLabel>
+          <SelectLabel>{t('projects.filters.glass.title')}</SelectLabel>
           <ScrollArea className="h-[250px]">
             <SelectItem value="none">
-              {t('projects.filters.location.all-locations')}
+              {t('projects.filters.glass.all-types')}
             </SelectItem>
-            {locations.map((e) => (
+            {glassCategories.map((e) => (
               <SelectItem value={e.id.toString()} key={e.id}>
                 {e.title}
               </SelectItem>

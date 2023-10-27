@@ -11,3 +11,8 @@ export interface ILocation {
   id: number;
   title: string;
 }
+
+export interface IGlassCategory {
+  id: number;
+  title: string;
+}
