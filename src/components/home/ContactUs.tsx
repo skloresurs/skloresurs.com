@@ -6,9 +6,6 @@ import { getCurrentLocale } from '@/utils/i18nServer';
 import I18nProvider from '../I18nProvider';
 import ContactUsForm from './ContactUsForm';
 
-// TODO: Add recaptcha
-// TODO: Add response message
-
 export default async function ContactUs() {
   const locale = getCurrentLocale();
 

@@ -1,7 +1,7 @@
 import type IPartner from 'src/interfaces/Partner';
 import axios from 'src/utils/axios-cms';
 
-export default async function getAllPartners(): Promise<IPartner[] | null> {
+export default async function getPartners(): Promise<IPartner[] | null> {
   try {
     const { data } = await axios.get('/api/partner', {
       params: {

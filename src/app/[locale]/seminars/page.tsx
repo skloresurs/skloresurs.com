@@ -4,13 +4,13 @@ import parse from 'html-react-parser';
 import React from 'react';
 
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import getSeminars from '@/strapi/get-seminars';
+import getSeminarPage from '@/strapi/pages/get-seminar-page';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 export default async function Seminars() {
   const t = await getI18n();
   const locale = getCurrentLocale();
-  const data = await getSeminars(locale);
+  const data = await getSeminarPage(locale);
   return (
     <PageTransitionWrapper>
       <div className="mx-auto max-w-6xl px-5">

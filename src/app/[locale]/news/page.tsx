@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import type IPost from '@/interfaces/Post';
-import getAllNews from '@/strapi/get-all-news';
+import getNews from '@/strapi/full-collections/get-news';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 async function Post({ data }: { data: IPost }) {
@@ -41,7 +41,7 @@ async function Post({ data }: { data: IPost }) {
 
 export default async function News() {
   const t = await getI18n();
-  const news = await getAllNews(getCurrentLocale());
+  const news = await getNews(getCurrentLocale());
   return (
     <PageTransitionWrapper>
       <div className="mx-auto max-w-6xl px-5">

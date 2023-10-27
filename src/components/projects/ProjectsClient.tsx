@@ -21,7 +21,7 @@ export default function ProjectsClient() {
 
   const [projects, setProjects] = useState<IProject[]>([]);
   const [projectsCount, setProjectsCount] = useState(0);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const location = query.get('location');
   const glassCategory = query.get('glass');

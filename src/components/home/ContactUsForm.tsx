@@ -28,7 +28,7 @@ interface FormSchema {
   additional: string | null;
 }
 
-type AlertData = 'successfully' | 'error' | 'captcha';
+type AlertData = 'successfully' | 'error' | 'captcha' | 'email';
 
 export default function ContactUsForm() {
   const t = useI18n();
@@ -48,6 +48,14 @@ export default function ContactUsForm() {
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
+
+    // if (!validFormat || !validSmtp || !validMx) {
+    //   setAlertData('email');
+    //   setIsLoading(false);
+    //   setIsOpen(true);
+    //   return;
+    // }
+
     setIsLoading(true);
     const token = await executeRecaptcha('form_submit').catch((_) => null);
     if (!token) {

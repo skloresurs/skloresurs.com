@@ -167,9 +167,6 @@ export default {
   },
   delivery: {
     title: 'Delivery of Products',
-    p1: 'We understand the importance of timely and safe delivery, which is why our transportation department has a modern fleet equipped with manipulators. This allows us to safely load and unload glass packages of any size and weight.',
-    p2: 'Glass packages are carefully packaged to prevent damage during transportation and securely fastened to the transport.',
-    p3: 'Our drivers have years of experience and are well-versed in the routes, allowing us to reduce delivery time and provide the highest quality of service.',
   },
   seminars: {
     title: 'Seminars',

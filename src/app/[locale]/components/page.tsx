@@ -4,14 +4,14 @@ import ComponentsClient from '@/components/ComponentsClient';
 import ErrorLoaded from '@/components/ErrorLoad';
 import I18nProvider from '@/components/I18nProvider';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import getAllComponentCategories from '@/strapi/get-all-component-categories';
-import getAllComponents from '@/strapi/get-all-components';
+import getCategories from '@/strapi/full-collections/components/get-categories';
+import getComponents from '@/strapi/full-collections/components/get-components';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 export default async function Components() {
   const t = await getI18n();
-  const categories = await getAllComponentCategories(getCurrentLocale());
-  const components = await getAllComponents(getCurrentLocale());
+  const categories = await getCategories(getCurrentLocale());
+  const components = await getComponents(getCurrentLocale());
   return (
     <PageTransitionWrapper>
       <div className="mx-auto w-full max-w-6xl px-5">

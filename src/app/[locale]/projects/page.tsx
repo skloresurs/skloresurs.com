@@ -6,14 +6,14 @@ import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import ProjectFilter from '@/components/projects/ProjectFilter';
 import ProjectsClient from '@/components/projects/ProjectsClient';
 import { Separator } from '@/components/ui/separator';
-import getAllProjectGlassCategories from '@/strapi/get-all-project-glass-categories';
-import getAllProjectLocations from '@/strapi/get-all-project-locations';
+import getCategories from '@/strapi/full-collections/projects/get-categories';
+import getLocations from '@/strapi/full-collections/projects/get-locations';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 export default async function Projects() {
   const locale = getCurrentLocale();
-  const locations = await getAllProjectLocations(locale);
-  const glassCategories = await getAllProjectGlassCategories(locale);
+  const locations = await getLocations(locale);
+  const glassCategories = await getCategories(locale);
 
   const t = await getI18n();
   return (

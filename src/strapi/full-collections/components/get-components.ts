@@ -2,7 +2,7 @@ import axios from 'src/utils/axios-cms';
 
 import type IComponent from '@/interfaces/Component';
 
-export default async function getAllComponents(
+export default async function getComponents(
   locale: string,
 ): Promise<IComponent[] | null> {
   try {

@@ -13,7 +13,7 @@ import {
   CardHeader,
 } from '@/components/ui/card';
 import type IVacancy from '@/interfaces/Vacancy';
-import getAllVacancies from '@/strapi/get-all-vacancies';
+import getVacancies from '@/strapi/full-collections/get-vacancies';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 async function Vacancy({ data }: { data: IVacancy }) {
@@ -47,7 +47,7 @@ async function Vacancy({ data }: { data: IVacancy }) {
 }
 
 export default async function Vacancies() {
-  const vacancies = await getAllVacancies(getCurrentLocale());
+  const vacancies = await getVacancies(getCurrentLocale());
   const t = await getI18n();
   return (
     <PageTransitionWrapper>

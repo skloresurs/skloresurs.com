@@ -2,7 +2,7 @@ import axios from 'src/utils/axios-cms';
 
 import type { ICategory } from '@/interfaces/Component';
 
-export default async function getAllComponentCategories(
+export default async function getCategories(
   locale: string,
 ): Promise<ICategory[] | null> {
   try {

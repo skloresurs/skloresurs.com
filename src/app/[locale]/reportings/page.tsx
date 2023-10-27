@@ -5,12 +5,12 @@ import ErrorLoaded from '@/components/ErrorLoad';
 import { MdiEye } from '@/components/icons/MdiEye';
 import { MdiFilePdf } from '@/components/icons/MdiFilePdf';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import getAllReportings from '@/strapi/get-all-reportings';
+import getReportings from '@/strapi/full-collections/get-reportings';
 import { getI18n } from '@/utils/i18nServer';
 
 export default async function Reportings() {
   const t = await getI18n();
-  const reportings = await getAllReportings();
+  const reportings = await getReportings();
 
   if (!reportings) {
     return <ErrorLoaded />;

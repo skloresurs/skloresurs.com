@@ -1,15 +1,16 @@
 import axios from 'src/utils/axios-cms';
 
-import type { ILocation } from '@/interfaces/Projects';
+import type { IGlassCategory } from '@/interfaces/Projects';
 
-export default async function getAllProjectLocations(
+export default async function getCategories(
   locale: string,
-): Promise<ILocation[] | null> {
+): Promise<IGlassCategory[] | null> {
   try {
-    const { data } = await axios.get('/api/projects-locations', {
+    const { data } = await axios.get('/api/project-glass-types', {
       params: {
         locale,
         'pagination[pageSize]': 100,
+        'sort[0]': 'title:asc',
       },
     });
     return data.data.map((e: any) => ({

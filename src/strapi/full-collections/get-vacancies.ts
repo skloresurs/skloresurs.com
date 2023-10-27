@@ -1,15 +1,15 @@
-import type IPost from 'src/interfaces/Post';
+import type IVacancy from 'src/interfaces/Vacancy';
 import axios from 'src/utils/axios-cms';
 
-export default async function getAllNews(
+export default async function getVacancies(
   locale: string,
-): Promise<IPost[] | null> {
+): Promise<IVacancy[] | null> {
   try {
-    const { data } = await axios.get('/api/posts', {
+    const { data } = await axios.get('/api/vacancies', {
       params: {
         locale,
-        'sort[0]': 'createdAt:desc',
         'populate[0]': 'image',
+        'populate[1]': 'video',
       },
     });
     return data.data.map((e: any) => {
@@ -17,10 +17,7 @@ export default async function getAllNews(
         id: e.id,
         title: e.attributes.title,
         description: e.attributes.description,
-        category: e.attributes.category,
         image: process.env.CMS_URL + e.attributes.image.data.attributes.url,
-        content: e.attributes.content,
-        video: e.attributes.video,
       };
     });
   } catch (error) {

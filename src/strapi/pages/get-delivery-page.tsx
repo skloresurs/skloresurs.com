@@ -1,10 +1,10 @@
 import axios from 'src/utils/axios-cms';
 
-export default async function getSeminars(
+export default async function getDeliveryPage(
   locale: string,
 ): Promise<string | null> {
   try {
-    const { data } = await axios.get('/api/seminar', {
+    const { data } = await axios.get('/api/delivery-page', {
       params: {
         locale,
       },

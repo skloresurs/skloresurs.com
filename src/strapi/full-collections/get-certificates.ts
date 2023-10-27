@@ -1,7 +1,7 @@
 import type ICertificate from 'src/interfaces/Certificate';
 import axios from 'src/utils/axios-cms';
 
-export default async function getAllCertificates(): Promise<
+export default async function getCertificates(): Promise<
   ICertificate[] | null
 > {
   try {

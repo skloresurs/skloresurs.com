@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 
-import getAllCertificates from '@/strapi/get-all-certificates';
+import getCertificates from '@/strapi/full-collections/get-certificates';
 import { getI18n } from '@/utils/i18nServer';
 
 import CertificatesGallery from './CertificatesGallery';
 
 export default async function Certificates() {
-  const certificates = await getAllCertificates();
+  const certificates = await getCertificates();
   const t = await getI18n();
   return (
     <div

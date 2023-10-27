@@ -1,7 +1,7 @@
 import type IProduction from 'src/interfaces/Production';
 import axios from 'src/utils/axios-cms';
 
-export default async function getAllProductions(
+export default async function getProductions(
   locale: string,
 ): Promise<IProduction[] | null> {
   try {

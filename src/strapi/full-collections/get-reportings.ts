@@ -1,7 +1,7 @@
 import type IReporting from 'src/interfaces/Reporting';
 import axios from 'src/utils/axios-cms';
 
-export default async function getAllReportings(): Promise<IReporting[] | null> {
+export default async function getReportings(): Promise<IReporting[] | null> {
   try {
     const { data } = await axios.get('/api/reportings', {
       params: {
