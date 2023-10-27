@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
       "Ім'я": username,
       'Номер телефону': phone?.toString() ?? missingOptionalParams,
       'Як дізнались': additional ?? missingOptionalParams,
-      Повідомлення: message,
+      Повідомлення: message.replace('=', '≈'),
     });
 
     for (const user of TELEGRAM_USERS ?? []) {
