@@ -191,5 +191,25 @@ export default {
   },
   projects: {
     title: 'Projects',
+    none: 'No projects found',
+    show: 'Showing: ',
+    filters: {
+      title: 'Filters',
+      location: {
+        title: 'Locations',
+        'all-locations': 'All Locations',
+      },
+      glass: {
+        title: 'Glass Type',
+        'all-types': 'All Glass Types',
+      },
+      year: {
+        title: 'Year',
+      },
+      search: {
+        placeholder: 'Search...',
+      },
+      reset: 'Reset',
+    },
   },
 } as const;

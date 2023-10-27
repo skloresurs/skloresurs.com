@@ -208,6 +208,7 @@ export default {
       search: {
         placeholder: 'Пошук...',
       },
+      reset: 'Скинути',
     },
   },
 } as const;
