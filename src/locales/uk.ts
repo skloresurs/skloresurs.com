@@ -202,6 +202,12 @@ export default {
         title: 'Тип скла',
         'all-types': 'Всі типи скла',
       },
+      year: {
+        title: 'Рік',
+      },
+      search: {
+        placeholder: 'Пошук...',
+      },
     },
   },
 } as const;

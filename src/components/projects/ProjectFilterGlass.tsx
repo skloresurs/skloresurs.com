@@ -47,7 +47,7 @@ export default function ProjectFilterGlass({
 
   return (
     <Select value={value} onValueChange={(e) => search(e)}>
-      <SelectTrigger className="w-max md:w-full">
+      <SelectTrigger className="w-full">
         <SelectValue placeholder={t('projects.filters.glass.title')} />
       </SelectTrigger>
       <SelectContent>

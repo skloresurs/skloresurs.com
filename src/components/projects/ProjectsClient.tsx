@@ -6,7 +6,6 @@ import { useCallback, useEffect, useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 
 import type IProject from '@/interfaces/Projects';
-import type { ILocation } from '@/interfaces/Projects';
 import axios from '@/utils/axios-cache';
 import { GenerateProjectLink } from '@/utils/generate-links';
 import { useCurrentLocale, useI18n } from '@/utils/i18nClient';
@@ -15,11 +14,7 @@ import { MdiCalendar } from '../icons/MdiCalendar';
 import { MdiEarth } from '../icons/MdiEarth';
 import { MdiGlassdoor } from '../icons/MdiGlassdoor';
 
-interface IProps {
-  locations: ILocation[];
-}
-
-export default function ProjectsClient({ locations }: IProps) {
+export default function ProjectsClient() {
   const t = useI18n();
   const locale = useCurrentLocale();
   const query = useSearchParams();
@@ -30,29 +25,41 @@ export default function ProjectsClient({ locations }: IProps) {
 
   const location = query.get('location');
   const glassCategory = query.get('glass');
+  const yearFrom = query.get('year-from');
+  const yearTo = query.get('year-to');
+  const search = query.get('search');
 
   const getProjects = useCallback(async () => {
     setIsLoading(true);
     const response = await axios
-      .get(GenerateProjectLink(locale, location, glassCategory))
+      .get(
+        GenerateProjectLink(
+          locale,
+          location,
+          glassCategory,
+          yearFrom,
+          yearTo,
+          search,
+        ),
+      )
       .catch((_) => null);
     if (response?.data) {
       setProjects(response.data.data);
       setProjectsCount(response.data.meta.total);
     }
     setIsLoading(false);
-  }, [locale, location, glassCategory]);
+  }, [locale, location, glassCategory, yearFrom, yearTo, search]);
 
   useEffect(() => {
     setProjects([]);
     getProjects();
-  }, [query, locations, getProjects]);
+  }, [getProjects]);
 
   return (
     <div className="flex-1 py-2">
       {isLoading && (
         <div className="w-full">
-          <div className="relative mx-auto aspect-square w-[400px]">
+          <div className="relative mx-auto aspect-square w-[400px] max-w-[100%]">
             <Image
               src="/loading.svg"
               alt="loading"
@@ -64,7 +71,7 @@ export default function ProjectsClient({ locations }: IProps) {
       )}
       {!isLoading && projectsCount === 0 && (
         <div className="w-full">
-          <div className="relative mx-auto aspect-square w-[400px]">
+          <div className="relative mx-auto aspect-square w-[400px] max-w-[100%]">
             <Image
               src="/neutral-face.svg"
               alt="missing"

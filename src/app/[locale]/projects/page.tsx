@@ -32,7 +32,7 @@ export default async function Projects() {
                 orientation="vertical"
                 className="hidden h-auto md:block"
               />
-              <ProjectsClient locations={locations} />
+              <ProjectsClient />
             </div>
           </I18nProvider>
         </div>

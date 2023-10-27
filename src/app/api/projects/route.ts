@@ -6,14 +6,16 @@ export async function GET(request: NextRequest) {
   try {
     const query = request.nextUrl.searchParams;
     const locale = query.get('locale') ?? 'uk';
-    const page = query.get('page') ?? 1;
+
     const location = query.get('location');
     const glass = query.get('glass');
+    const yearFrom = query.get('year-from');
+    const yearTo = query.get('year-to');
+    const search = query.get('search');
 
     const { data } = await axios.get(`/api/projects`, {
       params: {
         locale,
-        'pagination[page]': page,
         'pagination[pageSize]': 100,
         'populate[0]': 'location',
         'populate[1]': 'images',
@@ -21,6 +23,12 @@ export async function GET(request: NextRequest) {
         'sort[1]': 'title',
         'filters[location][id][$eq]': location,
         'filters[glass_category][id][$in]': glass,
+        'filters[year][$gte]': yearFrom,
+        'filters[year][$lte]': yearTo,
+        'filters[$or][0][title][$containsi]': search,
+        'filters[$or][1][location][title][$containsi]': search,
+        'filters[$or][2][year][$containsi]': search,
+        'filters[$or][3][glass][$containsi]': search,
       },
     });
 
