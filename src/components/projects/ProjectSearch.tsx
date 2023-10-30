@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useI18n } from '@/utils/i18nClient';
 
@@ -15,6 +15,10 @@ export default function ProjectSearch() {
   const query = useSearchParams();
   const router = useRouter();
   const t = useI18n();
+
+  useEffect(() => {
+    setValue(query.get('search') ?? '');
+  }, [query]);
 
   const search = () => {
     const current = new URLSearchParams(Array.from(query.entries()));
@@ -35,6 +39,7 @@ export default function ProjectSearch() {
       <Input
         placeholder={t('projects.filters.search.placeholder')}
         onChange={(e) => setValue(e.target.value)}
+        value={value}
       />
       <Button size="icon" className="aspect-square" onClick={search}>
         <MdiMagnify className="h-5 w-5" />

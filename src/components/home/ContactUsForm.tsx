@@ -28,7 +28,7 @@ interface FormSchema {
   additional: string | null;
 }
 
-type AlertData = 'successfully' | 'error' | 'captcha' | 'email';
+type AlertData = 'successfully' | 'error' | 'captcha';
 
 export default function ContactUsForm() {
   const t = useI18n();
@@ -49,13 +49,6 @@ export default function ContactUsForm() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
 
-    // if (!validFormat || !validSmtp || !validMx) {
-    //   setAlertData('email');
-    //   setIsLoading(false);
-    //   setIsOpen(true);
-    //   return;
-    // }
-
     setIsLoading(true);
     const token = await executeRecaptcha('form_submit').catch((_) => null);
     if (!token) {
@@ -64,17 +57,19 @@ export default function ContactUsForm() {
       setIsOpen(true);
     }
 
-    const response = await axios
+    axios
       .post('/api/contact-us', {
         ...formData,
         captcha: token,
       })
-      .catch((_) => null);
-    setAlertData(
-      response && response.status === 200 ? 'successfully' : 'error',
-    );
-    setIsLoading(false);
-    setIsOpen(true);
+      .then(() => {
+        setAlertData('successfully');
+      })
+      .catch(() => setAlertData('error'))
+      .finally(() => {
+        setIsLoading(false);
+        setIsOpen(true);
+      });
   }
   return (
     <>

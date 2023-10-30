@@ -1,3 +1,8 @@
+export interface ITag {
+  id: number;
+  title: string;
+  color: string;
+}
 export default interface IPost {
   id: number;
   title: string;
@@ -6,4 +11,5 @@ export default interface IPost {
   image: string;
   content: string | null;
   video: string | null;
+  tags: ITag[];
 }

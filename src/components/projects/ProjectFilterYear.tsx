@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useI18n } from '@/utils/i18nClient';
 
@@ -16,6 +16,13 @@ export default function ProjectFilterYear() {
   const query = useSearchParams();
   const router = useRouter();
   const t = useI18n();
+
+  useEffect(() => {
+    setValues([
+      +(query.get('year-from') ?? 2000),
+      +(query.get('year-to') ?? new Date().getFullYear()),
+    ]);
+  }, [query]);
 
   const search = () => {
     const current = new URLSearchParams(Array.from(query.entries()));

@@ -145,10 +145,6 @@ export default {
             title: 'Помилка',
             description: 'Помилка проходження reCaptcha',
           },
-          email: {
-            title: 'Помилка',
-            description: 'Поштова адреса недійсна або заборонена!',
-          },
         },
       },
     },

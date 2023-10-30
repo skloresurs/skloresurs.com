@@ -97,18 +97,19 @@ export async function POST(request: NextRequest) {
           },
         })
         .catch(() => {
-          return new Response(JSON.stringify({}), {
+          return NextResponse.json(null, {
             status: 400,
           });
         });
     }
 
-    return new NextResponse(JSON.stringify({ success: true }), { status: 200 });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
-    return new NextResponse(
-      JSON.stringify({
+    console.log(err);
+    return NextResponse.json(
+      {
         error: 'Unknown error',
-      }),
+      },
       { status: 500 },
     );
   }

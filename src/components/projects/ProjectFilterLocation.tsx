@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
+import { useEffect } from 'react';
 
 import type { ILocation } from '@/interfaces/Projects';
 import { useI18n } from '@/utils/i18nClient';
@@ -30,6 +31,10 @@ export default function ProjectFilterLocation({
       ?.id.toString() ?? 'none',
   );
   const t = useI18n();
+
+  useEffect(() => {
+    setValue(query.get('location') ?? 'none');
+  }, [query]);
 
   function search(currentValue: string) {
     const current = new URLSearchParams(Array.from(query.entries()));

@@ -2,19 +2,19 @@ import Link from 'next/link';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import type INews from '@/interfaces/News';
+import type IPost from '@/interfaces/Post';
 import getLatestNews from '@/strapi/get-latest-news';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 import MdiChevronRight from '../icons/MdiChevronRight';
 import { buttonVariants } from '../ui/button';
 
-interface INewsItem {
-  news: INews;
+interface IPostItem {
+  news: IPost;
   index: number;
 }
 
-async function NewsItem({ news, index }: INewsItem) {
+async function NewsItem({ news, index }: IPostItem) {
   const t = await getI18n();
   return (
     <div
@@ -25,7 +25,7 @@ async function NewsItem({ news, index }: INewsItem) {
       <h5>{news.title}</h5>
       <p className="text-sm text-muted-foreground">{news.description}</p>
       <Link
-        href={news.href}
+        href={`/news/${news.id}`}
         className={twMerge(
           buttonVariants({ variant: 'link' }),
           'w-min ml-auto',

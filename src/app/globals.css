@@ -78,7 +78,3 @@ h5 {
 h6 {
   @apply lg:text-lg font-medium;
 }
-
-/* a {
-  @apply text-primary hover:underline duration-300;
-} */

@@ -24,6 +24,11 @@ export default async function getPostById(
       video: data.data.attributes.video,
       description: data.data.attributes.description,
       content: data.data.attributes.content,
+      tags: data.data.attributes.tags.data.map((e: any) => ({
+        id: e.id,
+        title: e.attributes.title,
+        color: e.attributes.color,
+      })),
       image:
         process.env.CMS_URL + data.data.attributes.image.data.attributes.url,
     };
