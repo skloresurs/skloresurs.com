@@ -1,6 +1,7 @@
 import '@/app/strapi.css';
 
 import parse from 'html-react-parser';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
@@ -8,6 +9,26 @@ import React from 'react';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getVacancyById from '@/strapi/get-vacancy-by-id';
 import { getCurrentLocale } from '@/utils/i18nServer';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const vacancy = await getVacancyById(getCurrentLocale(), +params.id);
+  return {
+    title: vacancy?.title,
+    description: vacancy?.description,
+    alternates: {
+      canonical: `/vacancies/${vacancy?.id}`,
+    },
+    openGraph: {
+      title: vacancy?.title,
+      description: vacancy?.description,
+      url: `https://skloresurs.com/vacancies/${vacancy?.id}`,
+    },
+  };
+}
 
 export default async function Vacancy({ params }: { params: { id: string } }) {
   if (!params.id) {

@@ -157,6 +157,8 @@ export default {
   },
   components: {
     title: 'Glass Processing Components',
+    description:
+      'The largest selection of glass processing components. Find the perfect solutions for your project. High quality and reliability. Browse our components catalog right now.',
     none: 'No components found',
     categories: {
       title: 'Categories',
@@ -166,25 +168,18 @@ export default {
   },
   delivery: {
     title: 'Delivery of Products',
-  },
-  seminars: {
-    title: 'Seminars',
-  },
-  vacancies: {
-    title: 'Vacancies',
-    'detailed-button': 'Learn More',
-  },
-  reportings: {
-    title: 'Reportings',
-    year: 'year',
-    auditory: "Auditor  's Report",
-    finance: 'Financial Report',
+    description:
+      'Delivery that meets your needs. We offer a wide range of delivery options to ensure convenience for our customers. Learn more about our delivery terms, timelines, and costs to make your purchases with us even more pleasant. Save time and effort with our delivery information.',
   },
   news: {
     title: 'News',
+    description:
+      'Stay up to date with the latest articles and news in the world of glass processing. Our blog offers interesting and relevant information, tips, and insights related to the glass processing industry. Discover the latest trends, technological news, and much more. Stay informed with our articles and news.',
   },
   projects: {
     title: 'Projects',
+    description:
+      'Explore our project gallery and be inspired by the incredible beauty and innovations in the world of glass processing. Discover our projects and achievements, a source of inspiration for industry professionals. See how we bring the best ideas to life.',
     none: 'No projects found',
     show: 'Showing: ',
     filters: {
@@ -200,5 +195,24 @@ export default {
         title: 'Year',
       },
     },
+  },
+  reportings: {
+    title: 'Reportings',
+    description:
+      'Explore our project gallery and be inspired by the incredible beauty and innovations in the world of glass processing. Discover our projects and achievements, a source of inspiration for industry professionals. See how we bring the best ideas to life.',
+    year: 'year',
+    auditory: "Auditor  's Report",
+    finance: 'Financial Report',
+  },
+  seminars: {
+    title: 'Seminars',
+    description:
+      'Learn more about our seminars. Gain valuable knowledge and insights in the field of glass processing at our events. Discover the latest trends and skills in our industry.',
+  },
+  vacancies: {
+    title: 'Vacancies',
+    description:
+      'Explore our current job openings. Find an opportunity to join our team and contribute your skills to the glass processing industry. Together, we drive innovation and achieve success.',
+    'detailed-button': 'Learn More',
   },
 } as const;

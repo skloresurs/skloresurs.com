@@ -35,6 +35,7 @@
         "project": "./tsconfig.json"
       },
       "rules": {
+        "sonarjs/no-duplicate-string": ["off"],
         "jsx-a11y/media-has-caption": ["off"],
         "prettier/prettier": [
           "error",

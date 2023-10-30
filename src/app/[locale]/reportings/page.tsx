@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
@@ -7,6 +8,22 @@ import MdiFilePdf from '@/components/icons/MdiFilePdf';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getReportings from '@/strapi/full-collections/get-reportings';
 import { getI18n } from '@/utils/i18nServer';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getI18n();
+  return {
+    title: t('reportings.title'),
+    description: t('reportings.description'),
+    alternates: {
+      canonical: '/reportings',
+    },
+    openGraph: {
+      title: t('reportings.title'),
+      description: t('reportings.description'),
+      url: 'https://skloresurs.com/reportings',
+    },
+  };
+}
 
 export default async function Reportings() {
   const t = await getI18n();

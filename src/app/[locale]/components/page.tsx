@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import React from 'react';
 
 import ComponentsClient from '@/components/components/ComponentsClient';
@@ -8,6 +9,22 @@ import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import { Separator } from '@/components/ui/separator';
 import getCategories from '@/strapi/full-collections/components/get-categories';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getI18n();
+  return {
+    title: t('components.title'),
+    description: t('components.description'),
+    alternates: {
+      canonical: '/components',
+    },
+    openGraph: {
+      title: t('components.title'),
+      description: t('components.description'),
+      url: 'https://skloresurs.com/components',
+    },
+  };
+}
 
 export default async function Components() {
   const t = await getI18n();

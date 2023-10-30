@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     metadataBase: new URL('https://skloresurs.com'),
     alternates: {
-      canonical: '/',
+      canonical: 'https://skloresurs.com',
       languages: { uk: '/', en: '/en' },
     },
     openGraph: {
@@ -39,19 +39,6 @@ export async function generateMetadata(): Promise<Metadata> {
       locale,
       type: 'website',
       siteName: t('meta.logo'),
-    },
-    robots: {
-      index: false,
-      follow: true,
-      nocache: true,
-      googleBot: {
-        index: true,
-        follow: false,
-        noimageindex: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
     },
     twitter: {
       card: 'summary',

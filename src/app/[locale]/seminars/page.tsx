@@ -1,12 +1,29 @@
 import '@/app/strapi.css';
 
 import parse from 'html-react-parser';
+import type { Metadata } from 'next';
 import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getSeminarPage from '@/strapi/pages/get-seminar-page';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getI18n();
+  return {
+    title: t('seminars.title'),
+    description: t('seminars.description'),
+    alternates: {
+      canonical: '/seminars',
+    },
+    openGraph: {
+      title: t('seminars.title'),
+      description: t('seminars.description'),
+      url: 'https://skloresurs.com/seminars',
+    },
+  };
+}
 
 export default async function Seminars() {
   const t = await getI18n();

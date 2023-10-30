@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
@@ -9,6 +10,22 @@ import { Separator } from '@/components/ui/separator';
 import getCategories from '@/strapi/full-collections/projects/get-categories';
 import getLocations from '@/strapi/full-collections/projects/get-locations';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getI18n();
+  return {
+    title: t('projects.title'),
+    description: t('projects.description'),
+    alternates: {
+      canonical: '/projects',
+    },
+    openGraph: {
+      title: t('projects.title'),
+      description: t('projects.description'),
+      url: 'https://skloresurs.com/projects',
+    },
+  };
+}
 
 export default async function Projects() {
   const locale = getCurrentLocale();

@@ -1,12 +1,29 @@
 import '@/app/strapi.css';
 
 import parse from 'html-react-parser';
+import type { Metadata } from 'next';
 import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getDeliveryPage from '@/strapi/pages/get-delivery-page';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getI18n();
+  return {
+    title: t('delivery.title'),
+    description: t('delivery.description'),
+    alternates: {
+      canonical: '/delivery',
+    },
+    openGraph: {
+      title: t('delivery.title'),
+      description: t('delivery.description'),
+      url: 'https://skloresurs.com/delivery',
+    },
+  };
+}
 
 export default async function Delivery() {
   const t = await getI18n();

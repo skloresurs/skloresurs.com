@@ -1,6 +1,7 @@
 import '@/app/strapi.css';
 
 import parse from 'html-react-parser';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
@@ -9,6 +10,26 @@ import { Badge } from '@/components/ui/badge';
 import getPostById from '@/strapi/get-news-by-id';
 import { getCurrentLocale } from '@/utils/i18nServer';
 import getPostTagColor from '@/utils/post-tag-colors';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const post = await getPostById(getCurrentLocale(), +params.id);
+  return {
+    title: post?.title,
+    description: post?.description,
+    alternates: {
+      canonical: `/news/${params.id}`,
+    },
+    openGraph: {
+      title: post?.title,
+      description: post?.description,
+      url: `https://skloresurs.com/news/${params.id}`,
+    },
+  };
+}
 
 export default async function NewsPage({ params }: { params: { id: string } }) {
   if (!params.id) {

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -16,11 +17,27 @@ import type IVacancy from '@/interfaces/Vacancy';
 import getVacancies from '@/strapi/full-collections/get-vacancies';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getI18n();
+  return {
+    title: t('vacancies.title'),
+    description: t('vacancies.description'),
+    alternates: {
+      canonical: '/vacancies',
+    },
+    openGraph: {
+      title: t('vacancies.title'),
+      description: t('vacancies.description'),
+      url: 'https://skloresurs.com/vacancies',
+    },
+  };
+}
+
 async function Vacancy({ data }: { data: IVacancy }) {
   const t = await getI18n();
   return (
-    <Card className="mb-5 break-inside-avoid-column">
-      <CardHeader>
+    <Card className="flex break-inside-avoid-column flex-col">
+      <CardHeader className="pb-2">
         <div className="relative h-16 w-16">
           <Image
             src={data.image}
@@ -29,11 +46,13 @@ async function Vacancy({ data }: { data: IVacancy }) {
             className="rounded-md object-cover"
           />
         </div>
-        <h2 className="mt-1 text-lg font-medium md:text-xl lg:text-2xl">
+        <h2 className="mb-0 mt-1 text-lg font-medium md:text-xl lg:text-2xl">
           {data.title}
         </h2>
       </CardHeader>
-      <CardContent>{data.description}</CardContent>
+      <CardContent className="flex-1 pb-2 text-muted-foreground">
+        <p className="line-clamp-3">{data.description}</p>
+      </CardContent>
       <CardFooter>
         <Link
           className={twMerge(buttonVariants({ variant: 'outline' }), 'ml-auto')}
@@ -54,7 +73,7 @@ export default async function Vacancies() {
       {vacancies ? (
         <div className="mx-auto max-w-6xl px-5">
           <h1 className="mb-5 text-center">{t('vacancies.title')}</h1>
-          <div className="columns-1 gap-4 md:col-span-2 lg:columns-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {vacancies.map((e) => (
               <Vacancy key={e.id} data={e} />
             ))}
