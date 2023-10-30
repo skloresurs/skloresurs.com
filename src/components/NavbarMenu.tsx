@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import React from 'react';
 
 import { useChangeLocale, useCurrentLocale, useI18n } from '@/utils/i18nClient';
@@ -185,31 +184,31 @@ export default function NavBarMenu() {
             <MdiMenu width={24} height={24} />
           </NavigationMenuTrigger>
           <NavigationMenuContent className="flex w-max flex-col gap-3 p-2">
-            <Link
+            <NavigationMenuLink
               href="/"
               className="flex w-full min-w-max flex-row items-center gap-2 rounded-md px-3 py-2 duration-300 hover:bg-muted"
             >
               {t(`navbar.menu.home`)}
-            </Link>
+            </NavigationMenuLink>
             <Separator />
             {servicesMenu.map((item) => (
-              <Link
+              <NavigationMenuLink
                 key={item.id}
                 href={item.href}
                 className="flex w-full min-w-max flex-row items-center gap-2 rounded-md px-3 py-2 duration-300 hover:bg-muted"
               >
                 {t(`navbar.menu.${item.id as AllowID}.title`)}
-              </Link>
+              </NavigationMenuLink>
             ))}
             <Separator />
             {postsMenu.map((item) => (
-              <Link
+              <NavigationMenuLink
                 key={item.id}
                 href={item.href}
                 className="flex w-full min-w-max flex-row items-center gap-2 rounded-md px-3 py-2 duration-300 hover:bg-muted"
               >
                 {t(`navbar.menu.${item.id as AllowID}.title`)}
-              </Link>
+              </NavigationMenuLink>
             ))}
           </NavigationMenuContent>
         </NavigationMenuItem>
