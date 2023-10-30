@@ -33,10 +33,10 @@ export async function GET(request: NextRequest) {
     });
 
     if (!data.data) {
-      return new NextResponse(null, { status: 404 });
+      return NextResponse.json(null, { status: 404 });
     }
-    return new NextResponse(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         data: data.data.map((e: any) => {
           return {
             id: e.id,
@@ -55,10 +55,10 @@ export async function GET(request: NextRequest) {
         meta: {
           total: data.meta.pagination.total,
         },
-      }),
+      },
       { status: 200 },
     );
   } catch (error) {
-    return new NextResponse(null, { status: 500 });
+    return NextResponse.json(null, { status: 500 });
   }
 }

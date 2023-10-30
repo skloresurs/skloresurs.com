@@ -6,6 +6,11 @@ export default {
       data: 'Error loading data',
       '404': 'Page not found',
     },
+    filters: {
+      title: 'Filters',
+      search: 'Search...',
+      reset: 'Reset',
+    },
   },
   navbar: {
     menu: {
@@ -151,19 +156,13 @@ export default {
     },
   },
   components: {
-    title: 'Components',
-    search: 'Search',
-    filters: 'Filters',
-    'apply-filters': 'Apply filters',
-    sorting: {
-      title: 'Sorting',
-      'by-title': 'By title',
-    },
+    title: 'Glass Processing Components',
+    none: 'No components found',
     categories: {
       title: 'Categories',
-      none: 'All categories',
+      all: 'All Categories',
     },
-    'go-to': 'Go to shop',
+    'go-to': 'Go To',
   },
   delivery: {
     title: 'Delivery of Products',
@@ -183,30 +182,23 @@ export default {
   },
   news: {
     title: 'News',
-    'read-more': 'Read More',
-    'watch-video': 'Watch Video',
   },
   projects: {
     title: 'Projects',
     none: 'No projects found',
     show: 'Showing: ',
     filters: {
-      title: 'Filters',
       location: {
         title: 'Locations',
-        'all-locations': 'All Locations',
+        all: 'All Locations',
       },
       glass: {
         title: 'Glass Type',
-        'all-types': 'All Glass Types',
+        all: 'All Glass Types',
       },
       year: {
         title: 'Year',
       },
-      search: {
-        placeholder: 'Search...',
-      },
-      reset: 'Reset',
     },
   },
 } as const;

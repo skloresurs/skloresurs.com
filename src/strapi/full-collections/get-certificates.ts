@@ -10,11 +10,9 @@ export default async function getCertificates(): Promise<
         'populate[0]': 'certificates',
       },
     });
-    return data.data.attributes.certificates.data.map((e: any) => {
-      return {
-        original: process.env.CMS_URL + e.attributes.url,
-      };
-    });
+    return data.data.attributes.certificates.data.map((e: any) => ({
+      original: process.env.CMS_URL + e.attributes.url,
+    }));
   } catch (error) {
     return null;
   }

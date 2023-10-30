@@ -14,12 +14,10 @@ export default async function getCategories(
       },
     });
 
-    return data.data.map((e: any) => {
-      return {
-        id: e.id,
-        title: e.attributes.title,
-      };
-    });
+    return data.data.map((e: any) => ({
+      id: e.id,
+      title: e.attributes.title,
+    }));
   } catch (error) {
     return null;
   }

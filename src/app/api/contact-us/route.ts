@@ -49,16 +49,19 @@ export async function POST(request: NextRequest) {
         return { data: { success: false } };
       });
     if (!data.success) {
-      return new Response(JSON.stringify({ error: 'Captcha failed' }), {
-        status: 429,
-      });
+      return NextResponse.json(
+        { error: 'Captcha failed' },
+        {
+          status: 429,
+        },
+      );
     }
 
     if (!username || !email || !message) {
-      return new NextResponse(
-        JSON.stringify({
+      return NextResponse.json(
+        {
           error: 'Missing one or many required fields',
-        }),
+        },
         { status: 400 },
       );
     }
@@ -105,7 +108,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
-    console.log(err);
     return NextResponse.json(
       {
         error: 'Unknown error',

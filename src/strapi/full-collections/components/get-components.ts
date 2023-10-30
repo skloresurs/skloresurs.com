@@ -16,19 +16,17 @@ export default async function getComponents(
       },
     });
 
-    return data.data.map((e: any) => {
-      return {
-        id: e.id,
-        title: e.attributes.title,
-        description: e.attributes.description,
-        href: e.attributes.link,
-        category: {
-          id: e.attributes.category.data.id,
-          title: e.attributes.category.data.attributes.title,
-        },
-        image: process.env.CMS_URL + e.attributes.image.data.attributes.url,
-      };
-    });
+    return data.data.map((e: any) => ({
+      id: e.id,
+      title: e.attributes.title,
+      description: e.attributes.description,
+      href: e.attributes.link,
+      category: {
+        id: e.attributes.category.data.id,
+        title: e.attributes.category.data.attributes.title,
+      },
+      image: process.env.CMS_URL + e.attributes.image.data.attributes.url,
+    }));
   } catch (error) {
     return null;
   }

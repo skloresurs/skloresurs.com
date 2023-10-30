@@ -6,6 +6,11 @@ export default {
       data: 'Помилка завантаження даних',
       '404': 'Сторінку не знайдено',
     },
+    filters: {
+      title: 'Фільтри',
+      search: 'Пошук...',
+      reset: 'Скинути',
+    },
   },
   navbar: {
     menu: {
@@ -150,17 +155,11 @@ export default {
     },
   },
   components: {
-    title: 'Компоненти',
-    search: 'Пошук',
-    filters: 'Фільтри',
-    'apply-filters': 'Застосувати фільтри',
-    sorting: {
-      title: 'Сортування',
-      'by-title': 'За назвою',
-    },
+    title: 'Комплектуючі для обробки скла',
+    none: 'Не знайдено жодного компоненту',
     categories: {
       title: 'Категорії',
-      none: 'Всі категорії',
+      all: 'Всі категорії',
     },
     'go-to': 'Перейти',
   },
@@ -182,30 +181,23 @@ export default {
   },
   news: {
     title: 'Новини',
-    'read-more': 'Читати повністю',
-    'watch-video': 'Переглянути відео',
   },
   projects: {
     title: 'Проєкти',
     none: 'Не знайдено жодного проєкту',
     show: 'Показано: ',
     filters: {
-      title: 'Фільтри',
       location: {
         title: 'Локації',
-        'all-locations': 'Всі локації',
+        all: 'Всі локації',
       },
       glass: {
         title: 'Тип скла',
-        'all-types': 'Всі типи скла',
+        all: 'Всі типи скла',
       },
       year: {
         title: 'Рік',
       },
-      search: {
-        placeholder: 'Пошук...',
-      },
-      reset: 'Скинути',
     },
   },
 } as const;

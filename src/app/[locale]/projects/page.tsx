@@ -3,8 +3,8 @@ import React from 'react';
 import ErrorLoaded from '@/components/ErrorLoad';
 import I18nProvider from '@/components/I18nProvider';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import ProjectFilter from '@/components/projects/ProjectFilter';
 import ProjectsClient from '@/components/projects/ProjectsClient';
+import ProjectsFilter from '@/components/projects/ProjectsFilter';
 import { Separator } from '@/components/ui/separator';
 import getCategories from '@/strapi/full-collections/projects/get-categories';
 import getLocations from '@/strapi/full-collections/projects/get-locations';
@@ -18,13 +18,12 @@ export default async function Projects() {
   const t = await getI18n();
   return (
     <PageTransitionWrapper>
-      {(!locations || !glassCategories) && <ErrorLoaded />}
-      {locations && glassCategories && (
+      {locations && glassCategories ? (
         <div className="mx-auto max-w-6xl px-5">
           <h1 className="mb-5 text-center">{t('projects.title')}</h1>
-          <I18nProvider locale={locale}>
+          <I18nProvider>
             <div className="flex h-full flex-col gap-3 md:flex-row">
-              <ProjectFilter
+              <ProjectsFilter
                 locations={locations}
                 glassCategories={glassCategories}
               />
@@ -36,6 +35,8 @@ export default async function Projects() {
             </div>
           </I18nProvider>
         </div>
+      ) : (
+        <ErrorLoaded />
       )}
     </PageTransitionWrapper>
   );

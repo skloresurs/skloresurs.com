@@ -14,7 +14,7 @@ export default async function ContactUs() {
       id="contact-us"
       className="mx-auto mt-6 flex w-full max-w-6xl flex-col items-center justify-between gap-4 px-6 md:flex-row"
     >
-      <I18nProvider locale={locale}>
+      <I18nProvider>
         <ReCaptchaProvider>
           <ContactUsForm />
         </ReCaptchaProvider>

@@ -11,13 +11,11 @@ export default async function getProductions(
         'populate[0]': 'video',
       },
     });
-    return data.data.map((e: any) => {
-      return {
-        title: e.attributes.title,
-        description: e.attributes.description,
-        original: process.env.CMS_URL + e.attributes.video.data.attributes.url,
-      };
-    });
+    return data.data.map((e: any) => ({
+      title: e.attributes.title,
+      description: e.attributes.description,
+      original: process.env.CMS_URL + e.attributes.video.data.attributes.url,
+    }));
   } catch (error) {
     return null;
   }

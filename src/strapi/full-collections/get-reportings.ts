@@ -9,14 +9,11 @@ export default async function getReportings(): Promise<IReporting[] | null> {
         'populate[1]': 'finance',
       },
     });
-    return data.data.map((e: any) => {
-      return {
-        year: e.attributes.year,
-        finance: process.env.CMS_URL + e.attributes.finance.data.attributes.url,
-        auditory:
-          process.env.CMS_URL + e.attributes.auditory.data.attributes.url,
-      };
-    });
+    return data.data.map((e: any) => ({
+      year: e.attributes.year,
+      finance: process.env.CMS_URL + e.attributes.finance.data.attributes.url,
+      auditory: process.env.CMS_URL + e.attributes.auditory.data.attributes.url,
+    }));
   } catch (error) {
     return null;
   }

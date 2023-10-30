@@ -12,14 +12,12 @@ export default async function getVacancies(
         'populate[1]': 'video',
       },
     });
-    return data.data.map((e: any) => {
-      return {
-        id: e.id,
-        title: e.attributes.title,
-        description: e.attributes.description,
-        image: process.env.CMS_URL + e.attributes.image.data.attributes.url,
-      };
-    });
+    return data.data.map((e: any) => ({
+      id: e.id,
+      title: e.attributes.title,
+      description: e.attributes.description,
+      image: process.env.CMS_URL + e.attributes.image.data.attributes.url,
+    }));
   } catch (error) {
     return null;
   }

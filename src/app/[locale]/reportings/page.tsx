@@ -2,8 +2,8 @@ import Link from 'next/link';
 import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
-import { MdiEye } from '@/components/icons/MdiEye';
-import { MdiFilePdf } from '@/components/icons/MdiFilePdf';
+import MdiEye from '@/components/icons/MdiEye';
+import MdiFilePdf from '@/components/icons/MdiFilePdf';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getReportings from '@/strapi/full-collections/get-reportings';
 import { getI18n } from '@/utils/i18nServer';
@@ -12,17 +12,13 @@ export default async function Reportings() {
   const t = await getI18n();
   const reportings = await getReportings();
 
-  if (!reportings) {
-    return <ErrorLoaded />;
-  }
-
   return (
     <PageTransitionWrapper>
-      <div className="mx-auto max-w-6xl px-5">
-        <h1 className="mb-5 text-center">{t('reportings.title')}</h1>
-        <div className="flex flex-col gap-4">
-          {reportings &&
-            reportings.map((e) => (
+      {reportings ? (
+        <div className="mx-auto max-w-6xl px-5">
+          <h1 className="mb-5 text-center">{t('reportings.title')}</h1>
+          <div className="flex flex-col gap-4">
+            {reportings.map((e) => (
               <div key={e.year}>
                 <h2 className="mb-3">
                   {e.year} {t('reportings.year')}
@@ -53,8 +49,11 @@ export default async function Reportings() {
                 </div>
               </div>
             ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <ErrorLoaded />
+      )}
     </PageTransitionWrapper>
   );
 }

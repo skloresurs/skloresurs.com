@@ -7,10 +7,9 @@ import I18nProvider from '../I18nProvider';
 import Production from './Production';
 
 export default async function ProductionServer() {
-  const locale = getCurrentLocale();
-  const productions = await getProductions(locale);
+  const productions = await getProductions(getCurrentLocale());
   return (
-    <I18nProvider locale={locale}>
+    <I18nProvider>
       {productions && <Production productions={productions} />}
     </I18nProvider>
   );

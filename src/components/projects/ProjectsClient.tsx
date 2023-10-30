@@ -10,9 +10,9 @@ import axios from '@/utils/axios-cache';
 import { GenerateProjectLink } from '@/utils/generate-links';
 import { useCurrentLocale, useI18n } from '@/utils/i18nClient';
 
-import { MdiCalendar } from '../icons/MdiCalendar';
-import { MdiEarth } from '../icons/MdiEarth';
-import { MdiGlassdoor } from '../icons/MdiGlassdoor';
+import MdiCalendar from '../icons/MdiCalendar';
+import MdiEarth from '../icons/MdiEarth';
+import MdiGlassdoor from '../icons/MdiGlassdoor';
 
 export default function ProjectsClient() {
   const t = useI18n();

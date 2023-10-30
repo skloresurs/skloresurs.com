@@ -8,7 +8,7 @@ import { useI18n } from '@/utils/i18nClient';
 
 import { RangeSlider } from '../ui/range-slider';
 
-export default function ProjectFilterYear() {
+export default function ProjectsFilterYear() {
   const [values, setValues] = useState<number[]>([
     2000,
     new Date().getFullYear(),

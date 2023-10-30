@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react';
 
 import { useI18n } from '@/utils/i18nClient';
 
-import { MdiMagnify } from '../icons/MdiMagnify';
+import MdiMagnify from '../icons/MdiMagnify';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 
-export default function ProjectSearch() {
+export default function SearchFilter({ path }: { path: string }) {
   const [value, setValue] = useState<string>('');
   const query = useSearchParams();
   const router = useRouter();
@@ -31,13 +31,13 @@ export default function ProjectSearch() {
 
     const filter: string = current.toString();
     const newQuery = filter ? `?${filter}` : '';
-    router.replace(`/projects${newQuery}`);
+    router.replace(`${path}${newQuery}`);
   };
 
   return (
     <div className="flex flex-row gap-2">
       <Input
-        placeholder={t('projects.filters.search.placeholder')}
+        placeholder={t('meta.filters.search')}
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />

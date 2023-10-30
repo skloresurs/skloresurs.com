@@ -51,17 +51,18 @@ export default async function Vacancies() {
   const t = await getI18n();
   return (
     <PageTransitionWrapper>
-      <div className="mx-auto max-w-6xl px-5">
-        <h1 className="mb-5 text-center">{t('vacancies.title')}</h1>
-        {!vacancies && <ErrorLoaded />}
-        {vacancies && (
+      {vacancies ? (
+        <div className="mx-auto max-w-6xl px-5">
+          <h1 className="mb-5 text-center">{t('vacancies.title')}</h1>
           <div className="columns-1 gap-4 md:col-span-2 lg:columns-3">
             {vacancies.map((e) => (
               <Vacancy key={e.id} data={e} />
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <ErrorLoaded />
+      )}
     </PageTransitionWrapper>
   );
 }

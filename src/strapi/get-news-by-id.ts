@@ -9,6 +9,7 @@ export default async function getPostById(
     const { data } = await axios.get(`/api/posts/${id}`, {
       params: {
         'populate[0]': 'image',
+        'populate[1]': 'tags',
       },
     });
     if (data.data.attributes.locale !== locale) {

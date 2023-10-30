@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-export function MdiMagnify(props: SVGProps<SVGSVGElement>) {
+export default function MdiMagnify(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,14 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18nServer';
 
 import I18nProvider from './I18nProvider';
 import NavBarMenu from './NavbarMenu';
 
 export default async function NavBar() {
   const t = await getI18n();
-  const currentLocale = getCurrentLocale();
   return (
     <div
       id="navbar"
@@ -17,7 +16,7 @@ export default async function NavBar() {
       <a href="/" title={t('meta.logo')}>
         <Image src="/logo.png" alt={t('meta.logo')} width={157} height={60} />
       </a>
-      <I18nProvider locale={currentLocale}>
+      <I18nProvider>
         <NavBarMenu />
       </I18nProvider>
     </div>

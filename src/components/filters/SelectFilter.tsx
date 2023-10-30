@@ -4,9 +4,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 import { useEffect } from 'react';
 
-import type { ILocation } from '@/interfaces/Projects';
-import { useI18n } from '@/utils/i18nClient';
-
 import { ScrollArea } from '../ui/scroll-area';
 import {
   Select,
@@ -18,51 +15,56 @@ import {
   SelectValue,
 } from '../ui/select';
 
-export default function ProjectFilterLocation({
-  locations,
-}: {
-  locations: ILocation[];
-}) {
+interface IProps {
+  data: { id: string; title: string }[];
+  filterKey: string;
+  path: string;
+  title: string;
+  allTitle: string;
+}
+
+export default function SelectFilter({
+  data,
+  filterKey,
+  path,
+  title,
+  allTitle,
+}: IProps) {
   const query = useSearchParams();
   const router = useRouter();
   const [value, setValue] = React.useState<string>(
-    locations
-      .find((e) => e.id.toString() === query.get('location'))
-      ?.id.toString() ?? 'none',
+    data.find((e) => e.id === query.get(filterKey) ?? 'none')?.id ?? 'none',
   );
-  const t = useI18n();
 
   useEffect(() => {
-    setValue(query.get('location') ?? 'none');
-  }, [query]);
+    setValue(query.get(filterKey) ?? 'none');
+  }, [query, filterKey]);
 
-  function search(currentValue: string) {
+  const search = (currentValue: string) => {
     const current = new URLSearchParams(Array.from(query.entries()));
     if (currentValue === 'none') {
-      current.delete('location');
+      current.delete(filterKey);
     } else {
-      current.set('location', currentValue);
+      current.set(filterKey, currentValue);
     }
     setValue(currentValue);
 
     const filter: string = current.toString();
     const newQuery = filter ? `?${filter}` : '';
-    router.replace(`/projects${newQuery}`);
-  }
+    router.replace(`${path}${newQuery}`);
+  };
 
   return (
-    <Select value={value} onValueChange={(e) => search(e)}>
+    <Select value={value} onValueChange={search}>
       <SelectTrigger className="w-full">
-        <SelectValue placeholder={t('projects.filters.location.title')} />
+        <SelectValue placeholder={title} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>{t('projects.filters.location.title')}</SelectLabel>
+          <SelectLabel>{title}</SelectLabel>
           <ScrollArea className="h-[250px]">
-            <SelectItem value="none">
-              {t('projects.filters.location.all-locations')}
-            </SelectItem>
-            {locations.map((e) => (
+            <SelectItem value="none">{allTitle}</SelectItem>
+            {data.map((e) => (
               <SelectItem value={e.id.toString()} key={e.id}>
                 {e.title}
               </SelectItem>

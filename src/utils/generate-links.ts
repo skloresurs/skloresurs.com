@@ -13,3 +13,13 @@ export function GenerateProjectLink(
     yearFrom ? `&year-from=${yearFrom}` : ''
   }${yearTo ? `&year-to=${yearTo}` : ''}${search ? `&search=${search}` : ''}`;
 }
+
+export function GenerateComponentLink(
+  locale: string,
+  category: string | null,
+  search: string | null,
+) {
+  return `/api/components?page=1&locale=${locale}${
+    category ? `&category=${category}` : ''
+  }${search ? `&search=${search}` : ''}`;
+}

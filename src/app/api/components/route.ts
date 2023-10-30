@@ -6,17 +6,19 @@ export async function GET(request: NextRequest) {
   try {
     const query = request.nextUrl.searchParams;
     const locale = query.get('locale') ?? 'uk';
+    const category = query.get('category');
+    const search = query.get('search');
 
-    const page = +(query.get('page') ?? 1);
-
-    const { data } = await axios.get(`/api/posts`, {
+    const { data } = await axios.get(`/api/components`, {
       params: {
         locale,
-        'sort[0]': 'createdAt:desc',
-        'populate[0]': 'image',
-        'populate[1]': 'tags',
-        'pagination[page]': page,
-        'pagination[pageSize]': 6,
+        'pagination[page]': 1,
+        'pagination[pageSize]': 100,
+        'populate[0]': 'category',
+        'populate[1]': 'image',
+        'filters[category][id][$eq]': category,
+        'filters[$or][0][title][$containsi]': search,
+        'filters[$or][1][category][title][$containsi]': search,
       },
     });
 
@@ -25,19 +27,16 @@ export async function GET(request: NextRequest) {
     }
     return NextResponse.json(
       {
-        posts: data.data.map((e: any) => ({
+        components: data.data.map((e: any) => ({
           id: e.id,
           title: e.attributes.title,
           description: e.attributes.description,
-          category: e.attributes.category,
+          href: e.attributes.link,
+          category: {
+            id: e.attributes.category.data.id,
+            title: e.attributes.category.data.attributes.title,
+          },
           image: process.env.CMS_URL + e.attributes.image.data.attributes.url,
-          content: e.attributes.content,
-          video: e.attributes.video,
-          tags: e.attributes.tags.data.map((tag: any) => ({
-            id: tag.id,
-            title: tag.attributes.title,
-            color: tag.attributes.color,
-          })),
         })),
         total: data.meta.pagination.total,
       },
