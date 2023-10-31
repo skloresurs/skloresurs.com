@@ -215,4 +215,11 @@ export default {
       'Explore our current job openings. Find an opportunity to join our team and contribute your skills to the glass processing industry. Together, we drive innovation and achieve success.',
     'detailed-button': 'Learn More',
   },
+  catalog: {
+    title: 'Catalog',
+    description:
+      'Take a tour in our product catalog. Choose from a diverse range of glass. Our catalog offers quality and innovation for you. Find the best solutions for your needs right here.',
+    exterior: 'Exterior',
+    interior: 'Interior',
+  },
 } as const;
