@@ -28,6 +28,7 @@ type AllowID =
   | 'reportings'
   | 'seminars'
   | 'vacancies'
+  | 'catalog'
   | 'production'
   | 'contact-us';
 
@@ -40,6 +41,10 @@ const servicesMenu: IMenuItem[] = [
   {
     id: 'components',
     href: '/components',
+  },
+  {
+    id: 'catalog',
+    href: '/catalog',
   },
   {
     id: 'delivery',

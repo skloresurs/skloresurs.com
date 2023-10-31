@@ -49,6 +49,11 @@ export default {
         title: 'Production',
         description: 'Video about the production process',
       },
+      catalog: {
+        title: 'Catalog',
+        description:
+          'Explore our glass catalog and find the perfect solutions for your project.',
+      },
       'contact-us': {
         title: 'Contact Us',
         description: 'Get in touch with us through the contact form',
