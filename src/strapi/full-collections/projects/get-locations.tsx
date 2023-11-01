@@ -1,6 +1,5 @@
-import axios from 'src/utils/axios-cms';
-
-import type { ILocation } from '@/interfaces/Projects';
+import type { ILocation } from '@/types/Projects';
+import axios from '@/utils/axios-cms';
 
 export default async function getLocations(
   locale: string,

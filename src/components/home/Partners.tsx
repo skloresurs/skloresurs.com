@@ -8,7 +8,7 @@ import { useKeenSlider } from 'keen-slider/react';
 import Image from 'next/image';
 import React from 'react';
 
-import type IPartner from '@/interfaces/Partner';
+import type IPartner from '@/types/Partner';
 
 interface IProps {
   partners: IPartner[];

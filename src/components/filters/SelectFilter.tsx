@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 import { useEffect } from 'react';
 
-import { ScrollArea } from '../ui/scroll-area';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import {
   Select,
   SelectContent,
@@ -13,7 +13,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '../ui/select';
+} from '@/components/ui/select';
 
 interface IProps {
   data: { id: string; title: string }[];

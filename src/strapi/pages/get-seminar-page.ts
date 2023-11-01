@@ -1,4 +1,4 @@
-import axios from 'src/utils/axios-cms';
+import axios from '@/utils/axios-cms';
 
 export default async function getSeminarPage(
   locale: string,

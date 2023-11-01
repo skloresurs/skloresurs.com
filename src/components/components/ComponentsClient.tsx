@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import type IComponent from '@/interfaces/Component';
+import type IComponent from '@/types/Component';
 import { GenerateComponentLink } from '@/utils/generate-links';
 import { useCurrentLocale, useI18n } from '@/utils/i18nClient';
 

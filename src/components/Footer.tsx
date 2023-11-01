@@ -3,11 +3,10 @@ import Link from 'next/link';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
+import LogosFacebook from '@/components/icons/LogosFacebook';
+import SkillIconsInstagram from '@/components/icons/SkillIconsInstagram';
+import { buttonVariants } from '@/components/ui/button';
 import { getI18n } from '@/utils/i18nServer';
-
-import LogosFacebook from './icons/LogosFacebook';
-import SkillIconsInstagram from './icons/SkillIconsInstagram';
-import { buttonVariants } from './ui/button';
 
 export default async function Footer() {
   const t = await getI18n();

@@ -3,12 +3,12 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-import type { IGlassCategory, ILocation } from '@/interfaces/Projects';
+import SearchFilter from '@/components/filters/SearchFilter';
+import SelectFilter from '@/components/filters/SelectFilter';
+import { Button } from '@/components/ui/button';
+import type { IGlassCategory, ILocation } from '@/types/Projects';
 import { useI18n } from '@/utils/i18nClient';
 
-import SearchFilter from '../filters/SearchFilter';
-import SelectFilter from '../filters/SelectFilter';
-import { Button } from '../ui/button';
 import ProjectsFilterYear from './ProjectsFilterYear';
 
 interface IProps {

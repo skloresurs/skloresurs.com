@@ -1,6 +1,5 @@
-import axios from 'src/utils/axios-cms';
-
-import type IComponent from '@/interfaces/Component';
+import type IComponent from '@/types/Component';
+import axios from '@/utils/axios-cms';
 
 export default async function getComponents(
   locale: string,

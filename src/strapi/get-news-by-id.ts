@@ -1,5 +1,5 @@
-import type IPost from 'src/interfaces/Post';
-import axios from 'src/utils/axios-cms';
+import type IPost from '@/types/Post';
+import axios from '@/utils/axios-cms';
 
 export default async function getPostById(
   locale: string,

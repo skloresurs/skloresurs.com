@@ -1,5 +1,5 @@
-import type IReporting from 'src/interfaces/Reporting';
-import axios from 'src/utils/axios-cms';
+import type IReporting from '@/types/Reporting';
+import axios from '@/utils/axios-cms';
 
 export default async function getReportings(): Promise<IReporting[] | null> {
   try {

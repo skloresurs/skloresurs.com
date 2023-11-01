@@ -3,8 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
-import MdiEye from '@/components/icons/MdiEye';
-import MdiFilePdf from '@/components/icons/MdiFilePdf';
+import MdiEye from '@/components/icons/mdi/MdiEye';
+import MdiFilePdf from '@/components/icons/mdi/MdiFilePdf';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getReportings from '@/strapi/full-collections/get-reportings';
 import { getI18n } from '@/utils/i18nServer';

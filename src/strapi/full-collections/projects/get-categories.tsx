@@ -1,6 +1,5 @@
-import axios from 'src/utils/axios-cms';
-
-import type { IGlassCategory } from '@/interfaces/Projects';
+import type { IGlassCategory } from '@/types/Projects';
+import axios from '@/utils/axios-cms';
 
 export default async function getCategories(
   locale: string,

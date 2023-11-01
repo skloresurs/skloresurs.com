@@ -1,6 +1,5 @@
-import axios from 'src/utils/axios-cms';
-
-import type { ICategory } from '@/interfaces/Component';
+import type { ICategory } from '@/types/Component';
+import axios from '@/utils/axios-cms';
 
 export default async function getCategories(
   locale: string,

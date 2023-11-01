@@ -6,7 +6,7 @@ import type ReactImageGallery from 'react-image-gallery';
 import ImageGallery from 'react-image-gallery';
 import Typed from 'react-typed';
 
-import type IProduction from '@/interfaces/Production';
+import type IProduction from '@/types/Production';
 import { useI18n } from '@/utils/i18nClient';
 
 interface IProps {

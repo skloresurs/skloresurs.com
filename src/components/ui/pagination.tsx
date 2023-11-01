@@ -4,8 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { Pagination } from 'react-headless-pagination';
 
-import MdiArrowLeftBold from '../icons/MdiArrowLeftBold';
-import MdiArrowRightBold from '../icons/MdiArrowRightBold';
+import { MdiArrowLeftBold, MdiArrowRightBold } from '@/components/icons/mdi';
 
 interface IProps {
   totalPages: number;

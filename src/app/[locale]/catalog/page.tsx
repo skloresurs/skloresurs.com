@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('catalog.title'),
     description: t('catalog.description'),
     alternates: {
-      canonical: '/news',
+      canonical: '/catalog',
     },
     openGraph: {
       title: t('catalog.title'),

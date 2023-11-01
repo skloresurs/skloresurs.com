@@ -4,9 +4,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 
+import { RangeSlider } from '@/components/ui/range-slider';
 import { useI18n } from '@/utils/i18nClient';
-
-import { RangeSlider } from '../ui/range-slider';
 
 export default function ProjectsFilterYear() {
   const [values, setValues] = useState<number[]>([

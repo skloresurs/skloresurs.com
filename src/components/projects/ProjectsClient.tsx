@@ -5,14 +5,11 @@ import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 
-import type IProject from '@/interfaces/Projects';
+import { MdiCalendar, MdiEarth, MdiGlassdoor } from '@/components/icons/mdi';
+import type IProject from '@/types/Projects';
 import axios from '@/utils/axios-cache';
 import { GenerateProjectLink } from '@/utils/generate-links';
 import { useCurrentLocale, useI18n } from '@/utils/i18nClient';
-
-import MdiCalendar from '../icons/MdiCalendar';
-import MdiEarth from '../icons/MdiEarth';
-import MdiGlassdoor from '../icons/MdiGlassdoor';
 
 export default function ProjectsClient() {
   const t = useI18n();
@@ -93,6 +90,7 @@ export default function ProjectsClient() {
               <div
                 className="flex break-inside-avoid-column flex-col gap-2"
                 key={e.id}
+                data-aos="fade-down"
               >
                 <div className="relative aspect-square w-full overflow-hidden rounded-lg">
                   <ImageGallery

@@ -13,8 +13,8 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
-import type IVacancy from '@/interfaces/Vacancy';
 import getVacancies from '@/strapi/full-collections/get-vacancies';
+import type IVacancy from '@/types/Vacancy';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -36,7 +36,10 @@ export async function generateMetadata(): Promise<Metadata> {
 async function Vacancy({ data }: { data: IVacancy }) {
   const t = await getI18n();
   return (
-    <Card className="flex break-inside-avoid-column flex-col">
+    <Card
+      className="flex break-inside-avoid-column flex-col"
+      data-aos="fade-down"
+    >
       <CardHeader className="pb-2">
         <div className="relative h-16 w-16">
           <Image

@@ -2,13 +2,9 @@
 
 import React from 'react';
 
-import { useChangeLocale, useCurrentLocale, useI18n } from '@/utils/i18nClient';
-import { cn } from '@/utils/shadcnUtils';
-
-import CircleFlagsUa from './icons/CircleFlagsUa';
-import CircleFlagsUk from './icons/CircleFlagsUk';
-import MdiMenu from './icons/MdiMenu';
-import { Button } from './ui/button';
+import { CircleFlagsUa, CircleFlagsUk } from '@/components/icons/circleFlags';
+import { MdiMenu } from '@/components/icons/mdi';
+import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,8 +13,10 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from './ui/navigation-menu';
-import { Separator } from './ui/separator';
+} from '@/components/ui/navigation-menu';
+import { Separator } from '@/components/ui/separator';
+import { useChangeLocale, useCurrentLocale, useI18n } from '@/utils/i18nClient';
+import { cn } from '@/utils/shadcnUtils';
 
 type AllowID =
   | 'components'

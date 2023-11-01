@@ -1,9 +1,9 @@
 import { ReCaptchaProvider } from 'next-recaptcha-v3';
 import React from 'react';
 
+import I18nProvider from '@/components/I18nProvider';
 import { getCurrentLocale } from '@/utils/i18nServer';
 
-import I18nProvider from '../I18nProvider';
 import ContactUsForm from './ContactUsForm';
 
 export default async function ContactUs() {

@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import type IProduct from '@/interfaces/Product';
+import type IProduct from '@/types/Product';
 import axios from '@/utils/axios-cms';
 
 export async function GET(request: NextRequest) {

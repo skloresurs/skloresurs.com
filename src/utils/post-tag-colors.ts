@@ -1,3 +1,8 @@
+/**
+ * Returns the CSS classes for the specified color.
+ * @param color - The color name.
+ * @returns The CSS classes for the specified color.
+ */
 export default function getPostTagColor(color: string) {
   switch (color) {
     case 'red':

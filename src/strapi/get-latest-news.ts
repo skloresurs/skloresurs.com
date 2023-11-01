@@ -1,6 +1,5 @@
-import axios from 'src/utils/axios-cms';
-
-import type IPost from '@/interfaces/Post';
+import type IPost from '@/types/Post';
+import axios from '@/utils/axios-cms';
 
 export default async function getLatestNews(
   locale: string,

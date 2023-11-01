@@ -1,5 +1,5 @@
-import type IPartner from 'src/interfaces/Partner';
-import axios from 'src/utils/axios-cms';
+import type IPartner from '@/types/Partner';
+import axios from '@/utils/axios-cms';
 
 export default async function getPartners(): Promise<IPartner[] | null> {
   try {

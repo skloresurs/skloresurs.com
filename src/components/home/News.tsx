@@ -2,12 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import type IPost from '@/interfaces/Post';
+import { buttonVariants } from '@/components/ui/button';
 import getLatestNews from '@/strapi/get-latest-news';
+import type IPost from '@/types/Post';
 import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
 
-import MdiChevronRight from '../icons/MdiChevronRight';
-import { buttonVariants } from '../ui/button';
+import { MdiChevronRight } from '../icons/mdi';
 
 interface IPostItem {
   news: IPost;

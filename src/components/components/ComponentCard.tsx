@@ -2,10 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
-import type IComponent from '@/interfaces/Component';
+import { buttonVariants } from '@/components/ui/button';
+import type IComponent from '@/types/Component';
 import { useI18n } from '@/utils/i18nClient';
 
-import { buttonVariants } from '../ui/button';
 import {
   Card,
   CardDescription,

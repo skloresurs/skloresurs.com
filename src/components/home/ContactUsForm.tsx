@@ -6,19 +6,17 @@ import { useReCaptcha } from 'next-recaptcha-v3';
 import { type FormEvent, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { useI18n } from '@/utils/i18nClient';
-
-import MdiEmailNewsletter from '../icons/MdiEmailNewsletter';
-import MdiPhone from '../icons/MdiPhone';
-import MdiSend from '../icons/MdiSend';
 import {
   AlertDialog,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
-} from '../ui/alert-dialog';
-import { Button, buttonVariants } from '../ui/button';
+} from '@/components/ui/alert-dialog';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { useI18n } from '@/utils/i18nClient';
+
+import { MdiEmailNewsletter, MdiPhone, MdiSend } from '../icons/mdi';
 
 interface FormSchema {
   username: string;

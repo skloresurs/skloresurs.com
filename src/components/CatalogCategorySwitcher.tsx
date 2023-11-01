@@ -4,8 +4,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import type { ICategory } from '@/interfaces/Product';
-import { Category } from '@/interfaces/Product';
+import type { ICategory } from '@/types/Product';
+import { Category } from '@/types/Product';
 import { useI18n } from '@/utils/i18nClient';
 
 export default function CatalogCategorySwitcher() {

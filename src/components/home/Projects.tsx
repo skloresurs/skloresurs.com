@@ -3,10 +3,10 @@ import Link from 'next/link';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
+import { buttonVariants } from '@/components/ui/button';
 import { getI18n } from '@/utils/i18nServer';
 
-import MdiChevronRight from '../icons/MdiChevronRight';
-import { buttonVariants } from '../ui/button';
+import { MdiChevronRight } from '../icons/mdi';
 
 export default async function Projects() {
   const t = await getI18n();

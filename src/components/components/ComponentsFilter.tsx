@@ -3,12 +3,11 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-import type { ICategory } from '@/interfaces/Component';
+import SearchFilter from '@/components/filters/SearchFilter';
+import SelectFilter from '@/components/filters/SelectFilter';
+import { Button } from '@/components/ui/button';
+import type { ICategory } from '@/types/Component';
 import { useI18n } from '@/utils/i18nClient';
-
-import SearchFilter from '../filters/SearchFilter';
-import SelectFilter from '../filters/SelectFilter';
-import { Button } from '../ui/button';
 
 interface IProps {
   categories: ICategory[];

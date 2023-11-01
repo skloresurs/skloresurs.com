@@ -1,14 +1,14 @@
-import Image from 'next/image';
+import type { ReactNode } from 'react';
 import React from 'react';
 
-import type { AllowIcons } from '@/icons/infos';
-import InfoIconSet from '@/icons/infos';
+import type { InfoIconsType } from '@/components/icons/info';
+import InfoIcons from '@/components/icons/info';
 import { getI18n } from '@/utils/i18nServer';
 
 interface ITargetItem {
-  id: AllowIcons;
+  id: InfoIconsType;
   index: number;
-  icon: any;
+  icon: ReactNode;
 }
 async function TargetItem({ icon, index, id }: ITargetItem) {
   const t = await getI18n();
@@ -19,7 +19,7 @@ async function TargetItem({ icon, index, id }: ITargetItem) {
       data-aos-delay={index * 50}
     >
       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary p-1 text-black">
-        <Image src={icon} alt={id} width={28} height={28} />
+        {icon}
       </div>
       <p className="text-xl">{t(`home.target.${id}`)}</p>
     </div>
@@ -30,12 +30,12 @@ export default function Target() {
   return (
     <div id="target" className="mt-6 w-full bg-background-alternative py-6">
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
-        {Object.keys(InfoIconSet).map((e, i) => (
+        {Object.keys(InfoIcons).map((e, i) => (
           <TargetItem
             key={e}
             index={i}
-            id={e as AllowIcons}
-            icon={InfoIconSet[e as AllowIcons]}
+            id={e as InfoIconsType}
+            icon={InfoIcons[e as InfoIconsType]}
           />
         ))}
       </div>

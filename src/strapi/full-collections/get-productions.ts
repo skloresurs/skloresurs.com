@@ -1,5 +1,5 @@
-import type IProduction from 'src/interfaces/Production';
-import axios from 'src/utils/axios-cms';
+import type IProduction from '@/types/Production';
+import axios from '@/utils/axios-cms';
 
 export default async function getProductions(
   locale: string,

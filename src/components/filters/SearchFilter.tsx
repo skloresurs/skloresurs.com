@@ -4,11 +4,10 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 
+import { MdiMagnify } from '@/components/icons/mdi';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useI18n } from '@/utils/i18nClient';
-
-import MdiMagnify from '../icons/MdiMagnify';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
 
 export default function SearchFilter({ path }: { path: string }) {
   const [value, setValue] = useState<string>('');

@@ -1,5 +1,5 @@
-import type ICertificate from 'src/interfaces/Certificate';
-import axios from 'src/utils/axios-cms';
+import type ICertificate from '@/types/Certificate';
+import axios from '@/utils/axios-cms';
 
 export default async function getCertificates(): Promise<
   ICertificate[] | null

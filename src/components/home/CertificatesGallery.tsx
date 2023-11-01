@@ -3,7 +3,7 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 
-import type ICertificate from '@/interfaces/Certificate';
+import type ICertificate from '@/types/Certificate';
 
 interface IProps {
   images: ICertificate[];
