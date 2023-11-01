@@ -18,7 +18,7 @@ export default async function Hero() {
           src="/hero-1.png"
           alt=""
           fill
-          className="absolute -z-50 object-cover"
+          className="absolute -z-50 aspect-[3/4] object-cover"
         />
         <div className="px-6 pt-10">
           <h1 className="text-4xl font-normal uppercase text-primary md:text-6xl">
@@ -48,8 +48,8 @@ export default async function Hero() {
         <Image
           src="/hero-cloud.png"
           alt=""
-          width={600}
-          height={300}
+          width={660}
+          height={500}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="absolute -left-24 top-8 -z-40 hidden md:block"
         />

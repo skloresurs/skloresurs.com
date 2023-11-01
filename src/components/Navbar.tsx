@@ -14,7 +14,13 @@ export default async function NavBar() {
       className="mx-auto my-8 flex w-full max-w-6xl flex-row items-center justify-between px-6"
     >
       <a href="/" title={t('meta.logo')}>
-        <Image src="/logo.png" alt={t('meta.logo')} width={157} height={60} />
+        <Image
+          src="/logo.png"
+          alt={t('meta.logo')}
+          width={157}
+          height={60}
+          priority
+        />
       </a>
       <I18nProvider>
         <NavBarMenu />

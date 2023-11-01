@@ -11,6 +11,8 @@ import axios from '@/utils/axios-cache';
 import { GenerateProjectLink } from '@/utils/generate-links';
 import { useCurrentLocale, useI18n } from '@/utils/i18nClient';
 
+import CustomPagination from '../ui/pagination';
+
 export default function ProjectsClient() {
   const t = useI18n();
   const locale = useCurrentLocale();
@@ -25,6 +27,7 @@ export default function ProjectsClient() {
   const yearFrom = query.get('year-from');
   const yearTo = query.get('year-to');
   const search = query.get('search');
+  const page = query.get('page');
 
   const getProjects = useCallback(async () => {
     setIsLoading(true);
@@ -37,6 +40,7 @@ export default function ProjectsClient() {
           yearFrom,
           yearTo,
           search,
+          page,
         ),
       )
       .catch((_) => null);
@@ -45,7 +49,7 @@ export default function ProjectsClient() {
       setProjectsCount(response.data.meta.total);
     }
     setIsLoading(false);
-  }, [locale, location, glassCategory, yearFrom, yearTo, search]);
+  }, [locale, location, glassCategory, yearFrom, yearTo, search, page]);
 
   useEffect(() => {
     setProjects([]);
@@ -81,10 +85,6 @@ export default function ProjectsClient() {
       )}
       {!isLoading && projectsCount > 0 && (
         <>
-          <p className="mb-2 text-right text-sm text-muted-foreground">
-            {t('projects.show')}
-            {projects.length}/{projectsCount}
-          </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((e) => (
               <div
@@ -94,7 +94,7 @@ export default function ProjectsClient() {
               >
                 <div className="relative aspect-square w-full overflow-hidden rounded-lg">
                   <ImageGallery
-                    additionalClass="absolute object-cover"
+                    additionalClass="absolute object-cover overflow-hidden relative h-full"
                     items={e.images.map((image) => {
                       return { original: image };
                     })}
@@ -104,6 +104,16 @@ export default function ProjectsClient() {
                     showPlayButton={false}
                     showThumbnails={false}
                     slideInterval={5000}
+                    renderItem={(item) => (
+                      <Image
+                        src={item.original}
+                        loading="lazy"
+                        alt="Certificate"
+                        width="700"
+                        height="700"
+                        className="object-cover "
+                      />
+                    )}
                   />
                 </div>
                 <div className="flex flex-col gap-1 text-sm text-muted-foreground">
@@ -122,6 +132,10 @@ export default function ProjectsClient() {
               </div>
             ))}
           </div>
+          <CustomPagination
+            totalPages={Math.ceil(projectsCount / 9)}
+            href="/projects"
+          />
         </>
       )}
     </div>

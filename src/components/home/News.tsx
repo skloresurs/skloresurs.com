@@ -30,6 +30,7 @@ async function NewsItem({ news, index }: IPostItem) {
           buttonVariants({ variant: 'link' }),
           'w-min ml-auto',
         )}
+        title={t('home.news.read-more')}
       >
         {t('home.news.read-more')}
         <MdiChevronRight />

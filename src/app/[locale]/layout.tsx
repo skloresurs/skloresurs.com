@@ -1,5 +1,4 @@
 import '../globals.css';
-import '../image-gallery.css';
 
 import type { Metadata, Viewport } from 'next';
 import { Raleway } from 'next/font/google';
@@ -60,7 +59,6 @@ export const viewport: Viewport = {
   colorScheme: 'dark',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export default async function RootLayout({
@@ -91,10 +89,6 @@ export default async function RootLayout({
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-        <script
-          src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
-          async
         />
       </head>
       <AOSInit />

@@ -21,6 +21,7 @@ export default function SearchFilter({ path }: { path: string }) {
 
   const search = () => {
     const current = new URLSearchParams(Array.from(query.entries()));
+    current.delete('page');
 
     if (!value || value === '') {
       current.delete('search');

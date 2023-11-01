@@ -25,6 +25,7 @@ function Post({ data }: { data: IPost }) {
           src={data.image}
           fill
           alt={data.title}
+          loading="lazy"
           className="object-cover duration-300 group-hover:rotate-3 group-hover:scale-110 group-hover:blur-sm"
         />
       </div>
@@ -84,7 +85,9 @@ export default function NewsClient() {
           <Post key={e.id} data={e} />
         ))}
       </div>
-      <CustomPagination href="/news" totalPages={total} />
+      {news && news.length > 0 && (
+        <CustomPagination href="/news" totalPages={total} />
+      )}
     </>
   );
 }

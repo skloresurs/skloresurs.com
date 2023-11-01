@@ -9,6 +9,7 @@
  * @param {string | null} yearFrom - The starting year filter for the project.
  * @param {string | null} yearTo - The ending year filter for the project.
  * @param {string | null} search - The search filter for the project.
+ * @param {string | null} page - The page of the projects list.
  * @returns {string} The generated project link.
  */
 export function GenerateProjectLink(
@@ -18,12 +19,15 @@ export function GenerateProjectLink(
   yearFrom: string | null,
   yearTo: string | null,
   search: string | null,
+  page: string | null,
 ): string {
-  return `/api/projects?page=1&locale=${locale}${
+  return `/api/projects?locale=${locale}${
     location ? `&location=${location}` : ''
   }${glassCategory ? `&glass=${glassCategory}` : ''}${
     yearFrom ? `&year-from=${yearFrom}` : ''
-  }${yearTo ? `&year-to=${yearTo}` : ''}${search ? `&search=${search}` : ''}`;
+  }${yearTo ? `&year-to=${yearTo}` : ''}${search ? `&search=${search}` : ''}${
+    page ? `&page=${page}` : ''
+  }`;
 }
 
 /**

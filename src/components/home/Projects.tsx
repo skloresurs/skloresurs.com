@@ -40,9 +40,10 @@ export default async function Projects() {
         <div className="relative w-full md:w-1/2">
           <Image
             src="/projects.png"
-            alt=""
+            alt="Projects"
             height={400}
             width={700}
+            loading="lazy"
             className="bottom-0 w-full object-cover object-bottom md:absolute"
           />
         </div>

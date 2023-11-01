@@ -81,7 +81,7 @@ export default function Production({ productions }: IProps) {
               p.current?.reset();
             }}
             renderItem={(original) => (
-              <video autoPlay muted loop>
+              <video autoPlay muted loop preload="none">
                 <source src={original.original} type="video/mp4" />
               </video>
             )}

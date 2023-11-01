@@ -46,6 +46,7 @@ async function Vacancy({ data }: { data: IVacancy }) {
             src={data.image}
             alt={data.title}
             fill
+            loading="lazy"
             className="rounded-md object-cover"
           />
         </div>

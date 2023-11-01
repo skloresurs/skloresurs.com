@@ -42,6 +42,8 @@ export default function SelectFilter({
 
   const search = (currentValue: string) => {
     const current = new URLSearchParams(Array.from(query.entries()));
+    current.delete('page');
+
     if (currentValue === 'none') {
       current.delete(filterKey);
     } else {

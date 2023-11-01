@@ -34,9 +34,11 @@
     "next-recaptcha-v3": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-elastic-carousel": "^0.11.5",
     "react-headless-pagination": "^1.1.4",
     "react-image-gallery": "^1.3.0",
     "react-typed": "^1.2.0",
+    "swiper": "^11.0.3",
     "tailwind-merge": "^1.14.0",
     "tailwind-scrollbar": "^3.0.4",
     "tailwindcss-animate": "^1.0.7"

@@ -12,11 +12,13 @@ export async function GET(request: NextRequest) {
     const yearFrom = query.get('year-from');
     const yearTo = query.get('year-to');
     const search = query.get('search');
+    const page = query.get('page');
 
     const { data } = await axios.get(`/api/projects`, {
       params: {
         locale,
-        'pagination[pageSize]': 100,
+        'pagination[pageSize]': 9,
+        'pagination[page]': page,
         'populate[0]': 'location',
         'populate[1]': 'images',
         'sort[0]': 'year:desc',

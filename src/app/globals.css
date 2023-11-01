@@ -78,3 +78,16 @@ h5 {
 h6 {
   @apply lg:text-lg font-medium;
 }
+
+.image-gallery-bullets .image-gallery-bullet.active {
+  @apply bg-primary;
+}
+
+.image-gallery-bullets .image-gallery-bullet:hover,
+.image-gallery-bullets .image-gallery-bullet.active:hover {
+  @apply bg-primary border-primary;
+}
+
+.image-gallery-icon {
+  @apply hover:text-primary duration-300;
+}

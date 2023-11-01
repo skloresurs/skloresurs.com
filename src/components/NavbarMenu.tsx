@@ -156,7 +156,7 @@ export default function NavBarMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>
+          <NavigationMenuTrigger title="Language">
             {locale === 'uk' ? (
               <CircleFlagsUa width={24} height={24} />
             ) : (
@@ -183,7 +183,7 @@ export default function NavBarMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem className="md:hidden">
-          <NavigationMenuTrigger>
+          <NavigationMenuTrigger title="Menu">
             <MdiMenu width={24} height={24} />
           </NavigationMenuTrigger>
           <NavigationMenuContent className="flex w-max flex-col gap-3 p-2">

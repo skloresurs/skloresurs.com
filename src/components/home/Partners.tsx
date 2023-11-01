@@ -66,6 +66,7 @@ export default function Partners({ partners }: IProps) {
             alt={e.title}
             width={512}
             height={512}
+            loading="lazy"
             className="select-none rounded-md object-contain"
           />
         </div>

@@ -17,8 +17,20 @@ export default async function Footer() {
     >
       <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
         <div className="flex flex-row items-center gap-4">
-          <Image src="/logo.png" width={150} height={60} alt={t('meta.logo')} />
-          <Image src="/gualos-logo.png" width={150} height={60} alt="Gualos" />
+          <Image
+            src="/logo.png"
+            width={150}
+            height={60}
+            alt={t('meta.logo')}
+            loading="lazy"
+          />
+          <Image
+            src="/gualos-logo.png"
+            width={150}
+            height={60}
+            alt="Gualos"
+            loading="lazy"
+          />
         </div>
         <div className="mt-6 flex flex-col items-start gap-2 md:mt-0 md:flex-row md:gap-20">
           <div className="min-w-[100px]">

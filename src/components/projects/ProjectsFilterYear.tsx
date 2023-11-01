@@ -25,6 +25,7 @@ export default function ProjectsFilterYear() {
 
   const search = () => {
     const current = new URLSearchParams(Array.from(query.entries()));
+    current.delete('page');
 
     if (!values[0] || values[0] === 2000) {
       current.delete('year-from');
