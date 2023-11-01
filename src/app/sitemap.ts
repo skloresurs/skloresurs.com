@@ -1,114 +1,56 @@
 import type { MetadataRoute } from 'next';
 
+// Define the base URL
+const { BASE_URL } = process.env;
+
+// Define the list of pages
+const pages = [
+  '/components',
+  '/delivery',
+  '/news',
+  '/projects',
+  '/reportings',
+  '/seminars',
+  '/vacancies',
+  '/catalog',
+];
+
+/**
+ * Generates the sitemap for the website.
+ * @returns The sitemap as an array of MetadataRoute objects.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Generate the Ukrainian pages for the sitemap
+  const ukrainianPages: MetadataRoute.Sitemap = pages.map((page) => ({
+    url: `${BASE_URL}${page}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  // Generate the English pages for the sitemap
+  const englishPages: MetadataRoute.Sitemap = pages.map((page) => ({
+    url: `${BASE_URL}/en${page}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  // Combine the sitemap pages and return the final sitemap
   return [
     {
-      url: 'https://skloresurs.com',
+      url: `${BASE_URL}`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://skloresurs.com/en',
+      url: `${BASE_URL}/en`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'monthly',
       priority: 1,
     },
-    {
-      url: 'https://skloresurs.com/components',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/en/components',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/delivery',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/en/delivery',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/news',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/en/news',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/projects',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/en/projects',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/reportings',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/en/reportings',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/seminars',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/en/seminars',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/vacancies',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/en/vacancies',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/catalog',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://skloresurs.com/en/catalog',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
+    ...ukrainianPages,
+    ...englishPages,
   ];
 }
