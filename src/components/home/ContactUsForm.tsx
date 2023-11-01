@@ -124,6 +124,7 @@ export default function ContactUsForm() {
         <input
           name="phone"
           id="phone"
+          pattern="^(?:\+\d{1,2}\s?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$"
           className="rounded-md border-[1px] border-border bg-[transparent] px-4 py-2"
           placeholder={t('home.contact-us.form.phone.placeholder')}
           data-aos="fade-right"

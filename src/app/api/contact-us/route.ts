@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
       Дата: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
       'E-mail': email,
       "Ім'я": username,
-      'Номер телефону': phone?.toString() ?? missingOptionalParams,
+      'Номер телефону': `'${phone?.toString() ?? missingOptionalParams}`,
       'Як дізнались': additional ?? missingOptionalParams,
       Повідомлення: message.replace('=', '≈'),
     });
