@@ -8,7 +8,7 @@ import React from 'react';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import { Badge } from '@/components/ui/badge';
 import getPostById from '@/strapi/get-news-by-id';
-import { getCurrentLocale } from '@/utils/i18nServer';
+import { getCurrentLocale } from '@/utils/i18n-server';
 import getPostTagColor from '@/utils/post-tag-colors';
 
 export async function generateMetadata({

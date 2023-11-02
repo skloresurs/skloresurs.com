@@ -14,7 +14,7 @@ import {
   AlertDialogHeader,
 } from '@/components/ui/alert-dialog';
 import { Button, buttonVariants } from '@/components/ui/button';
-import { useI18n } from '@/utils/i18nClient';
+import { useI18n } from '@/utils/i18n-client';
 
 import { MdiEmailNewsletter, MdiPhone, MdiSend } from '../icons/mdi';
 

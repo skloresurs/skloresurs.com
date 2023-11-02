@@ -4,7 +4,7 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { buttonVariants } from '@/components/ui/button';
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 import { MdiChevronRight } from '../icons/mdi';
 

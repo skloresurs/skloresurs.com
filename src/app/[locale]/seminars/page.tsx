@@ -7,7 +7,7 @@ import React from 'react';
 import ErrorLoaded from '@/components/ErrorLoad';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getSeminarPage from '@/strapi/pages/get-seminar-page';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();

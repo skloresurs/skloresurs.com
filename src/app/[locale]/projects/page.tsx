@@ -9,7 +9,7 @@ import ProjectsFilter from '@/components/projects/ProjectsFilter';
 import { Separator } from '@/components/ui/separator';
 import getCategories from '@/strapi/full-collections/projects/get-categories';
 import getLocations from '@/strapi/full-collections/projects/get-locations';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();

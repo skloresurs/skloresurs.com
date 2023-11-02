@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { MdiMagnify } from '@/components/icons/mdi';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useI18n } from '@/utils/i18nClient';
+import { useI18n } from '@/utils/i18n-client';
 
 export default function SearchFilter({ path }: { path: string }) {
   const [value, setValue] = useState<string>('');

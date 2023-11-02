@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge';
 import LogosFacebook from '@/components/icons/LogosFacebook';
 import SkillIconsInstagram from '@/components/icons/SkillIconsInstagram';
 import { buttonVariants } from '@/components/ui/button';
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 export default async function Footer() {
   const t = await getI18n();

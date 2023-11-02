@@ -3,7 +3,7 @@ import React from 'react';
 
 import type { InfoIconsType } from '@/components/icons/info';
 import InfoIcons from '@/components/icons/info';
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 interface ITargetItem {
   id: InfoIconsType;

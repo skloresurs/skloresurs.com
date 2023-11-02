@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
 import { buttonVariants } from '@/components/ui/button';
 import getLatestNews from '@/strapi/get-latest-news';
 import type IPost from '@/types/Post';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 import { MdiChevronRight } from '../icons/mdi';
 

@@ -7,7 +7,7 @@ import MdiEye from '@/components/icons/mdi/MdiEye';
 import MdiFilePdf from '@/components/icons/mdi/MdiFilePdf';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getReportings from '@/strapi/full-collections/get-reportings';
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();

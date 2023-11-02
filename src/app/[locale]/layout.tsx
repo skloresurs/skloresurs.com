@@ -9,7 +9,7 @@ import AOSInit from '@/components/AOS';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import NavBar from '@/components/Navbar';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 const raleway = Raleway({
   subsets: ['cyrillic-ext', 'latin-ext'],

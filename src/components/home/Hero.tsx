@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 export default async function Hero() {
   const t = await getI18n();

@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/card';
 import getVacancies from '@/strapi/full-collections/get-vacancies';
 import type IVacancy from '@/types/Vacancy';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();

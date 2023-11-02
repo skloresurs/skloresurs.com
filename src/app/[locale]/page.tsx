@@ -10,7 +10,7 @@ import ProductionServer from '@/components/home/ProductionServer';
 import Projects from '@/components/home/Projects';
 import Target from '@/components/home/Target';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();

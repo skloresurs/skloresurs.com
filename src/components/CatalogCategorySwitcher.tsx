@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge';
 
 import type { ICategory } from '@/types/Product';
 import { Category } from '@/types/Product';
-import { useI18n } from '@/utils/i18nClient';
+import { useI18n } from '@/utils/i18n-client';
 
 export default function CatalogCategorySwitcher() {
   const router = useRouter();

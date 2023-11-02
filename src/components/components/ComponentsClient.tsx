@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import type IComponent from '@/types/Component';
 import { GenerateComponentLink } from '@/utils/generate-links';
-import { useCurrentLocale, useI18n } from '@/utils/i18nClient';
+import { useCurrentLocale, useI18n } from '@/utils/i18n-client';
 
 import ComponentCard from './ComponentCard';
 

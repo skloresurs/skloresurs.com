@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 
 import { buttonVariants } from '@/components/ui/button';
 import type IComponent from '@/types/Component';
-import { useI18n } from '@/utils/i18nClient';
+import { useI18n } from '@/utils/i18n-client';
 
 import {
   Card,

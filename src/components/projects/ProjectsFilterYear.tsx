@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 
 import { RangeSlider } from '@/components/ui/range-slider';
-import { useI18n } from '@/utils/i18nClient';
+import { useI18n } from '@/utils/i18n-client';
 
 export default function ProjectsFilterYear() {
   const [values, setValues] = useState<number[]>([

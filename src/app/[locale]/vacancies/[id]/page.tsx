@@ -8,7 +8,7 @@ import React from 'react';
 
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getVacancyById from '@/strapi/get-vacancy-by-id';
-import { getCurrentLocale } from '@/utils/i18nServer';
+import { getCurrentLocale } from '@/utils/i18n-server';
 
 export async function generateMetadata({
   params,

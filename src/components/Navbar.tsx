@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 
 import I18nProvider from '@/components/I18nProvider';
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 import NavBarMenu from './NavbarMenu';
 

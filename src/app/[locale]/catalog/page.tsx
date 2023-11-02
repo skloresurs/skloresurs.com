@@ -7,7 +7,7 @@ import CatalogCategorySwitcher from '@/components/CatalogCategorySwitcher';
 import CatalogClient from '@/components/CatalogClient';
 import I18nProvider from '@/components/I18nProvider';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();

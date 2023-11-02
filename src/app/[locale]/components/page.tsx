@@ -8,7 +8,7 @@ import I18nProvider from '@/components/I18nProvider';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import { Separator } from '@/components/ui/separator';
 import getCategories from '@/strapi/full-collections/components/get-categories';
-import { getCurrentLocale, getI18n } from '@/utils/i18nServer';
+import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();

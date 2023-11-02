@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 
 import type IProduct from '@/types/Product';
 import axios from '@/utils/axios-cache';
-import { useCurrentLocale } from '@/utils/i18nClient';
+import { useCurrentLocale } from '@/utils/i18n-client';
 
 export default function CatalogClient() {
   const query = useSearchParams();

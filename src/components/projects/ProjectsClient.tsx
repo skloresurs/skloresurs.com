@@ -9,7 +9,7 @@ import { MdiCalendar, MdiEarth, MdiGlassdoor } from '@/components/icons/mdi';
 import type IProject from '@/types/Projects';
 import axios from '@/utils/axios-cache';
 import { GenerateProjectLink } from '@/utils/generate-links';
-import { useCurrentLocale, useI18n } from '@/utils/i18nClient';
+import { useCurrentLocale, useI18n } from '@/utils/i18n-client';
 
 import CustomPagination from '../ui/pagination';
 

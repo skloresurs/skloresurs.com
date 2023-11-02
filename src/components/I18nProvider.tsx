@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 
-import { I18nProviderClient } from '@/utils/i18nClient';
-import { getCurrentLocale } from '@/utils/i18nServer';
+import { I18nProviderClient } from '@/utils/i18n-client';
+import { getCurrentLocale } from '@/utils/i18n-server';
 
 export default function I18nProvider({ children }: { children: ReactNode }) {
   return (

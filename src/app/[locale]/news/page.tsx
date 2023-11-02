@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import I18nProvider from '@/components/I18nProvider';
 import NewsClient from '@/components/NewsClient';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
-import { getI18n } from '@/utils/i18nServer';
+import { getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();

@@ -10,7 +10,7 @@ import MdiArrowTopRightThick from '@/components/icons/mdi/MdiArrowTopRightThick'
 import { Badge } from '@/components/ui/badge';
 import CustomPagination from '@/components/ui/pagination';
 import type IPost from '@/types/Post';
-import { useCurrentLocale } from '@/utils/i18nClient';
+import { useCurrentLocale } from '@/utils/i18n-client';
 import getPostTagColor from '@/utils/post-tag-colors';
 
 function Post({ data }: { data: IPost }) {

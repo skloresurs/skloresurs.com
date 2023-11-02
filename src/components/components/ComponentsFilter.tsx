@@ -7,7 +7,7 @@ import SearchFilter from '@/components/filters/SearchFilter';
 import SelectFilter from '@/components/filters/SelectFilter';
 import { Button } from '@/components/ui/button';
 import type { ICategory } from '@/types/Component';
-import { useI18n } from '@/utils/i18nClient';
+import { useI18n } from '@/utils/i18n-client';
 
 interface IProps {
   categories: ICategory[];

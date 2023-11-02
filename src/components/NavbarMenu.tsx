@@ -15,7 +15,11 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
-import { useChangeLocale, useCurrentLocale, useI18n } from '@/utils/i18nClient';
+import {
+  useChangeLocale,
+  useCurrentLocale,
+  useI18n,
+} from '@/utils/i18n-client';
 import { cn } from '@/utils/shadcnUtils';
 
 type AllowID =
