@@ -17,10 +17,11 @@ interface IProps {
 export default function Production({ productions }: IProps) {
   const t = useI18n();
   const [hasWindow, setHasWindow] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [data, setData] = useState<IProduction | undefined>(productions[0]);
   const gallery = useRef<any>(null);
   const h3 = useRef<any>(null);
   const p = useRef<any>(null);
-  const [data, setData] = useState<IProduction | undefined>(productions[0]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -75,7 +76,12 @@ export default function Production({ productions }: IProps) {
               ref={(el: ReactImageGallery) => {
                 gallery.current = el;
               }}
-              items={productions}
+              items={productions.map((e, i) => ({
+                ...e,
+                loading: 'lazy',
+                index: i,
+              }))}
+              startIndex={activeIndex}
               lazyLoad
               showIndex
               showThumbnails={false}
@@ -84,16 +90,16 @@ export default function Production({ productions }: IProps) {
               additionalClass="object-contain"
               onSlide={(i) => {
                 setData(productions[+i]);
+                setActiveIndex(+i);
                 h3.current?.reset();
                 p.current?.reset();
               }}
-              renderItem={(original) => (
+              renderItem={(original: any) => (
                 <ReactPlayer
                   url={original.original}
                   loop
                   muted
-                  playing
-                  controls={false}
+                  playing={activeIndex === original.index}
                   width="100%"
                 />
               )}
