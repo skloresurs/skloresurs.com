@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { CircleFlagsUa, CircleFlagsUk } from '@/components/icons/circleFlags';
+import Icons from '@/components/icons/circleFlags';
 import { MdiMenu } from '@/components/icons/mdi';
 import { Button } from '@/components/ui/button';
 import {
@@ -161,29 +161,20 @@ export default function NavBarMenu() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger title="Language">
-            {locale === 'uk' ? (
-              <CircleFlagsUa width={24} height={24} />
-            ) : (
-              <CircleFlagsUk width={24} height={24} />
-            )}
+            {Icons[locale as keyof typeof Icons].small}
           </NavigationMenuTrigger>
           <NavigationMenuContent className="flex flex-row items-center gap-3 p-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="p-2"
-              onClick={() => changeLocale('uk')}
-            >
-              <CircleFlagsUa width={36} height={36} />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="p-2"
-              onClick={() => changeLocale('en')}
-            >
-              <CircleFlagsUk width={36} height={36} />
-            </Button>
+            {['uk', 'en'].map((e) => (
+              <Button
+                key={e}
+                variant="ghost"
+                size="icon"
+                className="p-2"
+                onClick={() => changeLocale(e as 'uk' | 'en')}
+              >
+                {Icons[e as keyof typeof Icons].big}
+              </Button>
+            ))}
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem className="md:hidden">

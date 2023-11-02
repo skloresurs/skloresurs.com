@@ -8,6 +8,8 @@ import type { ICategory } from '@/types/Product';
 import { Category } from '@/types/Product';
 import { useI18n } from '@/utils/i18n-client';
 
+import icons from './icons/catalogCategories';
+
 export default function CatalogCategorySwitcher() {
   const router = useRouter();
   const query = useSearchParams();
@@ -36,11 +38,14 @@ export default function CatalogCategorySwitcher() {
           onClick={() => switchCategory(e)}
           className={twMerge(
             'border-2 border-border p-2 hover:bg-muted/50 duration-300',
-            category === e ? 'bg-muted' : '',
+            category === e
+              ? 'bg-muted'
+              : 'text-muted-foreground fill-muted-foreground',
           )}
           key={e}
         >
-          <p className="text-center">{t(`catalog.${e}`)}</p>
+          {icons[e as 'interior' | 'exterior']}
+          <h2 className="text-center">{t(`catalog.${e}`)}</h2>
         </button>
       ))}
     </div>
