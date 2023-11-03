@@ -76,7 +76,7 @@ export default {
   home: {
     meta: {
       description:
-        'Skloresurs - leading manufacturers of glass for exterior and interior glazing, providing a wide range of products for your project.',
+        'Skloresurs - a modern glass processing production according to European standards.',
     },
     hero: {
       slogan: 'Professionalism. Transparency. Innovation.',
@@ -116,7 +116,7 @@ export default {
     projects: {
       title: 'Projects',
       description:
-        'With years of experience in glass processing, we have successfully implemented a range of impressive initiatives in collaboration with reliable partners. Learn more about our projects, which not only transform the face of modern glasswork but also contribute to environmental preservation.',
+        'Over the years of experience in the glass processing industry, we have successfully implemented a series of impressive projects in collaboration with reliable partners. Learn more about our projects, which not only transform the face of modern glazing but also contribute to environmental conservation.',
       button: 'All Projects',
     },
     'contact-us': {
@@ -163,7 +163,7 @@ export default {
   components: {
     title: 'Glass Processing Components',
     description:
-      'The largest selection of glass processing components. Find the perfect solutions for your project. High quality and reliability. Browse our components catalog right now.',
+      'The widest selection of glass processing components. Find the perfect solutions for your project. High quality and reliability. Browse our components catalog right now.',
     none: 'No components found',
     categories: {
       title: 'Categories',
@@ -174,18 +174,18 @@ export default {
   delivery: {
     title: 'Delivery of Products',
     description:
-      'Delivery that meets your needs. We offer a wide range of delivery options to ensure convenience for our customers. Learn more about our delivery terms, timelines, and costs to make your purchases with us even more pleasant. Save time and effort with our delivery information.',
+      'Delivery that meets your needs. Safe loading and unloading of glass packages of any size and weight. Learn more about our delivery terms.',
   },
   news: {
     title: 'News',
     'return-back': 'Return Back',
     description:
-      'Stay up to date with the latest articles and news in the world of glass processing. Our blog offers interesting and relevant information, tips, and insights related to the glass processing industry. Discover the latest trends, technological news, and much more. Stay informed with our articles and news.',
+      'Join us and stay updated on the latest articles and news in the glass processing industry. Interesting and relevant materials, the latest technological advancements, and much more.',
   },
   projects: {
     title: 'Projects',
     description:
-      'Explore our project gallery and be inspired by the incredible beauty and innovations in the world of glass processing. Discover our projects and achievements, a source of inspiration for industry professionals. See how we bring the best ideas to life.',
+      'We invite you to explore our project gallery and find inspiration in the world of glass processing. Learn more about our projects and innovations that inspire industry professionals.',
     none: 'No projects found',
     show: 'Showing: ',
     filters: {
@@ -205,7 +205,7 @@ export default {
   reportings: {
     title: 'Reportings',
     description:
-      'Explore our project gallery and be inspired by the incredible beauty and innovations in the world of glass processing. Discover our projects and achievements, a source of inspiration for industry professionals. See how we bring the best ideas to life.',
+      'Learn more about our seminars. Gain valuable knowledge and insights in the field of glass processing and discover new trends and skills in our industry.',
     year: 'year',
     auditory: "Auditor  's Report",
     finance: 'Financial Report',
@@ -219,13 +219,13 @@ export default {
     title: 'Vacancies',
     'return-back': 'Return Back',
     description:
-      'Explore our current job openings. Find an opportunity to join our team and contribute your skills to the glass processing industry. Together, we drive innovation and achieve success.',
+      'Discover our current job openings and the opportunity to join our team.',
     'detailed-button': 'Learn More',
   },
   catalog: {
     title: 'Catalog',
     description:
-      'Take a tour in our product catalog. Choose from a diverse range of glass. Our catalog offers quality and innovation for you. Find the best solutions for your needs right here.',
+      'Open our catalog to explore the range of products for creating unique designer solutions.',
     exterior: 'Exterior',
     interior: 'Interior',
   },
