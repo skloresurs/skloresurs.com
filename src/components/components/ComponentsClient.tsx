@@ -46,6 +46,7 @@ export default function ComponentsClient() {
             <Image
               src="/loading.svg"
               alt="loading"
+              title="loading"
               fill
               className="object-contain"
             />
@@ -58,6 +59,7 @@ export default function ComponentsClient() {
             <Image
               src="/neutral-face.svg"
               alt="missing"
+              title='missing "Components"'
               fill
               className="object-contain"
             />

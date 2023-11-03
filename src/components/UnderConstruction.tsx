@@ -9,6 +9,7 @@ export default async function UnderConstruction() {
         width={600}
         height={500}
         alt="Under construction"
+        title="Under construction"
       />
       <h1>Under construction</h1>
     </div>

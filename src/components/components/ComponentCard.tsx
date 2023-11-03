@@ -31,6 +31,7 @@ export default function ComponentCard({
           <Image
             src={component.image}
             alt={component.title}
+            title={component.title}
             fill
             className="object-cover"
           />
@@ -40,6 +41,7 @@ export default function ComponentCard({
       </CardHeader>
       <CardFooter>
         <Link
+          title={t('components.go-to')}
           className={twMerge(buttonVariants({ variant: 'outline' }), 'ml-auto')}
           target="_blank"
           href={component.href}

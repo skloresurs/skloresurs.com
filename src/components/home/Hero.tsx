@@ -16,7 +16,8 @@ export default async function Hero() {
       >
         <Image
           src="/hero-1.png"
-          alt=""
+          alt="hero image"
+          title="hero image"
           fill
           className="absolute -z-50 aspect-[3/4] object-cover"
         />
@@ -40,14 +41,16 @@ export default async function Hero() {
       >
         <Image
           src="/hero-2.png"
-          alt=""
+          alt="Hero image"
+          title="Hero image"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="absolute inset-x-0 -z-50"
         />
         <Image
           src="/hero-cloud.png"
-          alt=""
+          alt="Hero cloud"
+          title="Hero cloud"
           width={660}
           height={500}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

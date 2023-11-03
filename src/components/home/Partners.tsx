@@ -64,6 +64,7 @@ export default function Partners({ partners }: IProps) {
           <Image
             src={e.url}
             alt={e.title}
+            title={e.title}
             width={512}
             height={512}
             loading="lazy"

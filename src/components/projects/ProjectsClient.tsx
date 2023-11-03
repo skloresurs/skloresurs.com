@@ -64,6 +64,7 @@ export default function ProjectsClient() {
             <Image
               src="/loading.svg"
               alt="loading"
+              title="loading"
               fill
               className="object-contain"
             />
@@ -76,6 +77,7 @@ export default function ProjectsClient() {
             <Image
               src="/neutral-face.svg"
               alt="missing"
+              title="missing"
               fill
               className="object-contain"
             />
@@ -108,7 +110,8 @@ export default function ProjectsClient() {
                       <Image
                         src={item.original}
                         loading="lazy"
-                        alt="Certificate"
+                        alt={e.title}
+                        title={e.title}
                         width="700"
                         height="700"
                         className="object-cover "

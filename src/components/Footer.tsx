@@ -22,6 +22,7 @@ export default async function Footer() {
             width={150}
             height={60}
             alt={t('meta.logo')}
+            title={t('meta.logo')}
             loading="lazy"
           />
           <Image
@@ -29,6 +30,7 @@ export default async function Footer() {
             width={150}
             height={60}
             alt="Gualos"
+            title="Gualos"
             loading="lazy"
           />
         </div>
@@ -40,6 +42,7 @@ export default async function Footer() {
             <p>
               E-mail:
               <Link
+                title="office@skloresurs.com"
                 className={twMerge(
                   buttonVariants({ variant: 'link' }),
                   'p-0 m-0 h-min ml-1',
@@ -52,6 +55,7 @@ export default async function Footer() {
             <p>
               {t('footer.contact.telephone')}:
               <Link
+                title="+38 (044) 355-05-99"
                 className={twMerge(
                   buttonVariants({ variant: 'link' }),
                   'p-0 m-0 h-min ml-1',
@@ -77,10 +81,18 @@ export default async function Footer() {
       <div className="flex flex-row items-center justify-between gap-2">
         <p className="text-xs text-muted-foreground">Skloresurs | Gualos</p>
         <div className="flex flex-row items-center gap-4">
-          <Link href="https://www.facebook.com/skloresurs" target="_blank">
+          <Link
+            href="https://www.facebook.com/skloresurs"
+            title="Facebook"
+            target="_blank"
+          >
             <LogosFacebook width={28} height={28} />
           </Link>
-          <Link href="https://www.instagram.com/skloresurs" target="_blank">
+          <Link
+            href="https://www.instagram.com/skloresurs"
+            title="Instagram"
+            target="_blank"
+          >
             <SkillIconsInstagram width={28} height={28} />
           </Link>
         </div>

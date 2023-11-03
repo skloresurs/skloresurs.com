@@ -18,6 +18,7 @@ import { MdiEye, MdiVideo } from './icons/mdi';
 function Post({ data }: { data: IPost }) {
   return (
     <Link
+      title={data.title}
       href={data.category === 'video' ? data.video! : `/news/${data.id}`}
       target={data.category === 'video' ? '_blank' : '_self'}
       className="group flex flex-col"
@@ -28,6 +29,7 @@ function Post({ data }: { data: IPost }) {
           src={data.image}
           fill
           alt={data.title}
+          title={data.title}
           loading="lazy"
           className="object-cover duration-300 group-hover:rotate-3 group-hover:scale-110 group-hover:blur-sm"
         />

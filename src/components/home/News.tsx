@@ -25,12 +25,12 @@ async function NewsItem({ news, index }: IPostItem) {
       <h3 className="text-lg font-semibold">{news.title}</h3>
       <p className="text-sm text-muted-foreground">{news.description}</p>
       <Link
+        title={t('home.news.read-more')}
         href={`/news/${news.id}`}
         className={twMerge(
           buttonVariants({ variant: 'link' }),
           'w-min ml-auto',
         )}
-        title={t('home.news.read-more')}
       >
         {t('home.news.read-more')}
         <MdiChevronRight />
@@ -49,6 +49,7 @@ export default async function News() {
         <h2 data-aos="fade-right">{t('home.news.title')}</h2>
         <Link
           href="/news"
+          title={t('home.news.button')}
           className={twMerge(
             buttonVariants({ variant: 'default' }),
             'hidden md:flex items-center gap-1',
@@ -62,6 +63,7 @@ export default async function News() {
         {news?.map((e, i) => <NewsItem key={e.id} news={e} index={i} />)}
       </div>
       <Link
+        title={t('home.news.button')}
         href="/news"
         className={twMerge(
           buttonVariants({ variant: 'default' }),

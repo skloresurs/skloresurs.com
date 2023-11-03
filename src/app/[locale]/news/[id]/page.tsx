@@ -48,6 +48,7 @@ export default async function NewsPage({ params }: { params: { id: string } }) {
       <div className="mx-auto max-w-6xl px-5">
         <Link
           href="/news"
+          title={t('news.return-back')}
           className="mb-2 text-sm text-muted-foreground duration-300 hover:text-white"
         >
           {t('news.return-back')}

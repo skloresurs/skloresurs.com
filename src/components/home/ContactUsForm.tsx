@@ -179,6 +179,7 @@ export default function ContactUsForm() {
             <div className="flex flex-col">
               <p className="font-medium">{t('home.contact-us.telephone')}</p>
               <Link
+                title="Telephone"
                 href="tel:+38 (044) 355-05-99"
                 className={twMerge(
                   buttonVariants({ variant: 'link' }),
@@ -195,6 +196,7 @@ export default function ContactUsForm() {
             <div className="flex flex-col">
               <p className="font-medium">E-mail</p>
               <Link
+                title="E-mail"
                 href="mailto:office@skloresurs.com"
                 className={twMerge(
                   buttonVariants({ variant: 'link' }),

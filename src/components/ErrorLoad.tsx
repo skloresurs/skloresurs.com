@@ -12,6 +12,7 @@ export default async function ErrorLoaded() {
         width={600}
         height={500}
         alt="Error loaded"
+        title="Error loaded"
       />
       <h2 className="mt-4 text-center">{t('meta.error.data')}</h2>
     </div>

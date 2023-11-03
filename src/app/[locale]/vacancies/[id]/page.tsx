@@ -47,6 +47,7 @@ export default async function Vacancy({ params }: { params: { id: string } }) {
       <div className="mx-auto max-w-6xl px-5">
         <Link
           href="/vacancies"
+          title={t('vacancies.return-back')}
           className="mb-2 text-sm text-muted-foreground duration-300 hover:text-white"
         >
           {t('vacancies.return-back')}
@@ -65,6 +66,7 @@ export default async function Vacancy({ params }: { params: { id: string } }) {
             <Image
               src={vacancy.image}
               alt={vacancy.title}
+              title={vacancy.title}
               width="200"
               height="200"
               className="mx-auto h-min object-cover"

@@ -17,6 +17,7 @@ export default async function NavBar() {
         <Image
           src="/logo.png"
           alt={t('meta.logo')}
+          title={t('meta.logo')}
           width={157}
           height={60}
           priority

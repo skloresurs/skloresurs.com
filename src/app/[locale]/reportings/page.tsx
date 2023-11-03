@@ -43,6 +43,7 @@ export default async function Reportings() {
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <Link
                     target="_blank"
+                    title={t('reportings.auditory')}
                     href={e.auditory}
                     className="flex cursor-pointer flex-row items-center gap-2 rounded-md border-2 border-border px-3 py-2 duration-500 hover:bg-muted"
                   >
@@ -56,6 +57,7 @@ export default async function Reportings() {
                   </Link>
                   <Link
                     target="_blank"
+                    title={t('reportings.finance')}
                     href={e.finance}
                     className="flex cursor-pointer flex-row items-center gap-2 rounded-md border-2 border-border px-3 py-2 duration-500 hover:bg-muted"
                   >

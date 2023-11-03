@@ -26,6 +26,7 @@ export default function CertificatesGallery({ images }: IProps) {
           src={item.original}
           loading="lazy"
           alt="Certificate"
+          title="Certificate"
           width="400"
           height="900"
           className="object-contain"

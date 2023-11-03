@@ -45,6 +45,7 @@ async function Vacancy({ data }: { data: IVacancy }) {
           <Image
             src={data.image}
             alt={data.title}
+            title={data.title}
             fill
             loading="lazy"
             className="rounded-md object-cover"
@@ -61,6 +62,7 @@ async function Vacancy({ data }: { data: IVacancy }) {
         <Link
           className={twMerge(buttonVariants({ variant: 'outline' }), 'ml-auto')}
           href={`/vacancies/${data.id}`}
+          title={t('vacancies.detailed-button')}
         >
           {t('vacancies.detailed-button')}
         </Link>

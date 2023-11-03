@@ -38,7 +38,8 @@ export default function Production({ productions }: IProps) {
         src="/build.png"
         width={650}
         height={430}
-        alt=""
+        alt="Build"
+        title="Build"
       />
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
         <div className="flex w-full flex-col gap-6 md:w-2/3">

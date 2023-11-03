@@ -26,6 +26,7 @@ export default async function Projects() {
           </p>
           <Link
             href="/projects"
+            title={t('home.projects.button')}
             data-aos="fade-right"
             data-aos-delay="200"
             className={twMerge(
@@ -41,6 +42,7 @@ export default async function Projects() {
           <Image
             src="/projects.png"
             alt="Projects"
+            title="Projects"
             height={400}
             width={700}
             loading="lazy"
