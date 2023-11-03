@@ -68,7 +68,7 @@ export default function Production({ productions }: IProps) {
           </p>
         </div>
         <div
-          className="aspect-video w-full overflow-hidden rounded-md"
+          className="aspect-video h-[400px] w-full overflow-hidden rounded-md"
           data-aos="fade-left"
           data-aos-delay={300}
         >
