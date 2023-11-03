@@ -13,10 +13,13 @@ import type IPost from '@/types/Post';
 import { useCurrentLocale } from '@/utils/i18n-client';
 import getPostTagColor from '@/utils/post-tag-colors';
 
+import { MdiEye, MdiVideo } from './icons/mdi';
+
 function Post({ data }: { data: IPost }) {
   return (
     <Link
-      href={`/news/${data.id}`}
+      href={data.category === 'video' ? data.video! : `/news/${data.id}`}
+      target={data.category === 'video' ? '_blank' : '_self'}
       className="group flex flex-col"
       data-aos="fade-down"
     >
@@ -28,6 +31,11 @@ function Post({ data }: { data: IPost }) {
           loading="lazy"
           className="object-cover duration-300 group-hover:rotate-3 group-hover:scale-110 group-hover:blur-sm"
         />
+        {data.category === 'video' ? (
+          <MdiVideo className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 opacity-0 drop-shadow-lg duration-300 group-hover:opacity-100" />
+        ) : (
+          <MdiEye className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 opacity-0 drop-shadow-lg duration-300 group-hover:opacity-100" />
+        )}
       </div>
       <div className="mb-3 flex flex-row items-start gap-4 duration-300 group-hover:text-primary">
         <h2

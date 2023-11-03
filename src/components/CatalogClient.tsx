@@ -8,6 +8,13 @@ import type IProduct from '@/types/Product';
 import axios from '@/utils/axios-cache';
 import { useCurrentLocale } from '@/utils/i18n-client';
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from './ui/accordion';
+
 export default function CatalogClient() {
   const query = useSearchParams();
   const locale = useCurrentLocale();
@@ -22,17 +29,15 @@ export default function CatalogClient() {
       .catch((_) => setProducts([]));
   }, [category, locale]);
   return (
-    <div className="flex flex-col gap-6">
+    <Accordion type="single" collapsible>
       {products.map((e) => (
-        <div
-          key={e.id}
-          className="rounded-sm border-l-2 border-border py-2 pl-4"
-          data-aos="fade-right"
-        >
-          <h2 className="mb-1">{e.title}</h2>
-          <div className="content">{parse(e.content ?? '')}</div>
-        </div>
+        <AccordionItem value={e.id.toString()} key={e.id} data-aos="fade-right">
+          <AccordionTrigger className="p-0">{e.title}</AccordionTrigger>
+          <AccordionContent className="content pl-1 text-base">
+            {parse(e.content ?? '')}
+          </AccordionContent>
+        </AccordionItem>
       ))}
-    </div>
+    </Accordion>
   );
 }

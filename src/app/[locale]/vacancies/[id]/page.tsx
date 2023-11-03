@@ -3,12 +3,13 @@ import '@/app/strapi.css';
 import parse from 'html-react-parser';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getVacancyById from '@/strapi/get-vacancy-by-id';
-import { getCurrentLocale } from '@/utils/i18n-server';
+import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata({
   params,
@@ -31,6 +32,7 @@ export async function generateMetadata({
 }
 
 export default async function Vacancy({ params }: { params: { id: string } }) {
+  const t = await getI18n();
   if (!params.id) {
     return notFound();
   }
@@ -43,6 +45,12 @@ export default async function Vacancy({ params }: { params: { id: string } }) {
   return (
     <PageTransitionWrapper>
       <div className="mx-auto max-w-6xl px-5">
+        <Link
+          href="/vacancies"
+          className="mb-2 text-sm text-muted-foreground duration-300 hover:text-white"
+        >
+          {t('vacancies.return-back')}
+        </Link>
         <h1 className="mb-5 flex-1 text-center">{vacancy.title}</h1>
         <div className="flex flex-col items-start gap-4 md:flex-row">
           {vacancy.video ? (

@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 import Icons from '@/components/icons/circleFlags';
@@ -113,6 +114,7 @@ ListItem.displayName = 'ListItem';
 
 export default function NavBarMenu() {
   const changeLocale = useChangeLocale();
+  const pathname = usePathname();
   const locale = useCurrentLocale();
   const t = useI18n();
   return (
@@ -159,24 +161,28 @@ export default function NavBarMenu() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger title="Language">
-            {Icons[locale as keyof typeof Icons].small}
-          </NavigationMenuTrigger>
-          <NavigationMenuContent className="flex flex-row items-center gap-3 p-2">
-            {['uk', 'en'].map((e) => (
-              <Button
-                key={e}
-                variant="ghost"
-                size="icon"
-                className="p-2"
-                onClick={() => changeLocale(e as 'uk' | 'en')}
-              >
-                {Icons[e as keyof typeof Icons].big}
-              </Button>
-            ))}
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+        {!pathname.includes('/news/') && !pathname.includes('/vacancies/') && (
+          <NavigationMenuItem>
+            <NavigationMenuTrigger title="Language">
+              {Icons[locale as keyof typeof Icons].small}
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="flex flex-row items-center gap-3 p-2">
+              {['uk', 'en'].map((e) => (
+                <Button
+                  key={e}
+                  variant="ghost"
+                  size="icon"
+                  className="p-2"
+                  onClick={() => {
+                    changeLocale(e as 'uk' | 'en');
+                  }}
+                >
+                  {Icons[e as keyof typeof Icons].big}
+                </Button>
+              ))}
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        )}
         <NavigationMenuItem className="md:hidden">
           <NavigationMenuTrigger title="Menu">
             <MdiMenu width={24} height={24} />

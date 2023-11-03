@@ -19,6 +19,7 @@ import MdiMagnify from './MdiMagnify';
 import MdiMenu from './MdiMenu';
 import MdiPhone from './MdiPhone';
 import MdiSend from './MdiSend';
+import MdiVideo from './MdiVideo';
 
 export {
   MdiArrowLeftBold,
@@ -42,4 +43,5 @@ export {
   MdiMenu,
   MdiPhone,
   MdiSend,
+  MdiVideo,
 };

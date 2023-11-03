@@ -178,6 +178,7 @@ export default {
   },
   news: {
     title: 'News',
+    'return-back': 'Return Back',
     description:
       'Stay up to date with the latest articles and news in the world of glass processing. Our blog offers interesting and relevant information, tips, and insights related to the glass processing industry. Discover the latest trends, technological news, and much more. Stay informed with our articles and news.',
   },
@@ -216,6 +217,7 @@ export default {
   },
   vacancies: {
     title: 'Vacancies',
+    'return-back': 'Return Back',
     description:
       'Explore our current job openings. Find an opportunity to join our team and contribute your skills to the glass processing industry. Together, we drive innovation and achieve success.',
     'detailed-button': 'Learn More',
