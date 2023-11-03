@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 // Define the base URL
-const { BASE_URL } = process.env;
+const { NEXT_PUBLIC_BASE_URL } = process.env;
 
 // Define the list of pages
 const pages = [
@@ -22,7 +22,7 @@ const pages = [
 export default function sitemap(): MetadataRoute.Sitemap {
   // Generate the Ukrainian pages for the sitemap
   const ukrainianPages: MetadataRoute.Sitemap = pages.map((page) => ({
-    url: `${BASE_URL}${page}`,
+    url: `${NEXT_PUBLIC_BASE_URL}${page}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Generate the English pages for the sitemap
   const englishPages: MetadataRoute.Sitemap = pages.map((page) => ({
-    url: `${BASE_URL}/en${page}`,
+    url: `${NEXT_PUBLIC_BASE_URL}/en${page}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
@@ -39,13 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Combine the sitemap pages and return the final sitemap
   return [
     {
-      url: `${BASE_URL}`,
+      url: `${NEXT_PUBLIC_BASE_URL}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: `${BASE_URL}/en`,
+      url: `${NEXT_PUBLIC_BASE_URL}/en`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
