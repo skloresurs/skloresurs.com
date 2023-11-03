@@ -34,7 +34,9 @@ export default async function Footer() {
         </div>
         <div className="mt-6 flex flex-col items-start gap-2 md:mt-0 md:flex-row md:gap-20">
           <div className="min-w-[100px]">
-            <h6 className="mb-2 uppercase">{t('footer.contact.title')}</h6>
+            <h2 className="mb-2 text-base font-semibold uppercase">
+              {t('footer.contact.title')}
+            </h2>
             <p>
               E-mail:
               <Link
@@ -61,7 +63,9 @@ export default async function Footer() {
             </p>
           </div>
           <div className="min-w-[100px]">
-            <h6 className="mb-2 uppercase">{t('footer.address.title')}</h6>
+            <h2 className="mb-2 text-base font-semibold uppercase">
+              {t('footer.address.title')}
+            </h2>
             <p className="inline">
               {t('footer.address.p1')}, {t('footer.address.p2')}
             </p>

@@ -46,7 +46,7 @@ export default function ProjectsFilterYear() {
 
   return (
     <>
-      <h4 className="text-center">{t('projects.filters.year.title')}</h4>
+      <h3 className="text-center">{t('projects.filters.year.title')}</h3>
       <RangeSlider
         className="mb-0"
         defaultValue={[2000, new Date().getFullYear()]}

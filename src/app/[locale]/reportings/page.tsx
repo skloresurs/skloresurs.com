@@ -49,7 +49,9 @@ export default async function Reportings() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
                       <MdiFilePdf className="h-8 w-8" />
                     </div>
-                    <h5 className="flex-1">{t('reportings.auditory')}</h5>
+                    <h3 className="flex-1  text-lg font-semibold">
+                      {t('reportings.auditory')}
+                    </h3>
                     <MdiEye className="h-6 w-6" />
                   </Link>
                   <Link
@@ -60,7 +62,9 @@ export default async function Reportings() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
                       <MdiFilePdf className="h-8 w-8" />
                     </div>
-                    <h5 className="flex-1">{t('reportings.finance')}</h5>
+                    <h3 className="flex-1 text-lg font-semibold">
+                      {t('reportings.finance')}
+                    </h3>
                     <MdiEye className="h-6 w-6" />
                   </Link>
                 </div>

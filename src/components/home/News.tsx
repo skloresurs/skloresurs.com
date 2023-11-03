@@ -22,7 +22,7 @@ async function NewsItem({ news, index }: IPostItem) {
       data-aos="fade-down"
       data-aos-delay={150 + 100 * index}
     >
-      <h5>{news.title}</h5>
+      <h3 className="text-lg font-semibold">{news.title}</h3>
       <p className="text-sm text-muted-foreground">{news.description}</p>
       <Link
         href={`/news/${news.id}`}
