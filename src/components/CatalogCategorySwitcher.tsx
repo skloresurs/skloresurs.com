@@ -31,13 +31,13 @@ export default function CatalogCategorySwitcher() {
     router.replace(`/catalog${newQuery}`);
   };
   return (
-    <div className="mb-5 grid grid-cols-1 md:grid-cols-2">
+    <div className="mb-5 flex flex-row gap-4 overflow-x-scroll scrollbar-none">
       {Category.map((e) => (
         <button
           type="button"
           onClick={() => switchCategory(e)}
           className={twMerge(
-            'border-2 border-border p-2 hover:bg-muted/50 duration-300',
+            'border-2 border-border hover:bg-muted/50 duration-300 rounded-md flex flex-row gap-2 items-center p-3',
             category === e
               ? 'bg-muted'
               : 'text-muted-foreground fill-muted-foreground',
@@ -45,7 +45,7 @@ export default function CatalogCategorySwitcher() {
           key={e}
         >
           {icons[e as 'interior' | 'exterior']}
-          <h2 className="text-center">{t(`catalog.${e}`)}</h2>
+          <p className="text-lg font-semibold">{t(`catalog.${e}`)}</p>
         </button>
       ))}
     </div>
