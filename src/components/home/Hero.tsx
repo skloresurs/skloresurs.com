@@ -18,6 +18,7 @@ export default async function Hero() {
           src="/hero-1.png"
           alt="hero image"
           title="hero image"
+          loading="eager"
           fill
           className="absolute -z-50 aspect-[3/4] object-cover"
         />

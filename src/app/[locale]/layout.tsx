@@ -7,7 +7,7 @@ import React from 'react';
 
 import AOSInit from '@/components/AOS';
 import Footer from '@/components/Footer';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { GAnalytics } from '@/components/GAnalytics';
 import NavBar from '@/components/Navbar';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
@@ -95,7 +95,7 @@ export default async function RootLayout({
       <body
         className={`mx-auto flex min-h-[100dvh] flex-col pb-6 duration-500 scrollbar-thin scrollbar-thumb-primary ${raleway.className}`}
       >
-        <GoogleAnalytics />
+        <GAnalytics />
         <NavBar />
         <div className="flex-1">{children}</div>
         <Footer />
