@@ -6,7 +6,6 @@ import React from 'react';
 import CatalogCategorySwitcher from '@/components/CatalogCategorySwitcher';
 import CatalogClient from '@/components/CatalogClient';
 import I18nProvider from '@/components/I18nProvider';
-import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import { getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -28,14 +27,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Catalog() {
   const t = await getI18n();
   return (
-    <PageTransitionWrapper>
-      <div className="mx-auto w-full max-w-6xl px-5">
-        <h1 className="mb-2 text-center">{t('catalog.title')}</h1>
-        <I18nProvider>
-          <CatalogCategorySwitcher />
-          <CatalogClient />
-        </I18nProvider>
-      </div>
-    </PageTransitionWrapper>
+    <div className="mx-auto w-full max-w-6xl px-5">
+      <h1 className="mb-2 text-center">{t('catalog.title')}</h1>
+      <I18nProvider>
+        <CatalogCategorySwitcher />
+        <CatalogClient />
+      </I18nProvider>
+    </div>
   );
 }

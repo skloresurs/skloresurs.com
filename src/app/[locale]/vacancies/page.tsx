@@ -5,7 +5,6 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import ErrorLoaded from '@/components/ErrorLoad';
-import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import { buttonVariants } from '@/components/ui/button';
 import {
   Card,
@@ -74,20 +73,16 @@ async function Vacancy({ data }: { data: IVacancy }) {
 export default async function Vacancies() {
   const vacancies = await getVacancies(getCurrentLocale());
   const t = await getI18n();
-  return (
-    <PageTransitionWrapper>
-      {vacancies ? (
-        <div className="mx-auto max-w-6xl px-5">
-          <h1 className="mb-5 text-center">{t('vacancies.title')}</h1>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {vacancies.map((e) => (
-              <Vacancy key={e.id} data={e} />
-            ))}
-          </div>
-        </div>
-      ) : (
-        <ErrorLoaded />
-      )}
-    </PageTransitionWrapper>
+  return vacancies ? (
+    <div className="mx-auto max-w-6xl px-5">
+      <h1 className="mb-5 text-center">{t('vacancies.title')}</h1>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {vacancies.map((e) => (
+          <Vacancy key={e.id} data={e} />
+        ))}
+      </div>
+    </div>
+  ) : (
+    <ErrorLoaded />
   );
 }

@@ -45,6 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
       creator: '@higherrorua',
       creatorId: '1045759364584353792',
     },
+    robots: 'index, follow',
     category: 'website',
     other: {
       'geo.placename':

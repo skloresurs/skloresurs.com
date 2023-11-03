@@ -9,7 +9,6 @@ import PartnersServer from '@/components/home/PartnersServer';
 import ProductionServer from '@/components/home/ProductionServer';
 import Projects from '@/components/home/Projects';
 import Target from '@/components/home/Target';
-import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import { getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   return (
-    <PageTransitionWrapper>
+    <>
       <Hero />
       <Target />
       <Certificates />
@@ -35,6 +34,6 @@ export default async function Home() {
       <Projects />
       <PartnersServer />
       <ContactUs />
-    </PageTransitionWrapper>
+    </>
   );
 }

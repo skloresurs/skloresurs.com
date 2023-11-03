@@ -5,7 +5,6 @@ import type { Metadata } from 'next';
 import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
-import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getDeliveryPage from '@/strapi/pages/get-delivery-page';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
@@ -30,11 +29,9 @@ export default async function Delivery() {
   const data = await getDeliveryPage(getCurrentLocale());
 
   return (
-    <PageTransitionWrapper>
-      <div className="mx-auto max-w-6xl px-5">
-        <h1 className="mb-6 text-center">{t('delivery.title')}</h1>
-        {data ? <div className="content">{parse(data)}</div> : <ErrorLoaded />}
-      </div>
-    </PageTransitionWrapper>
+    <div className="mx-auto max-w-6xl px-5">
+      <h1 className="mb-6 text-center">{t('delivery.title')}</h1>
+      {data ? <div className="content">{parse(data)}</div> : <ErrorLoaded />}
+    </div>
   );
 }

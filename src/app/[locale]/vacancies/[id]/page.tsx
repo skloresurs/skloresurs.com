@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
-import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getVacancyById from '@/strapi/get-vacancy-by-id';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
@@ -43,39 +42,37 @@ export default async function Vacancy({ params }: { params: { id: string } }) {
   }
 
   return (
-    <PageTransitionWrapper>
-      <div className="mx-auto max-w-6xl px-5">
-        <Link
-          href="/vacancies"
-          title={t('vacancies.return-back')}
-          className="mb-2 text-sm text-muted-foreground duration-300 hover:text-white"
-        >
-          {t('vacancies.return-back')}
-        </Link>
-        <h1 className="mb-5 flex-1 text-center">{vacancy.title}</h1>
-        <div className="flex flex-col items-start gap-4 md:flex-row">
-          {vacancy.video ? (
-            <video
-              src={vacancy.video}
-              muted
-              autoPlay
-              loop
-              className="mx-auto h-min object-cover md:w-[200px]"
-            />
-          ) : (
-            <Image
-              src={vacancy.image}
-              alt={vacancy.title}
-              title={vacancy.title}
-              width="200"
-              height="200"
-              className="mx-auto h-min object-cover"
-              loading="lazy"
-            />
-          )}
-          <div className="content">{parse(vacancy.content)}</div>
-        </div>
+    <div className="mx-auto max-w-6xl px-5">
+      <Link
+        href="/vacancies"
+        title={t('vacancies.return-back')}
+        className="mb-2 text-sm text-muted-foreground duration-300 hover:text-white"
+      >
+        {t('vacancies.return-back')}
+      </Link>
+      <h1 className="mb-5 flex-1 text-center">{vacancy.title}</h1>
+      <div className="flex flex-col items-start gap-4 md:flex-row">
+        {vacancy.video ? (
+          <video
+            src={vacancy.video}
+            muted
+            autoPlay
+            loop
+            className="mx-auto h-min object-cover md:w-[200px]"
+          />
+        ) : (
+          <Image
+            src={vacancy.image}
+            alt={vacancy.title}
+            title={vacancy.title}
+            width="200"
+            height="200"
+            className="mx-auto h-min object-cover"
+            loading="lazy"
+          />
+        )}
+        <div className="content">{parse(vacancy.content)}</div>
       </div>
-    </PageTransitionWrapper>
+    </div>
   );
 }

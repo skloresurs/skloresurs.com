@@ -5,7 +5,6 @@ import type { Metadata } from 'next';
 import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
-import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import getSeminarPage from '@/strapi/pages/get-seminar-page';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
@@ -29,16 +28,12 @@ export default async function Seminars() {
   const t = await getI18n();
   const locale = getCurrentLocale();
   const data = await getSeminarPage(locale);
-  return (
-    <PageTransitionWrapper>
-      {data ? (
-        <div className="mx-auto max-w-6xl px-5">
-          <h1 className="mb-5 text-center">{t('seminars.title')}</h1>
-          <div className="content">{parse(data)}</div>
-        </div>
-      ) : (
-        <ErrorLoaded />
-      )}
-    </PageTransitionWrapper>
+  return data ? (
+    <div className="mx-auto max-w-6xl px-5">
+      <h1 className="mb-5 text-center">{t('seminars.title')}</h1>
+      <div className="content">{parse(data)}</div>
+    </div>
+  ) : (
+    <ErrorLoaded />
   );
 }
