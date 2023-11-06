@@ -35,3 +35,8 @@ h6 {
 .content p:has(img) {
   @apply flex flex-row gap-2;
 }
+
+.content p,
+ul {
+  @apply py-1;
+}
