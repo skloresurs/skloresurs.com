@@ -1,6 +1,6 @@
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
@@ -88,7 +88,9 @@ export async function POST(request: NextRequest) {
       `${TELEGRAM_API_ROUTE}/createForumTopic`,
       {
         chat_id: TELEGRAM_CHAT_ID,
-        name: `${username} ${moment(new Date()).format('DD.MM.YYYY HH:mm')}`,
+        name: `${username} ${moment(new Date())
+          .tz('Europe/Kiev')
+          .format('DD.MM.YYYY HH:mm')}`,
       },
     );
 
