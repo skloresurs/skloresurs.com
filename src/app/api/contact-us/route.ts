@@ -4,6 +4,7 @@ import moment from 'moment-timezone';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
+import { env } from '@/env.mjs';
 import axios from '@/utils/axios-cms';
 
 const SCOPES = [
@@ -17,7 +18,7 @@ const {
   GOOGLE_PRIVATE_KEY,
   TELEGRAM_BOT_TOKEN,
   TELEGRAM_CHAT_ID,
-} = process.env;
+} = env;
 const TELEGRAM_API_ROUTE = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 
 const missingOptionalParams = 'Не вказано';

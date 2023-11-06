@@ -11,6 +11,15 @@
         "singleQuote": true,
         "endOfLine": "auto"
       }
+    ],
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "js": "off",
+        "jsx": "off",
+        "mjs": "off"
+      }
     ]
   },
   "overrides": [

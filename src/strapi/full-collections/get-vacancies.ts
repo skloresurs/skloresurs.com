@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs';
 import type IVacancy from '@/types/Vacancy';
 import axios from '@/utils/axios-cms';
 
@@ -22,7 +23,7 @@ export default async function getVacancies(
       id: e.id,
       title: e.attributes.title,
       description: e.attributes.description,
-      image: process.env.CMS_URL + e.attributes.image.data.attributes.url,
+      image: env.CMS_URL + e.attributes.image.data.attributes.url,
     }));
   } catch (error) {
     return null;

@@ -9,7 +9,10 @@ import AOSInit from '@/components/AOS';
 import Footer from '@/components/Footer';
 import { GAnalytics } from '@/components/GAnalytics';
 import NavBar from '@/components/Navbar';
+import { env } from '@/env.mjs';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
+
+const { NEXT_PUBLIC_BASE_URL } = env;
 
 const raleway = Raleway({
   subsets: ['cyrillic-ext', 'latin-ext'],
@@ -37,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_BASE_URL}/card.png`,
+          url: `${NEXT_PUBLIC_BASE_URL}/card.png`,
           width: 1200,
           height: 650,
         },
@@ -49,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary',
-      images: `${process.env.NEXT_PUBLIC_BASE_URL}/card.png`,
+      images: `${NEXT_PUBLIC_BASE_URL}/card.png`,
       creator: '@higherrorua',
       creatorId: '1045759364584353792',
     },
@@ -83,7 +86,7 @@ export default async function RootLayout({
     name: 'Склоресурс',
     alternateName: 'Skloresurs',
     url: 'https://skloresurs.com/',
-    logo: `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`,
+    logo: `${NEXT_PUBLIC_BASE_URL}/logo.png`,
     sameAs: [
       'https://www.facebook.com/skloresurs',
       'https://www.instagram.com/skloresurs/',
@@ -99,10 +102,7 @@ export default async function RootLayout({
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-        <meta
-          name="og:image"
-          content={`${process.env.NEXT_PUBLIC_BASE_URL}/card.png`}
-        />
+        <meta name="og:image" content={`${NEXT_PUBLIC_BASE_URL}/card.png`} />
       </head>
       <AOSInit />
       <body

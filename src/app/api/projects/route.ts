@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
+import { env } from '@/env.mjs';
 import axios from '@/utils/axios-cms';
 
 export async function GET(request: NextRequest) {
@@ -50,7 +51,7 @@ export async function GET(request: NextRequest) {
             glass: e.attributes.glass,
             year: e.attributes.year,
             images: e.attributes.images.data.map(
-              (ee: any) => process.env.CMS_URL + ee.attributes.url,
+              (ee: any) => env.CMS_URL + ee.attributes.url,
             ),
           };
         }),

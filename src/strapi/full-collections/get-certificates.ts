@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs';
 import type ICertificate from '@/types/Certificate';
 import axios from '@/utils/axios-cms';
 
@@ -16,7 +17,7 @@ export default async function getCertificates(): Promise<
       },
     });
     return data.data.attributes.certificates.data.map((e: any) => ({
-      original: process.env.CMS_URL + e.attributes.url,
+      original: env.CMS_URL + e.attributes.url,
     }));
   } catch (error) {
     return null;

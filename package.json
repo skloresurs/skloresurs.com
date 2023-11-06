@@ -20,6 +20,7 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slider": "^1.1.2",
     "@radix-ui/react-slot": "^1.0.2",
+    "@t3-oss/env-nextjs": "^0.7.1",
     "aos": "^2.3.4",
     "axios": "^1.6.0",
     "axios-cache-interceptor": "^1.3.1",
@@ -44,7 +45,8 @@
     "sharp": "^0.32.6",
     "tailwind-merge": "^2.0.0",
     "tailwind-scrollbar": "^3.0.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/aos": "^3.0.6",

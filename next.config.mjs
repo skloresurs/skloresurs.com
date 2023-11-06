@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
+import './src/env.mjs';
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
   images: {
@@ -11,14 +12,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'images.prom.ua',
-      },
-      {
-        protocol: 'https',
         hostname: 'placehold.co',
       },
     ],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

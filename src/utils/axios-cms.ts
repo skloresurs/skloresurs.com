@@ -2,6 +2,8 @@ import type { AxiosInstance } from 'axios';
 import Axios from 'axios';
 import { setupCache } from 'axios-cache-interceptor';
 
+import { env } from '@/env.mjs';
+
 /**
  * Creates an Axios instance for CMS access.
  *
@@ -11,9 +13,9 @@ const createCmsAxiosInstance = (): AxiosInstance => {
   // Configure the base URL and headers for CMS access
   // Return the configured instance
   return Axios.create({
-    baseURL: process.env.CMS_URL,
+    baseURL: env.CMS_URL,
     headers: {
-      Authorization: `Bearer ${process.env.CMS_API_KEY}`,
+      Authorization: `Bearer ${env.CMS_API_KEY}`,
       'Cache-Control': 'no-cache',
     },
   });

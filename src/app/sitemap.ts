@@ -1,7 +1,9 @@
 import type { MetadataRoute } from 'next';
 
+import { env } from '@/env.mjs';
+
 // Define the base URL
-const { NEXT_PUBLIC_BASE_URL } = process.env;
+const { NEXT_PUBLIC_BASE_URL } = env;
 
 // Define the list of pages
 const pages = [

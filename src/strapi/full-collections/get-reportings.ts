@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs';
 import type IReporting from '@/types/Reporting';
 import axios from '@/utils/axios-cms';
 
@@ -16,8 +17,8 @@ export default async function getReportings(): Promise<IReporting[] | null> {
     });
     return data.data.map((e: any) => ({
       year: e.attributes.year,
-      finance: process.env.CMS_URL + e.attributes.finance.data.attributes.url,
-      auditory: process.env.CMS_URL + e.attributes.auditory.data.attributes.url,
+      finance: env.CMS_URL + e.attributes.finance.data.attributes.url,
+      auditory: env.CMS_URL + e.attributes.auditory.data.attributes.url,
     }));
   } catch (error) {
     return null;

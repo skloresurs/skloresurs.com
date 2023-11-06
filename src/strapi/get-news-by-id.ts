@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs';
 import type IPost from '@/types/Post';
 import axios from '@/utils/axios-cms';
 
@@ -37,8 +38,7 @@ export default async function getPostById(
         title: e.attributes.title,
         color: e.attributes.color,
       })),
-      image:
-        process.env.CMS_URL + data.data.attributes.image.data.attributes.url,
+      image: env.CMS_URL + data.data.attributes.image.data.attributes.url,
     };
   } catch (error) {
     return null;

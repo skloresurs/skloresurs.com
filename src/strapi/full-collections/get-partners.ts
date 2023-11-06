@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs';
 import type IPartner from '@/types/Partner';
 import axios from '@/utils/axios-cms';
 
@@ -17,7 +18,7 @@ export default async function getPartners(): Promise<IPartner[] | null> {
     return data.data.attributes.logos.map((e: any) => ({
       id: e.id,
       title: e.title,
-      url: process.env.CMS_URL + e.logo.data.attributes.url,
+      url: env.CMS_URL + e.logo.data.attributes.url,
       width: e.logo.data.attributes.width,
       height: e.logo.data.attributes.height,
     }));

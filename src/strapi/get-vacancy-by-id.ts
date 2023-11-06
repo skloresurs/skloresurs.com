@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs';
 import type IVacancy from '@/types/Vacancy';
 import axios from '@/utils/axios-cms';
 
@@ -25,10 +26,9 @@ export default async function getVacancyById(
       title: data.data.attributes.title,
       description: data.data.attributes.description,
       content: data.data.attributes.content,
-      image:
-        process.env.CMS_URL + data.data.attributes.image.data.attributes.url,
+      image: env.CMS_URL + data.data.attributes.image.data.attributes.url,
       video: data.data.attributes.video.data
-        ? process.env.CMS_URL + data.data.attributes.video.data.attributes.url
+        ? env.CMS_URL + data.data.attributes.video.data.attributes.url
         : null,
     };
   } catch (error) {

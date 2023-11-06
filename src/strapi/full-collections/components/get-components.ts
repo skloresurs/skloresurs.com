@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs';
 import type IComponent from '@/types/Component';
 import axios from '@/utils/axios-cms';
 
@@ -30,7 +31,7 @@ export default async function getComponents(
         id: e.attributes.category.data.id,
         title: e.attributes.category.data.attributes.title,
       },
-      image: process.env.CMS_URL + e.attributes.image.data.attributes.url,
+      image: env.CMS_URL + e.attributes.image.data.attributes.url,
     }));
   } catch (error) {
     return null;
