@@ -76,7 +76,9 @@ export async function POST(request: NextRequest) {
     await doc.loadInfo();
     const sheet = doc.sheetsByTitle['Відгуки'];
     await sheet?.addRow({
-      Дата: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
+      Дата: `${moment(new Date())
+        .tz('Europe/Kiev')
+        .format('DD.MM.YYYY HH:mm')}`,
       'E-mail': email,
       "Ім'я": username,
       'Номер телефону': `'${phone?.toString() ?? missingOptionalParams}`,
