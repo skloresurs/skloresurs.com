@@ -1,5 +1,6 @@
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
+import moment from 'moment';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
@@ -15,9 +16,9 @@ const {
   GOOGLE_SERVICE_ACCOUNT_EMAIL,
   GOOGLE_PRIVATE_KEY,
   TELEGRAM_BOT_TOKEN,
+  TELEGRAM_CHAT_ID,
 } = process.env;
-const TELEGRAM_API_ROUTE = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-const TELEGRAM_USERS = process.env.TELEGRAM_USERS?.split(',') ?? [];
+const TELEGRAM_API_ROUTE = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 
 const missingOptionalParams = 'Не вказано';
 
@@ -83,28 +84,19 @@ export async function POST(request: NextRequest) {
       Повідомлення: message.replace('=', '≈'),
     });
 
-    for (const user of TELEGRAM_USERS ?? []) {
-      axios
-        .post(TELEGRAM_API_ROUTE, {
-          chat_id: user,
-          text: GenerateTelegramMessage(username, email, phone, message),
-          reply_markup: {
-            inline_keyboard: [
-              [
-                {
-                  text: 'Переглянути всі відгуки',
-                  url: `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit`,
-                },
-              ],
-            ],
-          },
-        })
-        .catch(() => {
-          return NextResponse.json(null, {
-            status: 400,
-          });
-        });
-    }
+    const { data: createTopicResponse } = await axios.post(
+      `${TELEGRAM_API_ROUTE}/createForumTopic`,
+      {
+        chat_id: TELEGRAM_CHAT_ID,
+        name: `${username} ${moment(new Date()).format('DD.MM.YYYY HH:mm')}`,
+      },
+    );
+
+    await axios.post(`${TELEGRAM_API_ROUTE}/sendMessage`, {
+      chat_id: TELEGRAM_CHAT_ID,
+      message_thread_id: createTopicResponse.result.message_thread_id,
+      text: GenerateTelegramMessage(username, email, phone, message),
+    });
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
