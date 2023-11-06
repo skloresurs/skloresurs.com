@@ -1,6 +1,13 @@
 import type IPost from '@/types/Post';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves a post by ID.
+ *
+ * @param locale - The locale of the post.
+ * @param id - The ID of the post.
+ * @return A promise that resolves to the post if found, or null if not found.
+ */
 export default async function getPostById(
   locale: string,
   id: number,

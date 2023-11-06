@@ -1,6 +1,11 @@
 import type IPartner from '@/types/Partner';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves the list of partners.
+ *
+ * @return The list of partners or null if there was an error.
+ */
 export default async function getPartners(): Promise<IPartner[] | null> {
   try {
     const { data } = await axios.get('/api/partner', {

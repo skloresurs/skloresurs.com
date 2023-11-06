@@ -1,6 +1,12 @@
 import type { IGlassCategory } from '@/types/Projects';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves the list of categories.
+ *
+ * @param locale - The locale of the categories.
+ * @return The categories retrieved from the server, or null if an error occurred.
+ */
 export default async function getCategories(
   locale: string,
 ): Promise<IGlassCategory[] | null> {

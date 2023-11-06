@@ -1,6 +1,11 @@
 import type ICertificate from '@/types/Certificate';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves the certificates.
+ *
+ * @returns The retrieved certificates or null if an error occurred.
+ */
 export default async function getCertificates(): Promise<
   ICertificate[] | null
 > {

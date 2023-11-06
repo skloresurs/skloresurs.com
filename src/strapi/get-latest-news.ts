@@ -1,6 +1,12 @@
 import type IPost from '@/types/Post';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves the last 3 news posts.
+ *
+ * @param locale - The locale of the posts.
+ * @return A promise that resolves to an array of the last 3 news posts, or null if an error occurs.
+ */
 export default async function getLatestNews(
   locale: string,
 ): Promise<IPost[] | null> {

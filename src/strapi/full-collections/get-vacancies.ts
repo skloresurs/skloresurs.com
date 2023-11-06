@@ -1,6 +1,12 @@
 import type IVacancy from '@/types/Vacancy';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves a list of vacancies.
+ *
+ * @param locale - The locale of vacancies.
+ * @return A promise that resolves to an array of vacancies or null if there was an error.
+ */
 export default async function getVacancies(
   locale: string,
 ): Promise<IVacancy[] | null> {

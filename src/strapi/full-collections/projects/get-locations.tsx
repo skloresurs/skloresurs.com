@@ -1,6 +1,12 @@
 import type { ILocation } from '@/types/Projects';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves the list of locations.
+ *
+ * @param locale - The locale of the locations.
+ * @return A promise that resolves to an array of locations or null if an error occurs.
+ */
 export default async function getLocations(
   locale: string,
 ): Promise<ILocation[] | null> {

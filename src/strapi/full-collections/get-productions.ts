@@ -1,6 +1,12 @@
 import type IProduction from '@/types/Production';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves a list of productions.
+ *
+ * @param locale - The locale of productions.
+ * @return A promise that resolves to an array of productions or null if an error occurs.
+ */
 export default async function getProductions(
   locale: string,
 ): Promise<IProduction[] | null> {

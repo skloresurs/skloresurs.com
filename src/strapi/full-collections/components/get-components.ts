@@ -1,6 +1,12 @@
 import type IComponent from '@/types/Component';
 import axios from '@/utils/axios-cms';
 
+/**
+ * Retrieves a list of components.
+ *
+ * @param locale - The locale of the components.
+ * @return A promise that resolves to an array of components or null if an error occurs.
+ */
 export default async function getComponents(
   locale: string,
 ): Promise<IComponent[] | null> {

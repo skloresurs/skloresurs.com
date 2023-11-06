@@ -18,24 +18,24 @@ export default {
       posts: 'Articles',
       home: 'Home',
       components: {
-        title: 'Components',
-        description: 'Selecting the perfect components for your project',
+        title: 'Glass Processing Components',
+        description: 'Selection of glass processing components',
       },
       delivery: {
         title: 'Delivery',
-        description: 'Information about fast and secure delivery',
+        description: 'Delivery Information',
       },
       news: {
         title: 'News',
-        description: 'Articles and news in one place',
+        description: 'Articles and News',
       },
       projects: {
         title: 'Projects',
-        description: 'Gallery of successful projects',
+        description: 'Gallery of Completed Projects',
       },
       reportings: {
         title: 'Reports',
-        description: 'Detailed analyses and reports',
+        description: 'Analysis and Reports',
       },
       seminars: {
         title: 'Seminars',
@@ -47,12 +47,12 @@ export default {
       },
       production: {
         title: 'Production',
-        description: 'Video about the production process',
+        description: 'Production Videos',
       },
       catalog: {
         title: 'Catalog',
         description:
-          'Explore our glass catalog and find the perfect solutions for your project.',
+          'Open our product catalog and find the perfect solutions for your project',
       },
       'contact-us': {
         title: 'Contact Us',
@@ -95,9 +95,9 @@ export default {
     },
     target: {
       location: 'Two production sites',
-      area: 'Total production area 17,600m²',
+      area: 'Total production area 17,600 m²',
       employees: 'More than 300 employees',
-      products: 'Over 50,000m² of products per month',
+      products: 'Over 50,000 m² of products per month',
       types: 'Over 60 types of glass in stock',
       projects: 'More than 200 projects annually',
     },
