@@ -35,13 +35,21 @@ export async function generateMetadata(): Promise<Metadata> {
       languages: { uk: '/', en: '/en' },
     },
     openGraph: {
-      images: '/logo.png',
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_BASE_URL}/card.png`,
+          width: 1200,
+          height: 650,
+        },
+      ],
       locale,
+      alternateLocale: ['uk', 'en'].filter((e) => e !== locale),
       type: 'website',
       siteName: t('meta.logo'),
     },
     twitter: {
       card: 'summary',
+      images: `${process.env.NEXT_PUBLIC_BASE_URL}/card.png`,
       creator: '@higherrorua',
       creatorId: '1045759364584353792',
     },
@@ -75,7 +83,7 @@ export default async function RootLayout({
     name: 'Склоресурс',
     alternateName: 'Skloresurs',
     url: 'https://skloresurs.com/',
-    logo: '',
+    logo: `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`,
     sameAs: [
       'https://www.facebook.com/skloresurs',
       'https://www.instagram.com/skloresurs/',
@@ -90,6 +98,10 @@ export default async function RootLayout({
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <meta
+          name="og:image"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/card.png`}
         />
       </head>
       <AOSInit />

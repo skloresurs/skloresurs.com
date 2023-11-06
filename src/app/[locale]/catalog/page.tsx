@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: '/catalog',
     },
     openGraph: {
-      title: t('catalog.title'),
+      title: `${t('catalog.title')} | ${t('meta.logo')}`,
       description: t('catalog.description'),
       url: 'https://skloresurs.com/catalog',
     },
