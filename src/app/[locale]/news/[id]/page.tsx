@@ -27,6 +27,7 @@ export async function generateMetadata({
       title: post?.title,
       description: post?.description,
       url: `https://skloresurs.com/news/${params.id}`,
+      type: 'article',
     },
   };
 }

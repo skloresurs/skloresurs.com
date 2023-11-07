@@ -3,7 +3,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import { useReCaptcha } from 'next-recaptcha-v3';
-import { type FormEvent, useState } from 'react';
+import { type FormEvent, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import {
@@ -21,14 +21,15 @@ import { MdiEmailNewsletter, MdiPhone, MdiSend } from '../icons/mdi';
 interface FormSchema {
   username: string;
   email: string;
-  phone: string | null;
+  phone: string;
   message: string;
-  additional: string | null;
+  additional: string;
 }
 
 type AlertData = 'successfully' | 'error' | 'captcha';
 
 export default function ContactUsForm() {
+  const missingRef = useRef<HTMLInputElement>(null);
   const t = useI18n();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -37,15 +38,20 @@ export default function ContactUsForm() {
   const [formData, setFormData] = useState<FormSchema>({
     username: '',
     email: '',
-    phone: null,
+    phone: '',
     message: '',
-    additional: null,
+    additional: '',
   });
 
   const [alertData, setAlertData] = useState<AlertData>('successfully');
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
+    if (missingRef.current?.value) {
+      setAlertData('error');
+      setIsOpen(true);
+      return;
+    }
 
     setIsLoading(true);
     const token = await executeRecaptcha('form_submit').catch((_) => null);
@@ -104,6 +110,7 @@ export default function ContactUsForm() {
           required
           data-aos="fade-right"
           data-aos-delay="100"
+          value={formData.username}
           onChange={(e) => {
             setFormData({ ...formData, username: e.target.value });
           }}
@@ -117,6 +124,7 @@ export default function ContactUsForm() {
           required
           data-aos="fade-right"
           data-aos-delay="100"
+          value={formData.email}
           onChange={(e) => {
             setFormData({ ...formData, email: e.target.value });
           }}
@@ -129,6 +137,7 @@ export default function ContactUsForm() {
           placeholder={t('home.contact-us.form.phone.placeholder')}
           data-aos="fade-right"
           data-aos-delay="100"
+          value={formData.phone}
           onChange={(e) => {
             setFormData({ ...formData, phone: e.target.value });
           }}
@@ -140,6 +149,7 @@ export default function ContactUsForm() {
           placeholder={t('home.contact-us.form.message.placeholder')}
           data-aos="fade-right"
           data-aos-delay="100"
+          value={formData.message}
           onChange={(e) => {
             setFormData({ ...formData, message: e.target.value });
           }}
@@ -151,9 +161,18 @@ export default function ContactUsForm() {
           placeholder={t('home.contact-us.form.additional.placeholder')}
           data-aos="fade-right"
           data-aos-delay="100"
+          value={formData.additional}
           onChange={(e) => {
             setFormData({ ...formData, additional: e.target.value });
           }}
+        />
+        <input
+          ref={missingRef}
+          name="missing"
+          id="missing"
+          className="hidden rounded-md border-[1px] border-border bg-[transparent] px-4 py-2"
+          data-aos="fade-right"
+          data-aos-delay="100"
         />
         <Button
           className="flex flex-row items-center gap-1"

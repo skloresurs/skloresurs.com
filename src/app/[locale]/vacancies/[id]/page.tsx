@@ -26,6 +26,7 @@ export async function generateMetadata({
       title: vacancy?.title,
       description: vacancy?.description,
       url: `https://skloresurs.com/vacancies/${vacancy?.id}`,
+      type: 'article',
     },
   };
 }
