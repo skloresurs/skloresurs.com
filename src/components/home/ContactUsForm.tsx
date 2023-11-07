@@ -167,10 +167,12 @@ export default function ContactUsForm() {
           }}
         />
         <input
+          tabIndex={-1}
+          autoComplete="new-password"
           ref={missingRef}
-          name="missing"
-          id="missing"
-          className="hidden rounded-md border-[1px] border-border bg-[transparent] px-4 py-2"
+          name="password"
+          id="password"
+          className="absolute left-[9999px]"
           data-aos="fade-right"
           data-aos-delay="100"
         />
