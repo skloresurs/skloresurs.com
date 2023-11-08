@@ -6,8 +6,8 @@ import ContactUs from '@/components/home/ContactUs';
 import Hero from '@/components/home/Hero';
 import News from '@/components/home/News';
 import PartnersServer from '@/components/home/PartnersServer';
-import ProductionServer from '@/components/home/ProductionServer';
 import Projects from '@/components/home/Projects';
+import QualityBook from '@/components/home/QualityBook';
 import Target from '@/components/home/Target';
 import { getI18n } from '@/utils/i18n-server';
 
@@ -29,7 +29,7 @@ export default async function Home() {
       <Hero />
       <Target />
       <Certificates />
-      <ProductionServer />
+      <QualityBook />
       <News />
       <Projects />
       <PartnersServer />

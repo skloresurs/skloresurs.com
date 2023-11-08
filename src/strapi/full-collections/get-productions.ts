@@ -1,3 +1,4 @@
+import { env } from '@/env.mjs';
 import type IProduction from '@/types/Production';
 import axios from '@/utils/axios-cms';
 
@@ -22,7 +23,8 @@ export default async function getProductions(
         ({
           title: e.attributes.title,
           description: e.attributes.description,
-          original: e.attributes.video_link,
+          video: env.CMS_URL + e.attributes.video.data.attributes.url,
+          order: e.attributes.order,
         }) as IProduction,
     );
   } catch (error) {

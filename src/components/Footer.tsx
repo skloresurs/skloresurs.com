@@ -1,15 +1,23 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import LogosFacebook from '@/components/icons/LogosFacebook';
 import SkillIconsInstagram from '@/components/icons/SkillIconsInstagram';
 import { buttonVariants } from '@/components/ui/button';
-import { getI18n } from '@/utils/i18n-server';
+import { useI18n } from '@/utils/i18n-client';
 
-export default async function Footer() {
-  const t = await getI18n();
+export default function Footer() {
+  const pathname = usePathname();
+  const t = useI18n();
+  if (pathname.includes('/productions')) {
+    return null;
+  }
+
   return (
     <div
       id="footer"

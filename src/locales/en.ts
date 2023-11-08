@@ -105,8 +105,11 @@ export default {
       title:
         'The quality of our products has been verified by the German institute IFT Rosenheim',
     },
-    productions: {
-      title: 'Production',
+    quality: {
+      title: 'Quality Guide',
+      description:
+        'The Guide defines the tolerances and deviations of the main parameters of our products. The Guide is based on the standards specified here, as well as the capabilities of modern equipment.',
+      button: 'View',
     },
     news: {
       title: 'News',

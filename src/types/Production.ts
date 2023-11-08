@@ -15,5 +15,9 @@ export default interface IProduction {
   /**
    * The original source of the production.
    */
-  original: string;
+  video: string;
+  /**
+   * The order of the production.
+   */
+  order: number;
 }

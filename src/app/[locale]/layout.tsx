@@ -8,6 +8,7 @@ import React from 'react';
 import AOSInit from '@/components/AOS';
 import Footer from '@/components/Footer';
 import { GAnalytics } from '@/components/GAnalytics';
+import I18nProvider from '@/components/I18nProvider';
 import NavBar from '@/components/Navbar';
 import { env } from '@/env.mjs';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
@@ -111,7 +112,9 @@ export default async function RootLayout({
         <GAnalytics />
         <NavBar />
         <div className="flex-1">{children}</div>
-        <Footer />
+        <I18nProvider>
+          <Footer />
+        </I18nProvider>
       </body>
     </html>
   );
