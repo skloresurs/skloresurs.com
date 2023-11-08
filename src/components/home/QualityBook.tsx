@@ -3,13 +3,15 @@ import Link from 'next/link';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { getI18n } from '@/utils/i18n-server';
+import getBookQuality from '@/strapi/get-book-of-quality';
+import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 import { MdiChevronRight } from '../icons/mdi';
 import { buttonVariants } from '../ui/button';
 
 export default async function QualityBook() {
   const t = await getI18n();
+  const url = await getBookQuality(getCurrentLocale());
   return (
     <div id="quality-book" className="mt-6 bg-background-alternative">
       <div className="relative mx-auto flex max-w-6xl flex-col gap-6 p-6 md:flex-row">
@@ -36,7 +38,7 @@ export default async function QualityBook() {
             {t('home.quality.description')}
           </p>
           <Link
-            href="/https://drive.google.com/file/d/1vVekRWUyhJkb9wlAj7WfZ-MAGZTeE5Dg/view"
+            href={url ?? '#'}
             target="_blank"
             title={t('home.quality.button')}
             data-aos="fade-right"
