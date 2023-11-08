@@ -63,7 +63,7 @@ const servicesMenu: IMenuItem[] = [
   },
   {
     id: 'production',
-    href: '/#production',
+    href: '/productions',
   },
 ];
 
