@@ -24,7 +24,7 @@ export default function Footer() {
       className="mx-auto mt-12 flex w-full max-w-6xl flex-col gap-2 px-6 text-muted-foreground"
     >
       <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
-        <div className="flex flex-row items-center gap-4">
+        <div className="flex flex-col items-center gap-4 md:flex-row">
           <Image
             src="/logo.png"
             width={150}

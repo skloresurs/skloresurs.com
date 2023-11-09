@@ -172,7 +172,7 @@ export default function ContactUsForm() {
           ref={missingRef}
           name="password"
           id="password"
-          className="absolute left-[9999px]"
+          className="absolute right-[9999px]"
           data-aos="fade-right"
           data-aos-delay="100"
         />
