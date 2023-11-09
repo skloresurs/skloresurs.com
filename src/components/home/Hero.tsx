@@ -3,6 +3,8 @@ import React from 'react';
 
 import { getI18n } from '@/utils/i18n-server';
 
+import CloudAnimation from './CloudAnimation';
+
 export default async function Hero() {
   const t = await getI18n();
   return (
@@ -48,14 +50,13 @@ export default async function Hero() {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="absolute inset-x-0 -z-50"
         />
-        <Image
+        <CloudAnimation
           src="/hero-cloud.png"
           alt="Hero cloud"
-          title="Hero cloud"
           width={660}
           height={500}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="absolute -left-24 top-8 -z-40 hidden md:block"
+          className="absolute -left-24 top-8 -z-40"
         />
         <div className="flex h-full flex-col p-6 md:py-20">
           <div className="flex-1" />
