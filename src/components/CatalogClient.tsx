@@ -31,7 +31,12 @@ export default function CatalogClient() {
   return (
     <Accordion type="single" collapsible>
       {products.map((e) => (
-        <AccordionItem value={e.id.toString()} key={e.id} data-aos="fade-right">
+        <AccordionItem
+          value={e.id.toString()}
+          key={e.id}
+          data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
+        >
           <AccordionTrigger className="p-0 text-left">
             {e.title}
           </AccordionTrigger>

@@ -9,13 +9,13 @@ import { useEffect, useState } from 'react';
 import MdiArrowTopRightThick from '@/components/icons/mdi/MdiArrowTopRightThick';
 import { Badge } from '@/components/ui/badge';
 import CustomPagination from '@/components/ui/pagination';
-import type IPost from '@/types/Post';
+import type IPostExtended from '@/types/Post';
 import { useCurrentLocale } from '@/utils/i18n-client';
 import getPostTagColor from '@/utils/post-tag-colors';
 
 import { MdiEye, MdiVideo } from './icons/mdi';
 
-function Post({ data }: { data: IPost }) {
+function Post({ data }: { data: IPostExtended }) {
   return (
     <Link
       title={data.title}
@@ -23,6 +23,7 @@ function Post({ data }: { data: IPost }) {
       target={data.category === 'video' ? '_blank' : '_self'}
       className="group flex flex-col"
       data-aos="fade-down"
+      data-aos-anchor-placement="top-bottom"
     >
       <div className="relative mb-6 aspect-square w-full overflow-hidden sm:mb-8">
         <Image
@@ -43,6 +44,7 @@ function Post({ data }: { data: IPost }) {
         <h2
           className="flex-1 text-lg font-medium sm:text-xl lg:text-2xl"
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay="100"
         >
           {data.title}
@@ -52,6 +54,7 @@ function Post({ data }: { data: IPost }) {
       <p
         className="line-clamp-2 text-muted-foreground"
         data-aos="fade-right"
+        data-aos-anchor-placement="top-bottom"
         data-aos-delay="200"
       >
         {data.description}
@@ -76,7 +79,7 @@ function Post({ data }: { data: IPost }) {
 export default function NewsClient() {
   const locale = useCurrentLocale();
   const query = useSearchParams();
-  const [news, setNews] = useState<IPost[]>([]);
+  const [news, setNews] = useState<IPostExtended[]>([]);
   const [total, setTotal] = useState<number>(0);
 
   useEffect(() => {

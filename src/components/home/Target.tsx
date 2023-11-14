@@ -16,6 +16,7 @@ async function TargetItem({ icon, index, id }: ITargetItem) {
     <div
       className="flex flex-col gap-4 px-6"
       data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
       data-aos-delay={index * 50}
     >
       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary p-1 text-black">

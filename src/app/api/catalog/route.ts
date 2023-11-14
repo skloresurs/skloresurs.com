@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
             category: e.attributes.category,
             content: e.attributes.content,
           }) as IProduct,
-      ),
+      ) as IProduct[],
       { status: 200 },
     );
   } catch (error) {

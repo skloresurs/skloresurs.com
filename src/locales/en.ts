@@ -235,4 +235,7 @@ export default {
     exterior: 'Exterior',
     interior: 'Interior',
   },
+  production: {
+    'return-from-alt': 'Back',
+  },
 } as const;

@@ -38,6 +38,7 @@ async function Vacancy({ data }: { data: IVacancy }) {
     <Card
       className="flex break-inside-avoid-column flex-col"
       data-aos="fade-down"
+      data-aos-anchor-placement="top-bottom"
     >
       <CardHeader className="pb-2">
         <div className="relative h-16 w-16">

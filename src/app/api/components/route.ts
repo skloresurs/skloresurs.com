@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { env } from '@/env.mjs';
+import type IComponent from '@/types/Component';
 import axios from '@/utils/axios-cms';
 
 export async function GET(request: NextRequest) {
@@ -28,17 +29,20 @@ export async function GET(request: NextRequest) {
     }
     return NextResponse.json(
       {
-        components: data.data.map((e: any) => ({
-          id: e.id,
-          title: e.attributes.title,
-          description: e.attributes.description,
-          href: e.attributes.link,
-          category: {
-            id: e.attributes.category.data.id,
-            title: e.attributes.category.data.attributes.title,
-          },
-          image: env.CMS_URL + e.attributes.image.data.attributes.url,
-        })),
+        components: data.data.map(
+          (e: any) =>
+            ({
+              id: e.id,
+              title: e.attributes.title,
+              description: e.attributes.description,
+              href: e.attributes.link,
+              category: {
+                id: e.attributes.category.data.id,
+                title: e.attributes.category.data.attributes.title,
+              },
+              image: env.CMS_URL + e.attributes.image.data.attributes.url,
+            }) as IComponent,
+        ) as IComponent[],
         total: data.meta.pagination.total,
       },
       { status: 200 },

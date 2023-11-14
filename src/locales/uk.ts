@@ -234,4 +234,7 @@ export default {
     exterior: "Екстер'єр",
     interior: "Інтер'єр",
   },
+  production: {
+    'return-from-alt': 'Повернутися назад',
+  },
 } as const;

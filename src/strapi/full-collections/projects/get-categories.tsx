@@ -14,14 +14,16 @@ export default async function getCategories(
     const { data } = await axios.get('/api/project-glass-types', {
       params: {
         locale,
-        'pagination[pageSize]': 100,
         'sort[0]': 'title:asc',
       },
     });
-    return data.data.map((e: any) => ({
-      id: e.id,
-      title: e.attributes.title,
-    }));
+    return data.data.map(
+      (e: any) =>
+        ({
+          id: e.id,
+          title: e.attributes.title,
+        }) as IGlassCategory,
+    ) as IGlassCategory[];
   } catch (error) {
     return null;
   }

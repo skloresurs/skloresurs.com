@@ -20,4 +20,9 @@ export default interface IProduction {
    * The order of the production.
    */
   order: number;
+  alt: {
+    title: string;
+    description: string;
+    video: string;
+  };
 }

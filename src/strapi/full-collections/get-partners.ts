@@ -15,13 +15,16 @@ export default async function getPartners(): Promise<IPartner[] | null> {
         'populate[logos][populate][0]': 'logo',
       },
     });
-    return data.data.attributes.logos.map((e: any) => ({
-      id: e.id,
-      title: e.title,
-      url: env.CMS_URL + e.logo.data.attributes.url,
-      width: e.logo.data.attributes.width,
-      height: e.logo.data.attributes.height,
-    }));
+    return data.data.attributes.logos.map(
+      (e: any) =>
+        ({
+          id: e.id,
+          title: e.title,
+          url: env.CMS_URL + e.logo.data.attributes.url,
+          width: e.logo.data.attributes.width,
+          height: e.logo.data.attributes.height,
+        }) as IPartner,
+    ) as IPartner[];
   } catch (error) {
     return null;
   }

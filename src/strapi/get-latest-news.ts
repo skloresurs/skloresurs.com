@@ -1,4 +1,4 @@
-import type IPost from '@/types/Post';
+import { type IPost } from '@/types/Post';
 import axios from '@/utils/axios-cms';
 
 /**
@@ -19,12 +19,14 @@ export default async function getLatestNews(
         'pagination[pageSize]': 3,
       },
     });
-    return data.data.map((e: any) => ({
-      id: e.id,
-      title: e.attributes.title,
-      description: e.attributes.description,
-      href: `news/${e.id}`,
-    }));
+    return data.data.map(
+      (e: any) =>
+        ({
+          id: e.id,
+          title: e.attributes.title,
+          description: e.attributes.description,
+        }) as IPost,
+    ) as IPost[];
   } catch (error) {
     return null;
   }

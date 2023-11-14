@@ -1,5 +1,5 @@
 import { env } from '@/env.mjs';
-import type IPost from '@/types/Post';
+import type IPostExtended from '@/types/Post';
 import axios from '@/utils/axios-cms';
 
 /**
@@ -12,12 +12,11 @@ import axios from '@/utils/axios-cms';
 export default async function getPostById(
   locale: string,
   id: number,
-): Promise<IPost | null> {
+): Promise<IPostExtended | null> {
   try {
     const { data } = await axios.get(`/api/posts/${id}`, {
       params: {
-        'populate[0]': 'image',
-        'populate[1]': 'tags',
+        populate: '*',
       },
     });
     if (data.data.attributes.locale !== locale) {
@@ -39,7 +38,7 @@ export default async function getPostById(
         color: e.attributes.color,
       })),
       image: env.CMS_URL + data.data.attributes.image.data.attributes.url,
-    };
+    } as IPostExtended;
   } catch (error) {
     return null;
   }

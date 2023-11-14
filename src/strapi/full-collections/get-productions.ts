@@ -16,8 +16,12 @@ export default async function getProductions(
       params: {
         locale,
         'populate[0]': 'video',
+        'populate[1]': 'production_alt',
+        'populate[2]': 'production_alt.video',
+        'filters[order][$gte]': 0,
       },
     });
+
     return data.data.map(
       (e: any) =>
         ({
@@ -25,8 +29,19 @@ export default async function getProductions(
           description: e.attributes.description,
           video: env.CMS_URL + e.attributes.video.data.attributes.url,
           order: e.attributes.order,
+          alt: e.attributes.production_alt?.data?.attributes
+            ? {
+                title: e.attributes.production_alt.data.attributes.title,
+                description:
+                  e.attributes.production_alt.data.attributes.description,
+                video:
+                  env.CMS_URL +
+                  e.attributes.production_alt.data.attributes.video.data
+                    .attributes.url,
+              }
+            : null,
         }) as IProduction,
-    );
+    ) as IProduction[];
   } catch (error) {
     return null;
   }

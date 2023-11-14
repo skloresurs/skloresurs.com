@@ -17,8 +17,7 @@ export default async function getVacancyById(
     const { data } = await axios.get(`/api/vacancies/${id}`, {
       params: {
         locale,
-        'populate[0]': 'image',
-        'populate[1]': 'video',
+        populate: '*',
       },
     });
     return {
@@ -30,7 +29,7 @@ export default async function getVacancyById(
       video: data.data.attributes.video.data
         ? env.CMS_URL + data.data.attributes.video.data.attributes.url
         : null,
-    };
+    } as IVacancy;
   } catch (error) {
     return null;
   }

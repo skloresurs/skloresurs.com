@@ -17,10 +17,13 @@ export default async function getLocations(
         'pagination[pageSize]': 100,
       },
     });
-    return data.data.map((e: any) => ({
-      id: e.id,
-      title: e.attributes.title,
-    }));
+    return data.data.map(
+      (e: any) =>
+        ({
+          id: e.id,
+          title: e.attributes.title,
+        }) as ILocation,
+    ) as ILocation[];
   } catch (error) {
     return null;
   }

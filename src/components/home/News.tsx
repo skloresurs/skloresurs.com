@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 
 import { buttonVariants } from '@/components/ui/button';
 import getLatestNews from '@/strapi/get-latest-news';
-import type IPost from '@/types/Post';
+import { type IPost } from '@/types/Post';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 import { MdiChevronRight } from '../icons/mdi';
@@ -20,6 +20,7 @@ async function NewsItem({ news, index }: IPostItem) {
     <div
       className="flex flex-col gap-2"
       data-aos="fade-down"
+      data-aos-anchor-placement="top-bottom"
       data-aos-delay={150 + 100 * index}
     >
       <h3 className="text-lg font-semibold">{news.title}</h3>
@@ -46,7 +47,9 @@ export default async function News() {
   return (
     <div id="news" className="mx-auto mb-16 mt-20 w-full max-w-6xl px-6">
       <div className="flex flex-row items-center justify-between">
-        <h2 data-aos="fade-right">{t('home.news.title')}</h2>
+        <h2 data-aos="fade-right" data-aos-anchor-placement="top-bottom">
+          {t('home.news.title')}
+        </h2>
         <Link
           href="/news"
           title={t('home.news.button')}

@@ -109,6 +109,7 @@ export default function ContactUsForm() {
           placeholder={t('home.contact-us.form.username.placeholder')}
           required
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay="100"
           value={formData.username}
           onChange={(e) => {
@@ -123,6 +124,7 @@ export default function ContactUsForm() {
           placeholder={t('home.contact-us.form.email.placeholder')}
           required
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay="100"
           value={formData.email}
           onChange={(e) => {
@@ -136,6 +138,7 @@ export default function ContactUsForm() {
           className="rounded-md border-[1px] border-border bg-[transparent] px-4 py-2"
           placeholder={t('home.contact-us.form.phone.placeholder')}
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay="100"
           value={formData.phone}
           onChange={(e) => {
@@ -148,6 +151,7 @@ export default function ContactUsForm() {
           className="rounded-md border-[1px] border-border bg-[transparent] px-4 py-2"
           placeholder={t('home.contact-us.form.message.placeholder')}
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay="100"
           value={formData.message}
           onChange={(e) => {
@@ -160,6 +164,7 @@ export default function ContactUsForm() {
           className="rounded-md border-[1px] border-border bg-[transparent] px-4 py-2"
           placeholder={t('home.contact-us.form.additional.placeholder')}
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay="100"
           value={formData.additional}
           onChange={(e) => {
@@ -173,13 +178,12 @@ export default function ContactUsForm() {
           name="password"
           id="password"
           className="absolute right-[9999px]"
-          data-aos="fade-right"
-          data-aos-delay="100"
         />
         <Button
           className="flex flex-row items-center gap-1"
           type="submit"
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay="200"
           disabled={isLoading}
         >
@@ -193,6 +197,7 @@ export default function ContactUsForm() {
         <div
           className="flex flex-col justify-between gap-2 lg:flex-row"
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay="300"
         >
           <div className="flex flex-row items-center gap-1">

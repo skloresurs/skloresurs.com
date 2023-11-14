@@ -15,6 +15,7 @@ const pages = [
   '/seminars',
   '/vacancies',
   '/catalog',
+  '/productions',
 ];
 
 /**

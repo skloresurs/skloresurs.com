@@ -11,15 +11,17 @@ export default async function getReportings(): Promise<IReporting[] | null> {
   try {
     const { data } = await axios.get('/api/reportings', {
       params: {
-        'populate[0]': 'auditory',
-        'populate[1]': 'finance',
+        populate: '*',
       },
     });
-    return data.data.map((e: any) => ({
-      year: e.attributes.year,
-      finance: env.CMS_URL + e.attributes.finance.data.attributes.url,
-      auditory: env.CMS_URL + e.attributes.auditory.data.attributes.url,
-    }));
+    return data.data.map(
+      (e: any) =>
+        ({
+          year: e.attributes.year,
+          finance: env.CMS_URL + e.attributes.finance.data.attributes.url,
+          auditory: env.CMS_URL + e.attributes.auditory.data.attributes.url,
+        }) as IReporting,
+    ) as IReporting[];
   } catch (error) {
     return null;
   }

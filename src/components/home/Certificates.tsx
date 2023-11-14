@@ -14,6 +14,7 @@ export default async function Certificates() {
       id="certificates"
       className="relative mx-auto aspect-[2/1] max-w-6xl md:mb-20"
       data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
     >
       <Image
         src="/certificate-bg.png"
@@ -26,6 +27,7 @@ export default async function Certificates() {
         <h2
           className="leading-relaxed"
           data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
           data-aos-delay={100}
         >
           {t('home.certificates.title')}

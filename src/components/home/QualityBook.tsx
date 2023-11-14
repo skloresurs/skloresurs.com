@@ -27,12 +27,17 @@ export default async function QualityBook() {
           />
         </div>
         <div className="flex flex-col gap-4 pt-6 md:w-2/3 md:pb-20">
-          <h2 className="text-primary" data-aos="fade-right">
+          <h2
+            className="text-primary"
+            data-aos="fade-right"
+            data-aos-anchor-placement="top-bottom"
+          >
             {t('home.quality.title')}
           </h2>
           <p
             className="text-muted-foreground"
             data-aos="fade-right"
+            data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
           >
             {t('home.quality.description')}
@@ -42,6 +47,7 @@ export default async function QualityBook() {
             target="_blank"
             title={t('home.quality.button')}
             data-aos="fade-right"
+            data-aos-anchor-placement="top-bottom"
             data-aos-delay="200"
             className={twMerge(
               buttonVariants({ variant: 'default' }),

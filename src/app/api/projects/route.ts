@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { env } from '@/env.mjs';
+import type IProject from '@/types/Projects';
 import axios from '@/utils/axios-cms';
 
 export async function GET(request: NextRequest) {
@@ -20,8 +21,7 @@ export async function GET(request: NextRequest) {
         locale,
         'pagination[pageSize]': 9,
         'pagination[page]': page,
-        'populate[0]': 'location',
-        'populate[1]': 'images',
+        populate: '*',
         'sort[0]': 'year:desc',
         'sort[1]': 'title',
         'filters[location][id][$eq]': location,
@@ -53,8 +53,8 @@ export async function GET(request: NextRequest) {
             images: e.attributes.images.data.map(
               (ee: any) => env.CMS_URL + ee.attributes.url,
             ),
-          };
-        }),
+          } as IProject;
+        }) as IProject[],
         meta: {
           total: data.meta.pagination.total,
         },

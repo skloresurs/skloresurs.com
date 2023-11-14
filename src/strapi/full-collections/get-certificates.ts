@@ -13,12 +13,15 @@ export default async function getCertificates(): Promise<
   try {
     const { data } = await axios.get('/api/certificate', {
       params: {
-        'populate[0]': 'certificates',
+        populate: '*',
       },
     });
-    return data.data.attributes.certificates.data.map((e: any) => ({
-      original: env.CMS_URL + e.attributes.url,
-    }));
+    return data.data.attributes.certificates.data.map(
+      (e: any) =>
+        ({
+          original: env.CMS_URL + e.attributes.url,
+        }) as ICertificate,
+    ) as ICertificate[];
   } catch (error) {
     return null;
   }

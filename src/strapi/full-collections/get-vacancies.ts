@@ -15,16 +15,18 @@ export default async function getVacancies(
     const { data } = await axios.get('/api/vacancies', {
       params: {
         locale,
-        'populate[0]': 'image',
-        'populate[1]': 'video',
+        populate: '*',
       },
     });
-    return data.data.map((e: any) => ({
-      id: e.id,
-      title: e.attributes.title,
-      description: e.attributes.description,
-      image: env.CMS_URL + e.attributes.image.data.attributes.url,
-    }));
+    return data.data.map(
+      (e: any) =>
+        ({
+          id: e.id,
+          title: e.attributes.title,
+          description: e.attributes.description,
+          image: env.CMS_URL + e.attributes.image.data.attributes.url,
+        }) as IVacancy,
+    ) as IVacancy[];
   } catch (error) {
     return null;
   }

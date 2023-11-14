@@ -14,12 +14,17 @@ export default async function Projects() {
     <div id="projects" className="mt-6 bg-background-alternative">
       <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 md:flex-row">
         <div className="flex flex-col gap-4 pt-6 md:w-1/2 md:pb-20">
-          <h2 className="text-primary" data-aos="fade-right">
+          <h2
+            className="text-primary"
+            data-aos="fade-right"
+            data-aos-anchor-placement="top-bottom"
+          >
             {t('home.projects.title')}
           </h2>
           <p
             className="text-muted-foreground"
             data-aos="fade-right"
+            data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
           >
             {t('home.projects.description')}
@@ -28,6 +33,7 @@ export default async function Projects() {
             href="/projects"
             title={t('home.projects.button')}
             data-aos="fade-right"
+            data-aos-anchor-placement="top-bottom"
             data-aos-delay="200"
             className={twMerge(
               buttonVariants({ variant: 'default' }),

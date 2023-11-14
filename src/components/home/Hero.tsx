@@ -15,6 +15,7 @@ export default async function Hero() {
       <div
         className="relative flex h-full max-w-[600px] flex-col gap-8 md:aspect-square"
         data-aos="fade-right"
+        data-aos-anchor-placement="top-bottom"
       >
         <Image
           src="/hero-1.png"
@@ -41,6 +42,7 @@ export default async function Hero() {
       <div
         className="relative h-full w-full max-w-[500px] md:mt-8 md:aspect-[3/4]"
         data-aos="fade-left"
+        data-aos-anchor-placement="top-bottom"
       >
         <Image
           src="/hero-2.png"

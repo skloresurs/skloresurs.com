@@ -6,7 +6,7 @@ export default async function getBookQuality(
 ): Promise<string | null> {
   try {
     const { data } = await axios.get('/api/book-of-quality', {
-      params: { locale, 'populate[0]': 'file' },
+      params: { locale, populate: '*' },
     });
     return env.CMS_URL + data.data.attributes.file.data.attributes.url;
   } catch (error) {

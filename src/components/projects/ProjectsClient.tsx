@@ -93,6 +93,7 @@ export default function ProjectsClient() {
                 className="flex break-inside-avoid-column flex-col gap-2"
                 key={e.id}
                 data-aos="fade-down"
+                data-aos-anchor-placement="top-bottom"
               >
                 <div className="relative aspect-square w-full overflow-hidden rounded-lg">
                   <ImageGallery
