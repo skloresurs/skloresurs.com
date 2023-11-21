@@ -4,6 +4,7 @@ import React from 'react';
 import { getI18n } from '@/utils/i18n-server';
 
 import CloudAnimation from './CloudAnimation';
+import styles from './Hero.module.css';
 
 export default async function Hero() {
   const t = await getI18n();
@@ -13,20 +14,12 @@ export default async function Hero() {
       className="mx-auto mt-6 flex max-w-6xl flex-col items-center justify-between gap-2 px-6 duration-500 md:flex-row md:items-start md:gap-8"
     >
       <div
-        className="relative flex h-full max-w-[600px] flex-col gap-8 md:aspect-square"
+        className={styles.glassmain}
         data-aos="fade-right"
         data-aos-anchor-placement="top-bottom"
       >
-        <Image
-          src="/hero-1.png"
-          alt="hero image"
-          title="hero image"
-          loading="eager"
-          fill
-          className="absolute -z-50 aspect-[3/4] object-cover"
-        />
         <div className="px-6 pt-10">
-          <h1 className="text-4xl font-normal uppercase text-primary md:text-6xl">
+          <h1 className="text-4xl font-normal uppercase text-primary md:text-5xl xl:text-6xl">
             {t('home.hero.main.title')}
           </h1>
           <p className="mt-2 text-xl md:text-2xl">
