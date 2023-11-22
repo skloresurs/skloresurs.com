@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 
 import { MdiCalendar, MdiEarth, MdiGlassdoor } from '@/components/icons/mdi';
@@ -40,10 +40,10 @@ export default function ProjectsClient() {
           yearFrom,
           yearTo,
           search,
-          page,
-        ),
+          page
+        )
       )
-      .catch((_) => null);
+      .catch(() => null);
     if (response?.data) {
       setProjects(response.data.data);
       setProjectsCount(response.data.meta.total);
@@ -98,9 +98,7 @@ export default function ProjectsClient() {
                 <div className="relative aspect-square w-full overflow-hidden rounded-lg">
                   <ImageGallery
                     additionalClass="absolute object-cover overflow-hidden relative h-full"
-                    items={e.images.map((image) => {
-                      return { original: image };
-                    })}
+                    items={e.images.map((image) => ({ original: image }))}
                     lazyLoad
                     showBullets
                     showFullscreenButton={false}

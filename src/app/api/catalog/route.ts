@@ -1,7 +1,15 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import type IProduct from '@/types/Product';
 import axios from '@/utils/axios-cms';
+
+interface ICatalogServer {
+  id: number;
+  attributes: {
+    title: string;
+    content: string;
+    category: string;
+  };
+}
 
 export async function GET(request: NextRequest) {
   try {
@@ -11,24 +19,21 @@ export async function GET(request: NextRequest) {
 
     const { data } = await axios.get(`/api/products`, {
       params: {
-        locale,
         'filters[category][$eqi]': category,
+        locale,
       },
     });
     if (!data.data) {
       return NextResponse.json(null, { status: 404 });
     }
     return NextResponse.json(
-      data.data.map(
-        (e: any) =>
-          ({
-            id: e.id,
-            title: e.attributes.title,
-            category: e.attributes.category,
-            content: e.attributes.content,
-          }) as IProduct,
-      ) as IProduct[],
-      { status: 200 },
+      data.data.map((e: ICatalogServer) => ({
+        category: e.attributes.category,
+        content: e.attributes.content,
+        id: e.id,
+        title: e.attributes.title,
+      })),
+      { status: 200 }
     );
   } catch (error) {
     return NextResponse.json(null, { status: 500 });

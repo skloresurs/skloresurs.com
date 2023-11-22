@@ -24,7 +24,7 @@ export default function ProjectsFilterYear() {
   }, [query]);
 
   const search = () => {
-    const current = new URLSearchParams(Array.from(query.entries()));
+    const current = new URLSearchParams([...query.entries()]);
     current.delete('page');
 
     if (!values[0] || values[0] === 2000) {

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Exterior from './Exterior';
 import Interior from './Interior';
 

@@ -18,7 +18,7 @@ export default function CatalogCategorySwitcher() {
     query.get('category') === 'interior' ? 'interior' : 'exterior';
 
   const switchCategory = async (newCategory: ICategory) => {
-    const current = new URLSearchParams(Array.from(query.entries()));
+    const current = new URLSearchParams([...query.entries()]);
 
     if (newCategory === 'interior') {
       current.set('category', 'interior');
@@ -40,11 +40,11 @@ export default function CatalogCategorySwitcher() {
             'border-2 border-border hover:bg-muted/50 duration-300 rounded-md flex flex-row gap-2 items-center p-3',
             category === e
               ? 'bg-muted'
-              : 'text-muted-foreground fill-muted-foreground',
+              : 'text-muted-foreground fill-muted-foreground'
           )}
           key={e}
         >
-          {icons[e as 'interior' | 'exterior']}
+          {icons[e]}
           <p className="text-lg font-semibold">{t(`catalog.${e}`)}</p>
         </button>
       ))}

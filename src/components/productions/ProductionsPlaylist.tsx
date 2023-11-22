@@ -11,7 +11,10 @@ interface IProps {
   slide: number;
 }
 
-export default function ProductionsPlaylist({ productions, slide }: IProps) {
+export default function ProductionsPlaylist({
+  productions,
+  slide,
+}: Readonly<IProps>) {
   return (
     <div className="absolute inset-x-0 bottom-0 flex flex-row overflow-x-auto bg-black">
       {productions.map((e) => (
@@ -20,7 +23,7 @@ export default function ProductionsPlaylist({ productions, slide }: IProps) {
           title={e.title}
           className={twMerge(
             'w-max cursor-pointer whitespace-nowrap bg-black px-5 py-4 duration-300 hover:bg-muted',
-            slide === e.order ? 'bg-muted' : '',
+            slide === e.order ? 'bg-muted' : ''
           )}
           key={e.order}
         >

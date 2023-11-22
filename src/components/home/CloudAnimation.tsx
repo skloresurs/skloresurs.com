@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import React from 'react';
 
 type IProps = {
   className?: string;
@@ -16,17 +17,17 @@ type IProps = {
       fill?: false;
     }
   | {
-      height?: undefined;
-      width?: undefined;
+      height: undefined;
+      width: undefined;
       fill: true;
     }
 );
 
-export default function CloudAnimation({ ...props }: IProps) {
+export default function CloudAnimation({ ...props }: Readonly<IProps>) {
   const transitionValues = {
     duration: props.duration ?? 10,
-    repeat: Infinity,
     ease: 'easeInOut',
+    repeat: Infinity,
   };
 
   return (
@@ -43,7 +44,6 @@ export default function CloudAnimation({ ...props }: IProps) {
       <Image
         src={props.src}
         alt={props.alt}
-        title={props.alt}
         width={props.width}
         height={props.height}
         sizes={props.sizes}

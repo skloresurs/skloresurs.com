@@ -15,7 +15,7 @@ interface IProps {
   alt?: boolean;
 }
 
-export default function ProductionsText({ data, alt }: IProps) {
+export default function ProductionsText({ data, alt }: Readonly<IProps>) {
   const t = useI18n();
   return (
     <div className="absolute inset-x-6 top-1/2 flex -translate-y-1/2 flex-col gap-8 md:right-1/2 lg:right-2/3">

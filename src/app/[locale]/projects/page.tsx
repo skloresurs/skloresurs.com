@@ -6,30 +6,30 @@ import I18nProvider from '@/components/I18nProvider';
 import ProjectsClient from '@/components/projects/ProjectsClient';
 import ProjectsFilter from '@/components/projects/ProjectsFilter';
 import { Separator } from '@/components/ui/separator';
-import getCategories from '@/strapi/full-collections/projects/get-categories';
-import getLocations from '@/strapi/full-collections/projects/get-locations';
+import getProjectCategories from '@/strapi/full-collections/projects/get-categories';
+import getProjectLocations from '@/strapi/full-collections/projects/get-locations';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();
   return {
-    title: t('projects.title'),
-    description: t('projects.description'),
     alternates: {
       canonical: '/projects',
     },
+    description: t('projects.description'),
     openGraph: {
-      title: t('projects.title'),
       description: t('projects.description'),
+      title: t('projects.title'),
       url: 'https://skloresurs.com/projects',
     },
+    title: t('projects.title'),
   };
 }
 
 export default async function Projects() {
   const locale = getCurrentLocale();
-  const locations = await getLocations(locale);
-  const glassCategories = await getCategories(locale);
+  const locations = await getProjectLocations(locale);
+  const glassCategories = await getProjectCategories(locale);
 
   const t = await getI18n();
   return locations && glassCategories ? (

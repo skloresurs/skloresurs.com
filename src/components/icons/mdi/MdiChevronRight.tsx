@@ -1,6 +1,9 @@
 import type { SVGProps } from 'react';
+import React from 'react';
 
-export default function MdiChevronRight(props: SVGProps<SVGSVGElement>) {
+export default function MdiChevronRight(
+  props: Readonly<SVGProps<SVGSVGElement>>
+) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -21,17 +21,16 @@ export default function ComponentsClient() {
 
   const category = query.get('category');
   const search = query.get('search');
+  const manufacturer = query.get('manufacturer');
 
   const getComponents = useCallback(async () => {
     setIsLoading(true);
     await axios
-      .get(GenerateComponentLink(locale, category, search))
-      .then((response) => {
-        setComponents(response.data.components ?? []);
-      })
-      .catch((_) => null)
+      .get(GenerateComponentLink(locale, category, search, manufacturer))
+      .then((response) => setComponents(response.data.components ?? []))
+      .catch(() => null)
       .finally(() => setIsLoading(false));
-  }, [locale, category, search]);
+  }, [locale, category, search, manufacturer]);
 
   useEffect(() => {
     setComponents([]);
@@ -68,7 +67,7 @@ export default function ComponentsClient() {
         </div>
       )}
       {!isLoading && components.length > 0 && (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+        <div className="columns-1 gap-3 md:columns-2 lg:columns-3">
           {components.map((e) => (
             <ComponentCard key={e.id} component={e} />
           ))}

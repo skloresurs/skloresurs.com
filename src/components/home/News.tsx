@@ -14,7 +14,9 @@ interface IPostItem {
   index: number;
 }
 
-async function NewsItem({ news, index }: IPostItem) {
+const HomeNewsButtonID = 'home.news.button';
+
+async function NewsItem({ news, index }: Readonly<IPostItem>) {
   const t = await getI18n();
   return (
     <div
@@ -30,7 +32,7 @@ async function NewsItem({ news, index }: IPostItem) {
         href={`/news/${news.id}`}
         className={twMerge(
           buttonVariants({ variant: 'link' }),
-          'w-min ml-auto',
+          'w-min ml-auto'
         )}
       >
         {t('home.news.read-more')}
@@ -52,13 +54,13 @@ export default async function News() {
         </h2>
         <Link
           href="/news"
-          title={t('home.news.button')}
+          title={t(HomeNewsButtonID)}
           className={twMerge(
             buttonVariants({ variant: 'default' }),
-            'hidden md:flex items-center gap-1',
+            'hidden md:flex items-center gap-1'
           )}
         >
-          {t('home.news.button')}
+          {t(HomeNewsButtonID)}
           <MdiChevronRight />
         </Link>
       </div>
@@ -66,14 +68,14 @@ export default async function News() {
         {news?.map((e, i) => <NewsItem key={e.id} news={e} index={i} />)}
       </div>
       <Link
-        title={t('home.news.button')}
+        title={t(HomeNewsButtonID)}
         href="/news"
         className={twMerge(
           buttonVariants({ variant: 'default' }),
-          'flex md:hidden items-center gap-1 pt-3',
+          'flex md:hidden items-center gap-1 pt-3'
         )}
       >
-        {t('home.news.button')}
+        {t(HomeNewsButtonID)}
         <MdiChevronRight />
       </Link>
     </div>

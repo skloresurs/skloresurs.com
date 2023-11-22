@@ -17,21 +17,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const vacancy = await getVacancyById(getCurrentLocale(), +params.id);
   return {
-    title: vacancy?.title,
-    description: vacancy?.description,
     alternates: {
       canonical: `/vacancies/${vacancy?.id}`,
     },
+    description: vacancy?.description,
     openGraph: {
-      title: vacancy?.title,
       description: vacancy?.description,
-      url: `https://skloresurs.com/vacancies/${vacancy?.id}`,
+      title: vacancy?.title,
       type: 'article',
+      url: `https://skloresurs.com/vacancies/${vacancy?.id}`,
     },
+    title: vacancy?.title,
   };
 }
 
-export default async function Vacancy({ params }: { params: { id: string } }) {
+export default async function Vacancy({
+  params,
+}: Readonly<{ params: { id: string } }>) {
   const t = await getI18n();
   if (!params.id) {
     return notFound();

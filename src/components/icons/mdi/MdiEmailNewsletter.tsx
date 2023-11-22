@@ -1,6 +1,9 @@
 import type { SVGProps } from 'react';
+import React from 'react';
 
-export default function MdiEmailNewsletter(props: SVGProps<SVGSVGElement>) {
+export default function MdiEmailNewsletter(
+  props: Readonly<SVGProps<SVGSVGElement>>
+) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

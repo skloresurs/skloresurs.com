@@ -1,0 +1,229 @@
+{
+  "catalog": {
+    "description": "Open our catalog to explore the range of products for creating unique designer solutions.",
+    "exterior": "Exterior",
+    "interior": "Interior",
+    "title": "Catalog"
+  },
+  "components": {
+    "categories": {
+      "all": "All Categories",
+      "title": "Categories"
+    },
+    "manufacturer": {
+      "all": "All Manufacturers",
+      "title": "Manufacturers"
+    },
+    "description": "The widest selection of glass processing components. Find the perfect solutions for your project. High quality and reliability. Browse our components catalog right now.",
+    "go-to": "Go To",
+    "none": "No components found",
+    "title": "Glass Processing Components"
+  },
+  "delivery": {
+    "description": "Delivery that meets your needs. Safe loading and unloading of glass packages of any size and weight. Learn more about our delivery terms.",
+    "p1": "We understand the importance of timely and safe delivery, which is why our transportation department has a modern fleet equipped with manipulators. This allows us to safely load and unload glass packages of any size and weight.",
+    "p2": "Glass packages are carefully packaged to prevent damage during transportation and securely fastened to the vehicles.",
+    "p3": "Our drivers have years of experience and are well-versed in the routes, allowing us to reduce delivery time and ensure the highest quality of service.",
+    "title": "Delivery of Products"
+  },
+
+  "footer": {
+    "address": {
+      "p1": "Ukraine",
+      "p2": "Dubno",
+      "p3": "Semidubska Street, 105",
+      "title": "Address"
+    },
+    "contact": {
+      "telephone": "Telephone",
+      "title": "Contact"
+    }
+  },
+  "home": {
+    "certificates": {
+      "title": "The quality of our products has been verified by the German institute IFT Rosenheim"
+    },
+    "contact-us": {
+      "form": {
+        "additional": {
+          "placeholder": "How did you hear about us?"
+        },
+        "alert-button": "Close",
+        "alerts": {
+          "captcha": {
+            "description": "reCaptcha verification error",
+            "title": "Error"
+          },
+          "error": {
+            "description": "Error sending your message",
+            "title": "Error"
+          },
+          "successfully": {
+            "description": "Your message has been successfully sent",
+            "title": "Success"
+          }
+        },
+        "email": {
+          "placeholder": "Your email*"
+        },
+        "message": {
+          "placeholder": "Message*"
+        },
+        "phone": {
+          "placeholder": "Phone number"
+        },
+        "submit-button": {
+          "default": "Submit",
+          "loading": "Submitting..."
+        },
+        "username": {
+          "placeholder": "Your name*"
+        }
+      },
+      "telephone": "Telephone",
+      "title": { "default": "Contact ", "primary": "us" }
+    },
+    "hero": {
+      "main": {
+        "learn-more": "\"Skloresurs\" company has 17 years of experience in the field of architectural and interior glazing.",
+        "sub-title": "Modern production of glass processing according to European standards",
+        "title": "Skloresurs"
+      },
+      "slogan": "Professionalism. Transparency. Innovation.",
+      "target": {
+        "content": "Modern glass processing technologies to realize your dreams. Look at the world with pleasure!",
+        "title": "Company mission"
+      }
+    },
+    "meta": {
+      "description": "Skloresurs - a modern glass processing production according to European standards."
+    },
+    "news": {
+      "button": "All News",
+      "read-more": "Read More",
+      "title": "News"
+    },
+    "projects": {
+      "button": "All Projects",
+      "description": "Over the years of experience in the glass processing industry, we have successfully implemented a series of impressive projects in collaboration with reliable partners. Learn more about our projects, which not only transform the face of modern glazing but also contribute to environmental conservation.",
+      "title": "Projects"
+    },
+    "quality": {
+      "button": "View",
+      "description": "The Guide defines the tolerances and deviations of the main parameters of our products. The Guide is based on the standards specified here, as well as the capabilities of modern equipment.",
+      "title": "Quality Guide"
+    },
+    "target": {
+      "area": "Total production area 17,600 m²",
+      "employees": "More than 300 employees",
+      "location": "Two production sites",
+      "products": "Over 50,000 m² of products per month",
+      "projects": "More than 200 projects annually",
+      "types": "Over 60 types of glass in stock"
+    }
+  },
+  "meta": {
+    "error": {
+      "404": "Page not found",
+      "data": "Error loading data"
+    },
+    "filters": {
+      "reset": "Reset",
+      "search": "Search...",
+      "title": "Filters"
+    },
+    "logo": "Skloresurs",
+    "title": "Skloresurs – your reliable partner in the world of glass."
+  },
+  "navbar": {
+    "menu": {
+      "catalog": {
+        "description": "Open our product catalog and find the perfect solutions for your project",
+        "title": "Catalog"
+      },
+      "components": {
+        "description": "Selection of glass processing components",
+        "title": "Glass Processing Components"
+      },
+      "contact-us": {
+        "description": "Get in touch with us through the contact form",
+        "title": "Contact Us"
+      },
+      "delivery": {
+        "description": "Delivery Information",
+        "title": "Delivery"
+      },
+      "home": "Home",
+      "news": {
+        "description": "Articles and News",
+        "title": "News"
+      },
+      "posts": "Articles",
+      "production": {
+        "description": "Production Videos",
+        "title": "Production"
+      },
+      "projects": {
+        "description": "Gallery of Completed Projects",
+        "title": "Projects"
+      },
+      "reportings": {
+        "description": "Analysis and Reports",
+        "title": "Reports"
+      },
+      "seminars": {
+        "description": "Information about educational seminars",
+        "title": "Seminars"
+      },
+      "services": "Services",
+      "vacancies": {
+        "description": "Current job openings in our company",
+        "title": "Vacancies"
+      }
+    }
+  },
+  "news": {
+    "description": "Join us and stay updated on the latest articles and news in the glass processing industry. Interesting and relevant materials, the latest technological advancements, and much more.",
+    "return-back": "Return Back",
+    "title": "News"
+  },
+  "production": {
+    "return-from-alt": "Back"
+  },
+  "projects": {
+    "description": "We invite you to explore our project gallery and find inspiration in the world of glass processing. Learn more about our projects and innovations that inspire industry professionals.",
+    "filters": {
+      "glass": {
+        "all": "All Glass Types",
+        "title": "Glass Type"
+      },
+      "location": {
+        "all": "All Locations",
+        "title": "Locations"
+      },
+      "year": {
+        "title": "Year"
+      }
+    },
+    "none": "No projects found",
+    "show": "Showing: ",
+    "title": "Projects"
+  },
+  "reportings": {
+    "auditory": "Auditor  's Report",
+    "description": "Learn more about our seminars. Gain valuable knowledge and insights in the field of glass processing and discover new trends and skills in our industry.",
+    "finance": "Financial Report",
+    "title": "Reportings",
+    "year": "year"
+  },
+  "seminars": {
+    "description": "Learn more about our seminars. Gain valuable knowledge and insights in the field of glass processing at our events. Discover the latest trends and skills in our industry.",
+    "title": "Seminars"
+  },
+  "vacancies": {
+    "description": "Discover our current job openings and the opportunity to join our team.",
+    "detailed-button": "Learn More",
+    "return-back": "Return Back",
+    "title": "Vacancies"
+  }
+}

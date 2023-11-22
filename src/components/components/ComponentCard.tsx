@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { buttonVariants } from '@/components/ui/button';
@@ -16,9 +17,9 @@ import {
 
 export default function ComponentCard({
   component,
-}: {
+}: Readonly<{
   component: IComponent;
-}) {
+}>) {
   const t = useI18n();
   return (
     <Card
@@ -36,15 +37,24 @@ export default function ComponentCard({
             className="object-cover"
           />
         </div>
-        <CardTitle>{component.title}</CardTitle>
-        <CardDescription>{component.category.title}</CardDescription>
+        <CardTitle className="text-lg leading-5">{component.title}</CardTitle>
+        <CardDescription className="flex flex-col gap-1">
+          <p>{component.category?.title ?? '-'}</p>
+          {component.manufacturer ? (
+            <Link target="_blank" href={component.manufacturer.url ?? '#'}>
+              {component.manufacturer.title}
+            </Link>
+          ) : (
+            <p>-</p>
+          )}
+        </CardDescription>
       </CardHeader>
       <CardFooter>
         <Link
           title={t('components.go-to')}
           className={twMerge(buttonVariants({ variant: 'outline' }), 'ml-auto')}
           target="_blank"
-          href={component.href}
+          href={component.url}
         >
           {t('components.go-to')}
         </Link>

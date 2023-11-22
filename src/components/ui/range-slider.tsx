@@ -1,9 +1,12 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable react/prop-types */
+
 'use client';
 
 import * as SliderPrimitive from '@radix-ui/react-slider';
 import * as React from 'react';
 
-import { cn } from '@/utils/shadcnUtils';
+import { cn } from '@/utils/shadcn-utils';
 
 const RangeSlider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
@@ -13,7 +16,7 @@ const RangeSlider = React.forwardRef<
     ref={ref}
     className={cn(
       'relative flex w-full touch-none select-none items-center',
-      className,
+      className
     )}
     {...props}
   >

@@ -1,5 +1,6 @@
 import { type Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import React from 'react';
 
 import I18nProvider from '@/components/I18nProvider';
 import ProductionsPlaylist from '@/components/productions/ProductionsPlaylist';
@@ -17,8 +18,8 @@ export async function generateMetadata({
   return {
     description: data?.alt.title,
     openGraph: {
-      title: data?.alt.title,
       description: data?.alt.description,
+      title: data?.alt.title,
       url: `https://skloresurs.com/productions/${params.slide}/alt`,
     },
   };
@@ -26,9 +27,9 @@ export async function generateMetadata({
 
 export default async function Productions({
   params,
-}: {
+}: Readonly<{
   params: { slide: string };
-}) {
+}>) {
   const productions = await getProductions(getCurrentLocale());
   const data = productions?.find((e) => e.order === +params.slide);
 

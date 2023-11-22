@@ -23,10 +23,13 @@ export default function CatalogClient() {
   const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
+    const axiosQuery = new URLSearchParams();
+    axiosQuery.set('locale', locale);
+    axiosQuery.set('category', category);
     axios
-      .get(`/api/catalog?locale=${locale}&category=${category}`)
+      .get(`/api/catalog?${axiosQuery.toString()}`)
       .then((data) => setProducts(data.data ?? []))
-      .catch((_) => setProducts([]));
+      .catch(() => setProducts([]));
   }, [category, locale]);
   return (
     <Accordion type="single" collapsible>

@@ -13,26 +13,28 @@ import getPostTagColor from '@/utils/post-tag-colors';
 
 export async function generateMetadata({
   params,
-}: {
+}: Readonly<{
   params: { id: string };
-}): Promise<Metadata> {
+}>): Promise<Metadata> {
   const post = await getPostById(getCurrentLocale(), +params.id);
   return {
-    title: post?.title,
-    description: post?.description,
     alternates: {
       canonical: `/news/${params.id}`,
     },
+    description: post?.description,
     openGraph: {
-      title: post?.title,
       description: post?.description,
-      url: `https://skloresurs.com/news/${params.id}`,
+      title: post?.title,
       type: 'article',
+      url: `https://skloresurs.com/news/${params.id}`,
     },
+    title: post?.title,
   };
 }
 
-export default async function NewsPage({ params }: { params: { id: string } }) {
+export default async function NewsPage({
+  params,
+}: Readonly<{ params: { id: string } }>) {
   const t = await getI18n();
   if (!params.id) {
     return notFound();

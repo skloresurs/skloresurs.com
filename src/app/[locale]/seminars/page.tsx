@@ -11,16 +11,16 @@ import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();
   return {
-    title: t('seminars.title'),
-    description: t('seminars.description'),
     alternates: {
       canonical: '/seminars',
     },
+    description: t('seminars.description'),
     openGraph: {
-      title: t('seminars.title'),
       description: t('seminars.description'),
+      title: t('seminars.title'),
       url: 'https://skloresurs.com/seminars',
     },
+    title: t('seminars.title'),
   };
 }
 

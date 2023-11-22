@@ -19,20 +19,20 @@ import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();
   return {
-    title: t('vacancies.title'),
-    description: t('vacancies.description'),
     alternates: {
       canonical: '/vacancies',
     },
+    description: t('vacancies.description'),
     openGraph: {
-      title: t('vacancies.title'),
       description: t('vacancies.description'),
+      title: t('vacancies.title'),
       url: 'https://skloresurs.com/vacancies',
     },
+    title: t('vacancies.title'),
   };
 }
 
-async function Vacancy({ data }: { data: IVacancy }) {
+async function Vacancy({ data }: Readonly<{ data: IVacancy }>) {
   const t = await getI18n();
   return (
     <Card

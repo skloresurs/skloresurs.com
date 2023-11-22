@@ -5,7 +5,7 @@ import { Raleway } from 'next/font/google';
 import type { ReactNode } from 'react';
 import React from 'react';
 
-import AOSInit from '@/components/AOS';
+import AOSInit from '@/components/Aos';
 import Footer from '@/components/Footer';
 import { GAnalytics } from '@/components/GAnalytics';
 import I18nProvider from '@/components/I18nProvider';
@@ -16,82 +16,82 @@ import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 const { NEXT_PUBLIC_BASE_URL } = env;
 
 const raleway = Raleway({
-  subsets: ['cyrillic-ext', 'latin-ext'],
   display: 'swap',
+  subsets: ['cyrillic-ext', 'latin-ext'],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();
   const locale = getCurrentLocale();
   return {
-    generator: 'Next.js',
-    applicationName: 'Skloresurs website',
-    authors: [{ name: 'HighError', url: 'https://github.com/higherror' }],
-    creator: 'HighError',
-    publisher: 'HighError',
-    title: {
-      template: `%s | ${t('meta.logo')}`,
-      default: t('meta.title'),
-    },
-    metadataBase: new URL('https://skloresurs.com'),
     alternates: {
       canonical: 'https://skloresurs.com',
-      languages: { uk: '/', en: '/en' },
+      languages: { en: '/en', uk: '/' },
     },
+    applicationName: 'Skloresurs website',
+    authors: [{ name: 'HighError', url: 'https://github.com/higherror' }],
+    category: 'website',
+    creator: 'HighError',
+    generator: 'Next.js',
+    metadataBase: new URL('https://skloresurs.com'),
     openGraph: {
+      alternateLocale: ['uk', 'en'].filter((e) => e !== locale),
       images: [
         {
+          height: 650,
           url: `${NEXT_PUBLIC_BASE_URL}/card.png`,
           width: 1200,
-          height: 650,
         },
       ],
       locale,
-      alternateLocale: ['uk', 'en'].filter((e) => e !== locale),
-      type: 'website',
       siteName: t('meta.logo'),
+      type: 'website',
     },
-    twitter: {
-      card: 'summary',
-      images: `${NEXT_PUBLIC_BASE_URL}/card.png`,
-      creator: '@higherrorua',
-      creatorId: '1045759364584353792',
-    },
-    robots: 'index, follow',
-    category: 'website',
     other: {
       'geo.placename':
         'вулиця Семидубська, 105, Дубно, Рівненська область, 35600',
       'geo.position': '50.393393898987426, 25.77552926677272',
       'geo.region': 'Рівненська область',
     },
+    publisher: 'HighError',
+    robots: 'index, follow',
+    title: {
+      default: t('meta.title'),
+      template: `%s | ${t('meta.logo')}`,
+    },
+    twitter: {
+      card: 'summary',
+      creator: '@higherrorua',
+      creatorId: '1045759364584353792',
+      images: `${NEXT_PUBLIC_BASE_URL}/card.png`,
+    },
   };
 }
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  width: 'device-width',
   initialScale: 1,
+  width: 'device-width',
 };
 
 export default async function RootLayout({
   params: { locale },
   children,
-}: {
+}: Readonly<{
   params: { locale: string };
   children: ReactNode;
-}) {
+}>) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Corporation',
-    name: 'Склоресурс',
     alternateName: 'Skloresurs',
-    url: 'https://skloresurs.com/',
     logo: `${NEXT_PUBLIC_BASE_URL}/logo.png`,
+    name: 'Склоресурс',
     sameAs: [
       'https://www.facebook.com/skloresurs',
       'https://www.instagram.com/skloresurs/',
     ],
+    url: 'https://skloresurs.com/',
   };
 
   return (
@@ -100,7 +100,7 @@ export default async function RootLayout({
         <script
           key="structured-data"
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
+          // eslint-disable-next-line react/no-danger, xss/no-mixed-html
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
         <meta name="og:image" content={`${NEXT_PUBLIC_BASE_URL}/card.png`} />

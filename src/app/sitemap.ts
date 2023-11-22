@@ -25,33 +25,33 @@ const pages = [
 export default function sitemap(): MetadataRoute.Sitemap {
   // Generate the Ukrainian pages for the sitemap
   const ukrainianPages: MetadataRoute.Sitemap = pages.map((page) => ({
-    url: `${NEXT_PUBLIC_BASE_URL}${page}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly',
+    lastModified: new Date(),
     priority: 0.7,
+    url: `${NEXT_PUBLIC_BASE_URL}${page}`,
   }));
 
   // Generate the English pages for the sitemap
   const englishPages: MetadataRoute.Sitemap = pages.map((page) => ({
-    url: `${NEXT_PUBLIC_BASE_URL}/en${page}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly',
+    lastModified: new Date(),
     priority: 0.7,
+    url: `${NEXT_PUBLIC_BASE_URL}/en${page}`,
   }));
 
   // Combine the sitemap pages and return the final sitemap
   return [
     {
-      url: `${NEXT_PUBLIC_BASE_URL}`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
+      lastModified: new Date(),
       priority: 1,
+      url: `${NEXT_PUBLIC_BASE_URL}`,
     },
     {
-      url: `${NEXT_PUBLIC_BASE_URL}/en`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
+      lastModified: new Date(),
       priority: 1,
+      url: `${NEXT_PUBLIC_BASE_URL}/en`,
     },
     ...ukrainianPages,
     ...englishPages,

@@ -16,7 +16,10 @@ interface IProps {
   glassCategories: IGlassCategory[];
 }
 
-export default function ProjectsFilter({ locations, glassCategories }: IProps) {
+export default function ProjectsFilter({
+  locations,
+  glassCategories,
+}: Readonly<IProps>) {
   const t = useI18n();
   const router = useRouter();
   return (

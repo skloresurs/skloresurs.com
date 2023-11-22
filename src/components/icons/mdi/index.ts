@@ -1,47 +1,22 @@
-import MdiArrowLeftBold from './MdiArrowLeftBold';
-import MdiArrowRightBold from './MdiArrowRightBold';
-import MdiArrowTopRightThick from './MdiArrowTopRightThick';
-import MdiCalendar from './MdiCalendar';
-import MdiCheck from './MdiCheck';
-import MdiChevronDown from './MdiChevronDown';
-import MdiChevronLeft from './MdiChevronLeft';
-import MdiChevronRight from './MdiChevronRight';
-import MdiCog from './MdiCog';
-import MdiDownload from './MdiDownload';
-import MdiEarth from './MdiEarth';
-import MdiEmailNewsletter from './MdiEmailNewsletter';
-import MdiEmailOutline from './MdiEmailOutline';
-import MdiEye from './MdiEye';
-import MdiFilePdf from './MdiFilePdf';
-import MdiGlassdoor from './MdiGlassdoor';
-import MdiHome from './MdiHome';
-import MdiMagnify from './MdiMagnify';
-import MdiMenu from './MdiMenu';
-import MdiPhone from './MdiPhone';
-import MdiSend from './MdiSend';
-import MdiVideo from './MdiVideo';
-
-export {
-  MdiArrowLeftBold,
-  MdiArrowRightBold,
-  MdiArrowTopRightThick,
-  MdiCalendar,
-  MdiCheck,
-  MdiChevronDown,
-  MdiChevronLeft,
-  MdiChevronRight,
-  MdiCog,
-  MdiDownload,
-  MdiEarth,
-  MdiEmailNewsletter,
-  MdiEmailOutline,
-  MdiEye,
-  MdiFilePdf,
-  MdiGlassdoor,
-  MdiHome,
-  MdiMagnify,
-  MdiMenu,
-  MdiPhone,
-  MdiSend,
-  MdiVideo,
-};
+export { default as MdiArrowLeftBold } from './MdiArrowLeftBold';
+export { default as MdiArrowRightBold } from './MdiArrowRightBold';
+export { default as MdiArrowTopRightThick } from './MdiArrowTopRightThick';
+export { default as MdiCalendar } from './MdiCalendar';
+export { default as MdiCheck } from './MdiCheck';
+export { default as MdiChevronDown } from './MdiChevronDown';
+export { default as MdiChevronLeft } from './MdiChevronLeft';
+export { default as MdiChevronRight } from './MdiChevronRight';
+export { default as MdiCog } from './MdiCog';
+export { default as MdiDownload } from './MdiDownload';
+export { default as MdiEarth } from './MdiEarth';
+export { default as MdiEmailNewsletter } from './MdiEmailNewsletter';
+export { default as MdiEmailOutline } from './MdiEmailOutline';
+export { default as MdiEye } from './MdiEye';
+export { default as MdiFilePdf } from './MdiFilePdf';
+export { default as MdiGlassdoor } from './MdiGlassdoor';
+export { default as MdiHome } from './MdiHome';
+export { default as MdiMagnify } from './MdiMagnify';
+export { default as MdiMenu } from './MdiMenu';
+export { default as MdiPhone } from './MdiPhone';
+export { default as MdiSend } from './MdiSend';
+export { default as MdiVideo } from './MdiVideo';

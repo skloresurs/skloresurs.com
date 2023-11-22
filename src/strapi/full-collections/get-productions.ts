@@ -2,46 +2,74 @@ import { env } from '@/env.mjs';
 import type IProduction from '@/types/Production';
 import axios from '@/utils/axios-cms';
 
+interface IProductionServer {
+  id: number;
+  attributes: {
+    title: string;
+    description: string;
+    video: {
+      data: {
+        attributes: {
+          url: string;
+        };
+      };
+    };
+    order: number;
+    production_alt: {
+      data: {
+        attributes: {
+          title: string;
+          description: string;
+          video: {
+            data: {
+              attributes: {
+                url: string;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}
+
 /**
- * Retrieves a list of productions.
+ * Retrieves a list of productions based on the specified locale.
  *
- * @param locale - The locale of productions.
- * @return A promise that resolves to an array of productions or null if an error occurs.
+ * @param {string} locale - The locale to filter the productions by.
+ * @return {Promise<IProduction[] | null>} A promise that resolves to an array of production objects or null if an error occurs.
  */
 export default async function getProductions(
-  locale: string,
+  locale: string
 ): Promise<IProduction[] | null> {
   try {
     const { data } = await axios.get('/api/productions', {
       params: {
+        'filters[order][$gte]': 0,
         locale,
         'populate[0]': 'video',
         'populate[1]': 'production_alt',
         'populate[2]': 'production_alt.video',
-        'filters[order][$gte]': 0,
       },
     });
 
-    return data.data.map(
-      (e: any) =>
-        ({
-          title: e.attributes.title,
-          description: e.attributes.description,
-          video: env.CMS_URL + e.attributes.video.data.attributes.url,
-          order: e.attributes.order,
-          alt: e.attributes.production_alt?.data?.attributes
-            ? {
-                title: e.attributes.production_alt.data.attributes.title,
-                description:
-                  e.attributes.production_alt.data.attributes.description,
-                video:
-                  env.CMS_URL +
-                  e.attributes.production_alt.data.attributes.video.data
-                    .attributes.url,
-              }
-            : null,
-        }) as IProduction,
-    ) as IProduction[];
+    return data.data.map((e: IProductionServer) => ({
+      alt: e.attributes.production_alt?.data?.attributes
+        ? {
+            description:
+              e.attributes.production_alt.data.attributes.description,
+            title: e.attributes.production_alt.data.attributes.title,
+            video:
+              env.CMS_URL +
+              e.attributes.production_alt.data.attributes.video.data.attributes
+                .url,
+          }
+        : null,
+      description: e.attributes.description,
+      order: e.attributes.order,
+      title: e.attributes.title,
+      video: env.CMS_URL + e.attributes.video.data.attributes.url,
+    }));
   } catch (error) {
     return null;
   }

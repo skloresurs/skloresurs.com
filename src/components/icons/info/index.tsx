@@ -1,3 +1,5 @@
+import React from 'react';
+
 import InfoArea from './InfoArea';
 import InfoEmployees from './InfoEmployees';
 import InfoLocation from './InfoLocation';

@@ -18,8 +18,8 @@ export async function generateMetadata({
   return {
     description: data?.title,
     openGraph: {
-      title: data?.title,
       description: data?.description,
+      title: data?.title,
       url: `https://skloresurs.com/productions/${params.slide}`,
     },
   };
@@ -27,9 +27,9 @@ export async function generateMetadata({
 
 export default async function Productions({
   params,
-}: {
+}: Readonly<{
   params: { slide: string };
-}) {
+}>) {
   const productions = await getProductions(getCurrentLocale());
   const data = productions?.find((e) => e.order === +params.slide);
 

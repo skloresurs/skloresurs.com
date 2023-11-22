@@ -3,7 +3,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import { useReCaptcha } from 'next-recaptcha-v3';
-import { type FormEvent, useRef, useState } from 'react';
+import React, { type FormEvent, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import {
@@ -36,11 +36,11 @@ export default function ContactUsForm() {
   const { executeRecaptcha } = useReCaptcha();
 
   const [formData, setFormData] = useState<FormSchema>({
-    username: '',
-    email: '',
-    phone: '',
-    message: '',
     additional: '',
+    email: '',
+    message: '',
+    phone: '',
+    username: '',
   });
 
   const [alertData, setAlertData] = useState<AlertData>('successfully');
@@ -54,7 +54,7 @@ export default function ContactUsForm() {
     }
 
     setIsLoading(true);
-    const token = await executeRecaptcha('form_submit').catch((_) => null);
+    const token = await executeRecaptcha('form_submit').catch(() => null);
     if (!token) {
       setAlertData('captcha');
       setIsLoading(false);
@@ -66,14 +66,10 @@ export default function ContactUsForm() {
         ...formData,
         captcha: token,
       })
-      .then(() => {
-        setAlertData('successfully');
-      })
-      .catch(() => setAlertData('error'))
-      .finally(() => {
-        setIsLoading(false);
-        setIsOpen(true);
-      });
+      .then(() => setAlertData('successfully'))
+      .catch(() => setAlertData('error'));
+    setIsLoading(false);
+    setIsOpen(true);
   }
   return (
     <>
@@ -190,7 +186,7 @@ export default function ContactUsForm() {
           {t(
             `home.contact-us.form.submit-button.${
               isLoading ? 'loading' : 'default'
-            }`,
+            }`
           )}
           <MdiSend />
         </Button>
@@ -209,7 +205,7 @@ export default function ContactUsForm() {
                 href="tel:+38 (044) 355-05-99"
                 className={twMerge(
                   buttonVariants({ variant: 'link' }),
-                  'p-0 m-0 h-min',
+                  'p-0 m-0 h-min'
                 )}
               >
                 +38 (044) 355-05-99
@@ -226,7 +222,7 @@ export default function ContactUsForm() {
                 href="mailto:office@skloresurs.com"
                 className={twMerge(
                   buttonVariants({ variant: 'link' }),
-                  'p-0 m-0 h-min',
+                  'p-0 m-0 h-min'
                 )}
               >
                 office@skloresurs.com

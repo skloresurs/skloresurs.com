@@ -5,23 +5,26 @@ import { setupCache } from 'axios-cache-interceptor';
 import { env } from '@/env.mjs';
 
 /**
- * Creates an Axios instance for CMS access.
+ * Creates an Axios instance for the CMS API.
  *
- * @returns {AxiosInstance} The Axios instance for CMS access.
+ * @return {AxiosInstance} The created Axios instance.
  */
-const createCmsAxiosInstance = (): AxiosInstance => {
-  // Configure the base URL and headers for CMS access
-  // Return the configured instance
-  return Axios.create({
+const createCmsAxiosInstance = (): AxiosInstance =>
+  Axios.create({
     baseURL: env.CMS_URL,
     headers: {
       Authorization: `Bearer ${env.CMS_API_KEY}`,
       'Cache-Control': 'no-cache',
     },
   });
-};
 
-// Determine whether to use the cache interceptor based on the environment
+/**
+ * Creates an Axios instance based on the current environment.
+ * If the environment is development, it uses createCmsAxiosInstance.
+ * Otherwise, it uses setupCache(createCmsAxiosInstance).
+ *
+ * @returns {AxiosInstance} The Axios instance.
+ */
 const axios =
   process.env.NODE_ENV === 'development'
     ? createCmsAxiosInstance()

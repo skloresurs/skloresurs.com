@@ -1,8 +1,47 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { env } from '@/env.mjs';
-import type IProject from '@/types/Projects';
 import axios from '@/utils/axios-cms';
+
+interface IProjectServer {
+  id: string;
+  attributes: {
+    title: string;
+    description: string;
+    location: {
+      data: {
+        id: string;
+        attributes: {
+          title: string;
+        };
+      };
+    };
+    year: number;
+    glass: {
+      data: {
+        attributes: {
+          title: string;
+        };
+      };
+    };
+    glass_category: {
+      data: {
+        attributes: {
+          title: string;
+        };
+      };
+    };
+    images: {
+      data: IProjectImageServer[];
+    };
+  };
+}
+
+interface IProjectImageServer {
+  attributes: {
+    url: string;
+  };
+}
 
 export async function GET(request: NextRequest) {
   try {
@@ -18,20 +57,20 @@ export async function GET(request: NextRequest) {
 
     const { data } = await axios.get(`/api/projects`, {
       params: {
+        'filters[$or][0][title][$containsi]': search,
+        'filters[$or][1][location][title][$containsi]': search,
+        'filters[$or][2][year][$containsi]': search,
+        'filters[$or][3][glass][$containsi]': search,
+        'filters[glass_category][id][$in]': glass,
+        'filters[location][id][$eq]': location,
+        'filters[year][$gte]': yearFrom,
+        'filters[year][$lte]': yearTo,
         locale,
         'pagination[pageSize]': 9,
         'pagination[page]': page,
         populate: '*',
         'sort[0]': 'year:desc',
         'sort[1]': 'title',
-        'filters[location][id][$eq]': location,
-        'filters[glass_category][id][$in]': glass,
-        'filters[year][$gte]': yearFrom,
-        'filters[year][$lte]': yearTo,
-        'filters[$or][0][title][$containsi]': search,
-        'filters[$or][1][location][title][$containsi]': search,
-        'filters[$or][2][year][$containsi]': search,
-        'filters[$or][3][glass][$containsi]': search,
       },
     });
 
@@ -40,26 +79,24 @@ export async function GET(request: NextRequest) {
     }
     return NextResponse.json(
       {
-        data: data.data.map((e: any) => {
-          return {
-            id: e.id,
-            title: e.attributes.title,
-            location: {
-              id: e.attributes.location.data.id,
-              title: e.attributes.location.data.attributes.title,
-            },
-            glass: e.attributes.glass,
-            year: e.attributes.year,
-            images: e.attributes.images.data.map(
-              (ee: any) => env.CMS_URL + ee.attributes.url,
-            ),
-          } as IProject;
-        }) as IProject[],
+        data: data.data.map((project: IProjectServer) => ({
+          glass: project.attributes.glass,
+          id: project.id,
+          images: project.attributes.images.data.map(
+            (projectImage) => env.CMS_URL + projectImage.attributes.url
+          ),
+          location: {
+            id: project.attributes.location.data.id,
+            title: project.attributes.location.data.attributes.title,
+          },
+          title: project.attributes.title,
+          year: project.attributes.year,
+        })),
         meta: {
           total: data.meta.pagination.total,
         },
       },
-      { status: 200 },
+      { status: 200 }
     );
   } catch (error) {
     return NextResponse.json(null, { status: 500 });

@@ -16,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     description: t('home.meta.description'),
     openGraph: {
-      title: t('meta.title'),
       description: t('home.meta.description'),
+      title: t('meta.title'),
       url: 'https://skloresurs.com',
     },
   };

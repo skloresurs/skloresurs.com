@@ -1,3 +1,4 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable tailwindcss/no-custom-classname */
 
 'use client';
@@ -14,26 +15,16 @@ interface IProps {
   partners: IPartner[];
 }
 
-export default function Partners({ partners }: IProps) {
+export default function Partners({ partners }: Readonly<IProps>) {
   const animation = {
     duration: partners.length * 500,
     easing: (t: number) => t,
   };
   const [sliderRef] = useKeenSlider({
-    loop: true,
-    renderMode: 'performance',
-    drag: false,
-    slides: {
-      perView: 3,
-      spacing: 10,
+    animationEnded(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
     },
     breakpoints: {
-      '(min-width: 768px)': {
-        slides: {
-          perView: 5,
-          spacing: 10,
-        },
-      },
       '(min-width: 1024px)': {
         slides: {
           perView: 7,
@@ -46,14 +37,24 @@ export default function Partners({ partners }: IProps) {
           spacing: 10,
         },
       },
+      '(min-width: 768px)': {
+        slides: {
+          perView: 5,
+          spacing: 10,
+        },
+      },
     },
     created(s) {
       s.moveToIdx(5, true, animation);
     },
-    updated(s) {
-      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    drag: false,
+    loop: true,
+    renderMode: 'performance',
+    slides: {
+      perView: 3,
+      spacing: 10,
     },
-    animationEnded(s) {
+    updated(s) {
       s.moveToIdx(s.track.details.abs + 5, true, animation);
     },
   });

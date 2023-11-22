@@ -10,7 +10,7 @@ interface IProps {
   images: ICertificate[];
 }
 
-export default function CertificatesGallery({ images }: IProps) {
+export default function CertificatesGallery({ images }: Readonly<IProps>) {
   return (
     <ImageGallery
       additionalClass="mx-auto md:absolute md:-bottom-16 md:right-4 max-w-[300px] lg:max-w-[400px] relative"

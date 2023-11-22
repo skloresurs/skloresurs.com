@@ -51,7 +51,7 @@ export default async function QualityBook() {
             data-aos-delay="200"
             className={twMerge(
               buttonVariants({ variant: 'default' }),
-              'w-min flex flex-row gap-1 items-center',
+              'w-min flex flex-row gap-1 items-center'
             )}
           >
             {t('home.quality.button')}

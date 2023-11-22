@@ -1,14 +1,15 @@
 import type { IGlassCategory } from '@/types/Projects';
 import axios from '@/utils/axios-cms';
 
-/**
- * Retrieves the list of categories.
- *
- * @param locale - The locale of the categories.
- * @return The categories retrieved from the server, or null if an error occurred.
- */
-export default async function getCategories(
-  locale: string,
+interface IProjectCategoryServer {
+  id: number;
+  attributes: {
+    title: string;
+  };
+}
+
+export default async function getProjectCategories(
+  locale: string
 ): Promise<IGlassCategory[] | null> {
   try {
     const { data } = await axios.get('/api/project-glass-types', {
@@ -17,13 +18,10 @@ export default async function getCategories(
         'sort[0]': 'title:asc',
       },
     });
-    return data.data.map(
-      (e: any) =>
-        ({
-          id: e.id,
-          title: e.attributes.title,
-        }) as IGlassCategory,
-    ) as IGlassCategory[];
+    return data.data.map((e: IProjectCategoryServer) => ({
+      id: e.id,
+      title: e.attributes.title,
+    }));
   } catch (error) {
     return null;
   }

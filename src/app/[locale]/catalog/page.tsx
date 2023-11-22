@@ -11,16 +11,16 @@ import { getI18n } from '@/utils/i18n-server';
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getI18n();
   return {
-    title: t('catalog.title'),
-    description: t('catalog.description'),
     alternates: {
       canonical: '/catalog',
     },
+    description: t('catalog.description'),
     openGraph: {
-      title: `${t('catalog.title')} | ${t('meta.logo')}`,
       description: t('catalog.description'),
+      title: `${t('catalog.title')} | ${t('meta.logo')}`,
       url: 'https://skloresurs.com/catalog',
     },
+    title: t('catalog.title'),
   };
 }
 

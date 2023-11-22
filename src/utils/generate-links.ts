@@ -1,16 +1,14 @@
-/* eslint-disable sonarjs/no-nested-template-literals */
-
 /**
- * Generates a project link based on the provided filters.
+ * Generates a project link based on the provided parameters.
  *
- * @param {string} locale - The locale filter for the project.
- * @param {string | null} location - The location filter for the project.
- * @param {string | null} glassCategory - The glass category filter for the project.
- * @param {string | null} yearFrom - The starting year filter for the project.
- * @param {string | null} yearTo - The ending year filter for the project.
- * @param {string | null} search - The search filter for the project.
- * @param {string | null} page - The page of the projects list.
- * @returns {string} The generated project link.
+ * @param {string} locale - The locale for the project link.
+ * @param {string | null} location - The location for the project link.
+ * @param {string | null} glassCategory - The glass category for the project link.
+ * @param {string | null} yearFrom - The starting year for the project link.
+ * @param {string | null} yearTo - The ending year for the project link.
+ * @param {string | null} search - The search query for the project link.
+ * @param {string | null} page - The page number for the project link.
+ * @return {string} The generated project link.
  */
 export function GenerateProjectLink(
   locale: string,
@@ -19,15 +17,30 @@ export function GenerateProjectLink(
   yearFrom: string | null,
   yearTo: string | null,
   search: string | null,
-  page: string | null,
+  page: string | null
 ): string {
-  return `/api/projects?locale=${locale}${
-    location ? `&location=${location}` : ''
-  }${glassCategory ? `&glass=${glassCategory}` : ''}${
-    yearFrom ? `&year-from=${yearFrom}` : ''
-  }${yearTo ? `&year-to=${yearTo}` : ''}${search ? `&search=${search}` : ''}${
-    page ? `&page=${page}` : ''
-  }`;
+  const query = new URLSearchParams();
+  query.set('locale', locale);
+
+  if (location) {
+    query.set('location', location);
+  }
+  if (glassCategory) {
+    query.set('glass', glassCategory);
+  }
+  if (yearFrom) {
+    query.set('year-from', yearFrom);
+  }
+  if (yearTo) {
+    query.set('year-to', yearTo);
+  }
+  if (search) {
+    query.set('search', search);
+  }
+  if (page) {
+    query.set('page', page);
+  }
+  return `/api/projects?${query.toString()}`;
 }
 
 /**
@@ -42,8 +55,20 @@ export function GenerateComponentLink(
   locale: string,
   category: string | null,
   search: string | null,
+  manufacturer: string | null
 ): string {
-  return `/api/components?page=1&locale=${locale}${
-    category ? `&category=${category}` : ''
-  }${search ? `&search=${search}` : ''}`;
+  const query = new URLSearchParams();
+
+  query.set('locale', locale);
+  query.set('page', '1');
+  if (category) {
+    query.set('category', category);
+  }
+  if (search) {
+    query.set('search', search);
+  }
+  if (manufacturer) {
+    query.set('manufacturer', manufacturer);
+  }
+  return `/api/components?${query.toString()}`;
 }

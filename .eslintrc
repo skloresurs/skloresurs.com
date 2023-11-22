@@ -1,82 +1,106 @@
 {
   "extends": [
-    "airbnb-base",
+    // Next.js
     "next/core-web-vitals",
-    "plugin:prettier/recommended"
+
+    // Base
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+
+    // Extended
+    "plugin:sonarjs/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:array-func/recommended",
+    "plugin:no-use-extend-native/recommended",
+    "plugin:promise/recommended",
+
+    // Security
+    "plugin:no-unsanitized/DOM",
+    "plugin:security/recommended",
+    "plugin:xss/recommended",
+
+    // Others
+    "plugin:tailwindcss/recommended",
+    "plugin:eslint-comments/recommended",
+    // "plugin:pii/recommended",
+    "prettier"
   ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "no-constructor-bind",
+    "no-secrets",
+    "simple-import-sort",
+    "sort-keys-fix"
+  ],
+  "root": true,
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
-    "prettier/prettier": [
+    // no-constructor-bind plugin
+    "no-constructor-bind/no-constructor-bind": "error",
+    "no-constructor-bind/no-constructor-state": "error",
+
+    // no-secrets plugin
+    "no-secrets/no-secrets": "error",
+
+    // simple-import-sort plugin
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+
+    //sort-keys-fix plugin
+    "sort-keys-fix/sort-keys-fix": "warn",
+
+    // Fix unicorn rules for React
+    "unicorn/filename-case": [
       "error",
       {
-        "singleQuote": true,
-        "endOfLine": "auto"
+        "cases": {
+          "kebabCase": true,
+          "pascalCase": true
+        }
       }
     ],
+
+    // Disable no-duplicate-string rule for server error message
+    "sonarjs/no-duplicate-string": [
+      "error",
+      { "ignoreStrings": "Помилка сервера", "threshold": 5 }
+    ],
+
+    // Next.js rules for API routes
+    "import/prefer-default-export": "off",
+
+    // Enable support for mjs files
     "import/extensions": [
       "error",
       "always",
       {
-        "js": "off",
-        "jsx": "off",
-        "mjs": "off"
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "json": "always",
+        "mjs": "always"
       }
-    ]
-  },
-  "overrides": [
-    {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "plugins": [
-        "@typescript-eslint",
-        "unused-imports",
-        "tailwindcss",
-        "simple-import-sort"
-      ],
-      "extends": [
-        "plugin:tailwindcss/recommended",
-        "airbnb",
-        "airbnb-typescript",
-        "plugin:security/recommended",
-        "plugin:sonarjs/recommended",
-        "next/core-web-vitals",
-        "plugin:prettier/recommended"
-      ],
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      },
-      "rules": {
-        "sonarjs/no-duplicate-string": ["off"],
-        "jsx-a11y/media-has-caption": ["off"],
-        "prettier/prettier": [
-          "error",
-          {
-            "singleQuote": true,
-            "endOfLine": "auto"
-          }
-        ],
-        "import/extensions": "off", // Avoid missing file extension errors, TypeScript already provides a similar feature
-        "react/function-component-definition": "off", // Disable Airbnb's specific function type
-        "react/destructuring-assignment": "off", // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
-        "react/require-default-props": "off", // Allow non-defined react props as undefined
-        "react/jsx-props-no-spreading": "off", // _app.tsx uses spread operator and also, react-hook-form
-        "@typescript-eslint/comma-dangle": "off", // Avoid conflict rule between Eslint and Prettier
-        "@typescript-eslint/consistent-type-imports": "error", // Ensure `import type` is used when it's necessary
-        "no-restricted-syntax": [
-          "error",
-          "ForInStatement",
-          "LabeledStatement",
-          "WithStatement"
-        ], // Overrides Airbnb configuration and enable no-restricted-syntax
-        "import/prefer-default-export": "off", // Named export is easier to refactor automatically
-        "simple-import-sort/imports": "error", // Import configuration for `eslint-plugin-simple-import-sort`
-        "simple-import-sort/exports": "error", // Export configuration for `eslint-plugin-simple-import-sort`
-        "import/order": "off", // Avoid conflict rule between `eslint-plugin-import` and `eslint-plugin-simple-import-sort`
-        "@typescript-eslint/no-unused-vars": "off",
-        "unused-imports/no-unused-imports": "error",
-        "unused-imports/no-unused-vars": [
-          "error",
-          { "argsIgnorePattern": "^_" }
-        ]
-      }
-    }
-  ]
+    ],
+
+    // The following rules are disabled due to them being considered unduly restrictive or unhelpful.
+    "unicorn/no-array-for-each": "off",
+    "unicorn/no-fn-reference-in-iterator": "off",
+    "unicorn/no-reduce": "off",
+    "unicorn/no-null": "off",
+    "unicorn/prefer-number-properties": "off",
+    "unicorn/prefer-optional-catch-binding": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "react/jsx-props-no-spreading": "off",
+
+    // The following rules are disabled due to clashing with other plugins
+    "array-func/prefer-array-from": "off",
+    "import/order": "off",
+    "sort-imports": "off"
+  }
 }

@@ -16,8 +16,8 @@ import { createI18nMiddleware } from 'next-international/middleware';
  * This middleware handles internationalization for the application.
  */
 const I18nMiddleware = createI18nMiddleware({
-  locales: ['uk', 'en'],
   defaultLocale: 'uk',
+  locales: ['uk', 'en'],
   urlMappingStrategy: 'rewriteDefault',
 });
 

@@ -4,8 +4,9 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { MdiEye, MdiVideo } from '@/components/icons/mdi';
 import MdiArrowTopRightThick from '@/components/icons/mdi/MdiArrowTopRightThick';
 import { Badge } from '@/components/ui/badge';
 import CustomPagination from '@/components/ui/pagination';
@@ -13,9 +14,7 @@ import type IPostExtended from '@/types/Post';
 import { useCurrentLocale } from '@/utils/i18n-client';
 import getPostTagColor from '@/utils/post-tag-colors';
 
-import { MdiEye, MdiVideo } from './icons/mdi';
-
-function Post({ data }: { data: IPostExtended }) {
+function Post({ data }: Readonly<{ data: IPostExtended }>) {
   return (
     <Link
       title={data.title}
@@ -85,10 +84,11 @@ export default function NewsClient() {
   useEffect(() => {
     axios
       .get(`/api/news?page=${query.get('page') ?? 1}&locale=${locale}`)
-      .then((data: any) => {
+      .then((data) => {
         setNews(data.data.posts);
-        setTotal(Math.ceil(data.data.total / 6));
-      });
+        return setTotal(Math.ceil(data.data.total / 6));
+      })
+      .catch(() => null);
   }, [query, locale]);
 
   return (

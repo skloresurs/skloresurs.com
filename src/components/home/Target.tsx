@@ -10,7 +10,7 @@ interface ITargetItem {
   index: number;
   icon: ReactNode;
 }
-async function TargetItem({ icon, index, id }: ITargetItem) {
+async function TargetItem({ icon, index, id }: Readonly<ITargetItem>) {
   const t = await getI18n();
   return (
     <div

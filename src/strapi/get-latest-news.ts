@@ -1,32 +1,37 @@
 import { type IPost } from '@/types/Post';
 import axios from '@/utils/axios-cms';
 
+interface IPostServer {
+  id: number;
+  attributes: {
+    title: string;
+    description: string;
+  };
+}
+
 /**
- * Retrieves the last 3 news posts.
+ * Retrieves the latest 3 news posts.
  *
- * @param locale - The locale of the posts.
- * @return A promise that resolves to an array of the last 3 news posts, or null if an error occurs.
+ * @param {string} locale - The desired locale for the news posts.
+ * @return {Promise<IPost[] | null>} A promise that resolves to an array of IPost objects or null if an error occurs.
  */
 export default async function getLatestNews(
-  locale: string,
+  locale: string
 ): Promise<IPost[] | null> {
   try {
     const { data } = await axios.get('/api/posts', {
       params: {
         locale,
-        'sort[0]': 'createdAt:desc',
-        'pagination[page]': 1,
         'pagination[pageSize]': 3,
+        'pagination[page]': 1,
+        'sort[0]': 'createdAt:desc',
       },
     });
-    return data.data.map(
-      (e: any) =>
-        ({
-          id: e.id,
-          title: e.attributes.title,
-          description: e.attributes.description,
-        }) as IPost,
-    ) as IPost[];
+    return data.data.map((e: IPostServer) => ({
+      description: e.attributes.description,
+      id: e.id,
+      title: e.attributes.title,
+    }));
   } catch (error) {
     return null;
   }

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useI18n } from '@/utils/i18n-client';
 
-export default function SearchFilter({ path }: { path: string }) {
+export default function SearchFilter({ path }: Readonly<{ path: string }>) {
   const [value, setValue] = useState<string>('');
   const query = useSearchParams();
   const router = useRouter();
@@ -20,7 +20,7 @@ export default function SearchFilter({ path }: { path: string }) {
   }, [query]);
 
   const search = () => {
-    const current = new URLSearchParams(Array.from(query.entries()));
+    const current = new URLSearchParams([...query.entries()]);
     current.delete('page');
 
     if (!value || value === '') {

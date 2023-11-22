@@ -27,7 +27,7 @@ function GenerateTelegramMessage(
   username: string,
   email: string,
   phone: string | null,
-  message: string,
+  message: string
 ) {
   return `🔔 Нове сповіщення з сайту
 🧑 Від: ${username}
@@ -45,17 +45,15 @@ export async function POST(request: NextRequest) {
 
     const { data } = await axios
       .post(
-        `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${captcha}`,
+        `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${captcha}`
       )
-      .catch(() => {
-        return { data: { success: false } };
-      });
+      .catch(() => ({ data: { success: false } }));
     if (!data.success) {
       return NextResponse.json(
         { error: 'Captcha failed' },
         {
           status: 429,
-        },
+        }
       );
     }
 
@@ -64,7 +62,7 @@ export async function POST(request: NextRequest) {
         {
           error: 'Missing one or many required fields',
         },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -77,14 +75,14 @@ export async function POST(request: NextRequest) {
     await doc.loadInfo();
     const sheet = doc.sheetsByTitle['Відгуки'];
     await sheet?.addRow({
+      'E-mail': email,
+      "Ім'я": username,
       Дата: `${moment(new Date())
         .tz('Europe/Kiev')
         .format('DD.MM.YYYY HH:mm')}`,
-      'E-mail': email,
-      "Ім'я": username,
       'Номер телефону': `'${phone?.toString() ?? missingOptionalParams}`,
-      'Як дізнались': additional ?? missingOptionalParams,
       Повідомлення: message.replace('=', '≈'),
+      'Як дізнались': additional ?? missingOptionalParams,
     });
 
     const { data: createTopicResponse } = await axios.post(
@@ -94,7 +92,7 @@ export async function POST(request: NextRequest) {
         name: `${username} ${moment(new Date())
           .tz('Europe/Kiev')
           .format('DD.MM.YYYY HH:mm')}`,
-      },
+      }
     );
 
     await axios.post(`${TELEGRAM_API_ROUTE}/sendMessage`, {
@@ -104,12 +102,12 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ success: true }, { status: 200 });
-  } catch (err) {
+  } catch (error) {
     return NextResponse.json(
       {
         error: 'Unknown error',
       },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

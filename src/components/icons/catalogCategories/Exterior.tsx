@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react';
 import React from 'react';
 
-export default function Exterion(props: SVGProps<SVGSVGElement>) {
+export default function Exterion(props: Readonly<SVGProps<SVGSVGElement>>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

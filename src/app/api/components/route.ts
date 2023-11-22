@@ -1,8 +1,39 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { env } from '@/env.mjs';
-import type IComponent from '@/types/Component';
 import axios from '@/utils/axios-cms';
+
+interface IComponentServer {
+  id: number;
+  attributes: {
+    title: string;
+    url: string;
+    category: {
+      data: {
+        id: number;
+        attributes: {
+          title: string;
+        };
+      } | null;
+    };
+    image: {
+      data: {
+        attributes: {
+          url: string;
+        };
+      } | null;
+    };
+    manufacturer: {
+      data: {
+        id: number;
+        attributes: {
+          title: string;
+          url: string;
+        };
+      } | null;
+    };
+  };
+}
 
 export async function GET(request: NextRequest) {
   try {
@@ -10,17 +41,20 @@ export async function GET(request: NextRequest) {
     const locale = query.get('locale') ?? 'uk';
     const category = query.get('category');
     const search = query.get('search');
+    const manufacturer = query.get('manufacturer');
 
     const { data } = await axios.get(`/api/components`, {
       params: {
-        locale,
-        'pagination[page]': 1,
-        'pagination[pageSize]': 100,
-        'populate[0]': 'category',
-        'populate[1]': 'image',
-        'filters[category][id][$eq]': category,
         'filters[$or][0][title][$containsi]': search,
         'filters[$or][1][category][title][$containsi]': search,
+        'filters[category][id][$eq]': category,
+        'filters[manufacturer][id][$eq]': manufacturer,
+        locale,
+        'pagination[pageSize]': 200,
+        'pagination[page]': 1,
+        'populate[0]': 'category',
+        'populate[1]': 'image',
+        'populate[2]': 'manufacturer',
       },
     });
 
@@ -29,23 +63,25 @@ export async function GET(request: NextRequest) {
     }
     return NextResponse.json(
       {
-        components: data.data.map(
-          (e: any) =>
-            ({
-              id: e.id,
-              title: e.attributes.title,
-              description: e.attributes.description,
-              href: e.attributes.link,
-              category: {
-                id: e.attributes.category.data.id,
-                title: e.attributes.category.data.attributes.title,
-              },
-              image: env.CMS_URL + e.attributes.image.data.attributes.url,
-            }) as IComponent,
-        ) as IComponent[],
+        components: data.data.map((e: IComponentServer) => ({
+          id: e.id,
+          image: e.attributes.image.data?.attributes?.url
+            ? env.CMS_URL + e.attributes.image.data.attributes.url
+            : 'https://placehold.co/512?text=Missing\nImage/png',
+
+          manufacturer: e.attributes.manufacturer?.data
+            ? {
+                id: e.attributes.manufacturer.data.id,
+                title: e.attributes.manufacturer.data.attributes.title,
+                url: e.attributes.manufacturer.data.attributes.url,
+              }
+            : null,
+          title: e.attributes.title,
+          url: e.attributes.url,
+        })),
         total: data.meta.pagination.total,
       },
-      { status: 200 },
+      { status: 200 }
     );
   } catch (error) {
     return NextResponse.json(null, { status: 500 });

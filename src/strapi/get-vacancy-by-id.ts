@@ -5,13 +5,13 @@ import axios from '@/utils/axios-cms';
 /**
  * Retrieves a vacancy by ID.
  *
- * @param locale - The locale of the vacancy.
- * @param id - The ID of the vacancy.
- * @returns A promise that resolves to the vacancy object, or null if it is not found.
+ * @param {string} locale - The locale to use for the request.
+ * @param {number} id - The ID of the vacancy to retrieve.
+ * @return {Promise<IVacancy | null>} A promise that resolves to the vacancy object if found, or null otherwise.
  */
 export default async function getVacancyById(
   locale: string,
-  id: number,
+  id: number
 ): Promise<IVacancy | null> {
   try {
     const { data } = await axios.get(`/api/vacancies/${id}`, {
@@ -21,15 +21,15 @@ export default async function getVacancyById(
       },
     });
     return {
-      id: data.data.id,
-      title: data.data.attributes.title,
-      description: data.data.attributes.description,
       content: data.data.attributes.content,
+      description: data.data.attributes.description,
+      id: data.data.id,
       image: env.CMS_URL + data.data.attributes.image.data.attributes.url,
+      title: data.data.attributes.title,
       video: data.data.attributes.video.data
         ? env.CMS_URL + data.data.attributes.video.data.attributes.url
         : null,
-    } as IVacancy;
+    };
   } catch (error) {
     return null;
   }

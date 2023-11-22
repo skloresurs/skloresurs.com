@@ -29,11 +29,11 @@ export default function SelectFilter({
   path,
   title,
   allTitle,
-}: IProps) {
+}: Readonly<IProps>) {
   const query = useSearchParams();
   const router = useRouter();
   const [value, setValue] = React.useState<string>(
-    data.find((e) => e.id === query.get(filterKey) ?? 'none')?.id ?? 'none',
+    data.find((e) => e.id === query.get(filterKey))?.id ?? 'none'
   );
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function SelectFilter({
   }, [query, filterKey]);
 
   const search = (currentValue: string) => {
-    const current = new URLSearchParams(Array.from(query.entries()));
+    const current = new URLSearchParams([...query.entries()]);
     current.delete('page');
 
     if (currentValue === 'none') {

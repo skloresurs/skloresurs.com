@@ -2,10 +2,16 @@ import { env } from '@/env.mjs';
 import type ICertificate from '@/types/Certificate';
 import axios from '@/utils/axios-cms';
 
+interface ICertificateServer {
+  attributes: {
+    url: string;
+  };
+}
+
 /**
- * Retrieves the certificates.
+ * Retrieves the list of certificates from the server.
  *
- * @returns The retrieved certificates or null if an error occurred.
+ * @return {Promise<ICertificate[] | null>} The list of certificates or null if there was an error.
  */
 export default async function getCertificates(): Promise<
   ICertificate[] | null
@@ -17,11 +23,10 @@ export default async function getCertificates(): Promise<
       },
     });
     return data.data.attributes.certificates.data.map(
-      (e: any) =>
-        ({
-          original: env.CMS_URL + e.attributes.url,
-        }) as ICertificate,
-    ) as ICertificate[];
+      (e: ICertificateServer) => ({
+        original: env.CMS_URL + e.attributes.url,
+      })
+    );
   } catch (error) {
     return null;
   }

@@ -53,7 +53,7 @@ export default function Footer() {
                 title="office@skloresurs.com"
                 className={twMerge(
                   buttonVariants({ variant: 'link' }),
-                  'p-0 m-0 h-min ml-1',
+                  'p-0 m-0 h-min ml-1'
                 )}
                 href="mailto:office@skloresurs.com"
               >
@@ -66,7 +66,7 @@ export default function Footer() {
                 title="+38 (044) 355-05-99"
                 className={twMerge(
                   buttonVariants({ variant: 'link' }),
-                  'p-0 m-0 h-min ml-1',
+                  'p-0 m-0 h-min ml-1'
                 )}
                 href="tel:+38 (044) 355-05-99"
               >

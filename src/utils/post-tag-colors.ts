@@ -1,43 +1,61 @@
 /**
- * Returns the CSS classes for the specified color.
- * @param color - The color name.
- * @returns The CSS classes for the specified color.
+ * Returns the CSS classes for the given color to be used in a post tag.
+ *
+ * @param {string} color - The color of the post tag.
+ * @return {string} The CSS classes for the color.
  */
 export default function getPostTagColor(color: string) {
   switch (color) {
-    case 'red':
+    case 'red': {
       return 'bg-red-50 text-red-700';
-    case 'orange':
+    }
+    case 'orange': {
       return 'bg-orange-50 text-orange-700';
-    case 'amber':
+    }
+    case 'amber': {
       return 'bg-amber-50 text-amber-700';
-    case 'yellow':
+    }
+    case 'yellow': {
       return 'bg-yellow-50 text-yellow-700';
-    case 'lime':
+    }
+    case 'lime': {
       return 'bg-lime-50 text-lime-700';
-    case 'green':
+    }
+    case 'green': {
       return 'bg-green-50 text-green-700';
-    case 'emerald':
+    }
+    case 'emerald': {
       return 'bg-emerald-50 text-emerald-700';
-    case 'teal':
+    }
+    case 'teal': {
       return 'bg-teal-50 text-teal-700';
-    case 'cyan':
+    }
+    case 'cyan': {
       return 'bg-cyan-50 text-cyan-700';
-    case 'blue':
+    }
+    case 'blue': {
       return 'bg-blue-50 text-blue-700';
-    case 'indigo':
+    }
+    case 'indigo': {
       return 'bg-indigo-50 text-indigo-700';
-    case 'violet':
+    }
+    case 'violet': {
       return 'bg-violet-50 text-violet-700';
-    case 'purple':
+    }
+    case 'purple': {
       return 'bg-purple-50 text-purple-700';
-    case 'fuchsia':
+    }
+    case 'fuchsia': {
       return 'bg-fuchsia-50 text-fuchsia-700';
-    case 'pink':
+    }
+    case 'pink': {
       return 'bg-pink-50 text-pink-700';
-    case 'rose':
+    }
+    case 'rose': {
       return 'bg-rose-50 text-rose-700';
-    default:
+    }
+    default: {
       return '';
+    }
   }
 }

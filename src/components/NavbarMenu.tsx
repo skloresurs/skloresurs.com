@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
@@ -21,7 +22,7 @@ import {
   useCurrentLocale,
   useI18n,
 } from '@/utils/i18n-client';
-import { cn } from '@/utils/shadcnUtils';
+import { cn } from '@/utils/shadcn-utils';
 
 type AllowID =
   | 'components'
@@ -42,75 +43,76 @@ interface IMenuItem {
 
 const servicesMenu: IMenuItem[] = [
   {
-    id: 'components',
     href: '/components',
+    id: 'components',
   },
   {
-    id: 'catalog',
     href: '/catalog',
+    id: 'catalog',
   },
   {
-    id: 'delivery',
     href: '/delivery',
+    id: 'delivery',
   },
   {
-    id: 'vacancies',
     href: '/vacancies',
+    id: 'vacancies',
   },
   {
-    id: 'contact-us',
     href: '/#contact-us',
+    id: 'contact-us',
   },
   {
-    id: 'production',
     href: '/productions',
+    id: 'production',
   },
 ];
 
 const postsMenu: IMenuItem[] = [
   {
-    id: 'news',
     href: '/news',
+    id: 'news',
   },
   {
-    id: 'projects',
     href: '/projects',
+    id: 'projects',
   },
   {
-    id: 'reportings',
     href: '/reportings',
+    id: 'reportings',
   },
   {
-    id: 'seminars',
     href: '/seminars',
+    id: 'seminars',
   },
 ];
 
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => {
+interface IListItem {
+  className?: string;
+  title: string;
+  children: string;
+  href: string;
+}
+function ListItem({ className, title, children, href }: Readonly<IListItem>) {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
-          ref={ref}
+        <Link
+          href={href ?? '#'}
           className={cn(
             'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-            className,
+            className
           )}
-          {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   );
-});
-ListItem.displayName = 'ListItem';
+}
 
 export default function NavBarMenu() {
   const changeLocale = useChangeLocale();
