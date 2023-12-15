@@ -2,6 +2,7 @@ import '../globals.css';
 
 import type { Metadata, Viewport } from 'next';
 import { Raleway } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 import type { ReactNode } from 'react';
 import React from 'react';
 
@@ -109,6 +110,7 @@ export default async function RootLayout({
       <body
         className={`mx-auto flex min-h-[100dvh] flex-col pb-6 duration-500 scrollbar-thin scrollbar-thumb-primary ${raleway.className}`}
       >
+        <NextTopLoader showSpinner crawl color="#9ddbe2" />
         <GAnalytics />
         <NavBar />
         <div className="flex-1">{children}</div>

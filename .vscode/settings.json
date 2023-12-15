@@ -38,5 +38,6 @@
     "home.contact-us.form.alerts.captcha.title",
     "home.contact-us.form.alerts.error.description",
     "home.contact-us.form.alerts.captcha.description"
-  ]
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

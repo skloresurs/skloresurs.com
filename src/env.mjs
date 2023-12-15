@@ -12,6 +12,9 @@ export const env = createEnv({
     NEXT_PUBLIC_GA_MEASUREMENT_ID: z
       .string({ required_error: 'NEXT_PUBLIC_GA_MEASUREMENT_ID is required' })
       .min(1),
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z
+      .string({ required_error: 'NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is required' })
+      .min(1),
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z
       .string({ required_error: 'NEXT_PUBLIC_RECAPTCHA_SITE_KEY is required' })
       .min(1),
@@ -19,6 +22,8 @@ export const env = createEnv({
   experimental__runtimeEnv: {
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
     NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY:
+      process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
   },
   onInvalidAccess: () => {

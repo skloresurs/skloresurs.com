@@ -1,14 +1,14 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import { ReCaptchaProvider } from 'next-recaptcha-v3';
 import React from 'react';
 
 import I18nProvider from '@/components/I18nProvider';
-import { getCurrentLocale } from '@/utils/i18n-server';
+import { env } from '@/env.mjs';
 
 import ContactUsForm from './ContactUsForm';
 
 export default async function ContactUs() {
-  const locale = getCurrentLocale();
-
   return (
     <div
       id="contact-us"
@@ -19,20 +19,23 @@ export default async function ContactUs() {
           <ContactUsForm />
         </ReCaptchaProvider>
       </I18nProvider>
-      <div
-        className="w-full md:pl-20"
+      <Link
+        className="relative h-[500px] w-full md:pl-20"
         data-aos="fade-left"
         data-aos-anchor-placement="top-bottom"
+        target="_blank"
+        // eslint-disable-next-line no-secrets/no-secrets
+        href="https://www.google.com/maps/place/%D0%A1%D0%9A%D0%9B%D0%9E%D0%A0%D0%95%D0%A1%D0%A3%D0%A0%D0%A1,+%D0%A2%D0%9E%D0%92/@50.393348,25.7766678,15z/data=!4m2!3m1!1s0x0:0x647fedd3239403?sa=X&ved=2ahUKEwi0qeqo_JCDAxUr7LsIHXaXD0oQ_BJ6BAhAEAA"
       >
-        <iframe
+        <Image
           // eslint-disable-next-line no-secrets/no-secrets
-          src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2543.5591123481963!2d25.77302537690441!3d50.39341689146838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472f834aa1a7e7c7%3A0x647fedd3239403!2z0KHQmtCb0J7QoNCV0KHQo9Cg0KEsINCi0J7Qkg!5e0!3m2!1suk!2sua!4v1697707292599!5m2!1s${locale}!2sua`}
-          loading="lazy"
-          width="100%"
-          title="Google map"
-          className="h-[500px] overflow-hidden rounded-md md:h-[700px]"
+          src={`https://maps.googleapis.com/maps/api/staticmap?center=Skloresurs&zoom=13&scale=2&size=400x400&maptype=roadmap&format=png&key=${env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&markers=size:mid%7Ccolor:0x9ddbe2%7Clabel:%7CSkloresurs`}
+          alt="map"
+          fill
+          className="aspect-square object-contain"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-      </div>
+      </Link>
     </div>
   );
 }
