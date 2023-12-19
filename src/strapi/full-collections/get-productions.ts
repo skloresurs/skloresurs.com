@@ -1,3 +1,5 @@
+import orderBy from 'lodash/orderBy';
+
 import { env } from '@/env.mjs';
 import type IProduction from '@/types/Production';
 import axios from '@/utils/axios-cms';
@@ -53,7 +55,7 @@ export default async function getProductions(
       },
     });
 
-    return data.data.map((e: IProductionServer) => ({
+    const result = data.data.map((e: IProductionServer) => ({
       alt: e.attributes.production_alt?.data?.attributes
         ? {
             description:
@@ -70,6 +72,7 @@ export default async function getProductions(
       title: e.attributes.title,
       video: env.CMS_URL + e.attributes.video.data.attributes.url,
     }));
+    return orderBy(result, ['order'], ['asc']);
   } catch (error) {
     return null;
   }
