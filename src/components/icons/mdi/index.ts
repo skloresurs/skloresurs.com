@@ -20,3 +20,4 @@ export { default as MdiMenu } from './MdiMenu';
 export { default as MdiPhone } from './MdiPhone';
 export { default as MdiSend } from './MdiSend';
 export { default as MdiVideo } from './MdiVideo';
+export { default as MdiX } from './MdiX';

@@ -49,8 +49,8 @@ export default async function Productions({
       <div className="absolute inset-0 -z-40 h-full w-full bg-gradient-to-r from-black" />
       <I18nProvider>
         <ProductionsText data={data} />
+        <ProductionsPlaylist productions={productions} slide={+params.slide} />
       </I18nProvider>
-      <ProductionsPlaylist productions={productions} slide={+params.slide} />
     </>
   );
 }

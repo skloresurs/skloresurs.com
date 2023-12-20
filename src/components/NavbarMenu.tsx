@@ -62,10 +62,6 @@ const servicesMenu: IMenuItem[] = [
     href: '/#contact-us',
     id: 'contact-us',
   },
-  {
-    href: '/productions',
-    id: 'production',
-  },
 ];
 
 const postsMenu: IMenuItem[] = [
@@ -125,6 +121,14 @@ export default function NavBarMenu() {
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuLink href="/" className={navigationMenuTriggerStyle()}>
             {t('navbar.menu.home')}
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem className="hidden md:block">
+          <NavigationMenuLink
+            href="/productions"
+            className={navigationMenuTriggerStyle()}
+          >
+            {t('navbar.menu.production.title')}
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem className="hidden md:block">
@@ -195,6 +199,12 @@ export default function NavBarMenu() {
               className="flex w-full min-w-max flex-row items-center gap-2 rounded-md px-3 py-2 duration-300 hover:bg-muted"
             >
               {t(`navbar.menu.home`)}
+            </NavigationMenuLink>
+            <NavigationMenuLink
+              href="/productions"
+              className="flex w-full min-w-max flex-row items-center gap-2 rounded-md px-3 py-2 duration-300 hover:bg-muted"
+            >
+              {t(`navbar.menu.production.title`)}
             </NavigationMenuLink>
             <Separator />
             {servicesMenu.map((item) => (

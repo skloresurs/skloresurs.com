@@ -188,7 +188,10 @@
     "title": "News"
   },
   "production": {
-    "return-from-alt": "Back"
+    "return-from-alt": "Back",
+    "playlist": {
+      "title": "Playlist"
+    }
   },
   "projects": {
     "description": "We invite you to explore our project gallery and find inspiration in the world of glass processing. Learn more about our projects and innovations that inspire industry professionals.",
