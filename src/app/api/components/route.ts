@@ -55,6 +55,7 @@ export async function GET(request: NextRequest) {
         'populate[0]': 'category',
         'populate[1]': 'image',
         'populate[2]': 'manufacturer',
+        'sort[0]': 'title:asc',
       },
     });
 
