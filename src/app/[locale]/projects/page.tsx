@@ -33,18 +33,12 @@ export default async function Projects() {
 
   const t = await getI18n();
   return locations && glassCategories ? (
-    <div className="mx-auto max-w-6xl px-5">
-      <h1 className="mb-5 text-center">{t('projects.title')}</h1>
+    <div className='mx-auto max-w-6xl px-5'>
+      <h1 className='mb-5 text-center'>{t('projects.title')}</h1>
       <I18nProvider>
-        <div className="flex h-full flex-col gap-3 md:flex-row">
-          <ProjectsFilter
-            locations={locations}
-            glassCategories={glassCategories}
-          />
-          <Separator
-            orientation="vertical"
-            className="hidden h-auto md:block"
-          />
+        <div className='flex h-full flex-col gap-3 md:flex-row'>
+          <ProjectsFilter locations={locations} glassCategories={glassCategories} />
+          <Separator orientation='vertical' className='hidden h-auto md:block' />
           <ProjectsClient />
         </div>
       </I18nProvider>

@@ -25,8 +25,8 @@ export default async function News() {
   const t = await getI18n();
 
   return (
-    <div className="mx-auto max-w-6xl px-5">
-      <h1 className="mb-5 text-center">{t('news.title')}</h1>
+    <div className='mx-auto max-w-6xl px-5'>
+      <h1 className='mb-5 text-center'>{t('news.title')}</h1>
       <I18nProvider>
         <NewsClient />
       </I18nProvider>

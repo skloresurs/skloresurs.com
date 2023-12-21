@@ -6,9 +6,7 @@ import axios from '@/utils/axios-cms';
  * @param {string} locale - The locale of the seminar page content.
  * @return {Promise<string | null>} The seminar page content, or null if an error occurs.
  */
-export default async function getSeminarPage(
-  locale: string
-): Promise<string | null> {
+export default async function getSeminarPage(locale: string): Promise<string | null> {
   try {
     const { data } = await axios.get('/api/seminar-page', {
       params: {

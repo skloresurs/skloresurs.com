@@ -16,21 +16,18 @@ interface IProps {
   glassCategories: IGlassCategory[];
 }
 
-export default function ProjectsFilter({
-  locations,
-  glassCategories,
-}: Readonly<IProps>) {
+export default function ProjectsFilter({ locations, glassCategories }: IProps) {
   const t = useI18n();
   const router = useRouter();
   return (
-    <div className="w-full py-2 md:w-[250px]">
-      <h2 className="mb-5 text-center">{t('meta.filters.title')}</h2>
-      <div className="flex flex-col gap-3">
-        <SearchFilter path="/projects" />
+    <div className='w-full py-2 md:w-[250px]'>
+      <h2 className='mb-5 text-center'>{t('meta.filters.title')}</h2>
+      <div className='flex flex-col gap-3'>
+        <SearchFilter path='/projects' />
         <SelectFilter
           data={locations.map((e) => ({ id: e.id.toString(), title: e.title }))}
-          filterKey="location"
-          path="/projects"
+          filterKey='location'
+          path='/projects'
           title={t('projects.filters.location.title')}
           allTitle={t('projects.filters.location.all')}
         />
@@ -39,17 +36,13 @@ export default function ProjectsFilter({
             id: e.id.toString(),
             title: e.title,
           }))}
-          filterKey="glass"
-          path="/projects"
+          filterKey='glass'
+          path='/projects'
           title={t('projects.filters.glass.title')}
           allTitle={t('projects.filters.glass.all')}
         />
         <ProjectsFilterYear />
-        <Button
-          variant="destructive"
-          className="mt-5"
-          onClick={() => router.push('/projects')}
-        >
+        <Button variant='destructive' className='mt-5' onClick={() => router.push('/projects')}>
           {t('meta.filters.reset')}
         </Button>
       </div>

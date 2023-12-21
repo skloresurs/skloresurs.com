@@ -13,11 +13,7 @@
   background-color: #1a232a;
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-image: conic-gradient(
-    transparent,
-    rgba(168, 239, 255, 1),
-    transparent 30%
-  );
+  background-image: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
   animation: rotate 4s linear infinite;
 }
 

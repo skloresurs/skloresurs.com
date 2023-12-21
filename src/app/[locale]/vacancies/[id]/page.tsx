@@ -10,11 +10,7 @@ import React from 'react';
 import getVacancyById from '@/strapi/get-vacancy-by-id';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const vacancy = await getVacancyById(getCurrentLocale(), +params.id);
   return {
     alternates: {
@@ -31,9 +27,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Vacancy({
-  params,
-}: Readonly<{ params: { id: string } }>) {
+export default async function Vacancy({ params }: { params: { id: string } }) {
   const t = await getI18n();
   if (!params.id) {
     return notFound();
@@ -45,36 +39,30 @@ export default async function Vacancy({
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-5">
+    <div className='mx-auto max-w-6xl px-5'>
       <Link
-        href="/vacancies"
+        href='/vacancies'
         title={t('vacancies.return-back')}
-        className="mb-2 text-sm text-muted-foreground duration-300 hover:text-white"
+        className='mb-2 text-sm text-muted-foreground duration-300 hover:text-white'
       >
         {t('vacancies.return-back')}
       </Link>
-      <h1 className="mb-5 flex-1 text-center">{vacancy.title}</h1>
-      <div className="flex flex-col items-start gap-4 md:flex-row">
+      <h1 className='mb-5 flex-1 text-center'>{vacancy.title}</h1>
+      <div className='flex flex-col items-start gap-4 md:flex-row'>
         {vacancy.video ? (
-          <video
-            src={vacancy.video}
-            muted
-            autoPlay
-            loop
-            className="mx-auto h-min object-cover md:w-[200px]"
-          />
+          <video src={vacancy.video} muted autoPlay loop className='mx-auto h-min object-cover md:w-[200px]' />
         ) : (
           <Image
             src={vacancy.image}
             alt={vacancy.title}
             title={vacancy.title}
-            width="200"
-            height="200"
-            className="mx-auto h-min object-cover"
-            loading="lazy"
+            width='200'
+            height='200'
+            className='mx-auto h-min object-cover'
+            loading='lazy'
           />
         )}
-        <div className="content">{parse(vacancy.content)}</div>
+        <div className='content'>{parse(vacancy.content)}</div>
       </div>
     </div>
   );

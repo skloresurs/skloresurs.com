@@ -9,10 +9,7 @@ import axios from '@/utils/axios-cms';
  * @param {number} id - The ID of the vacancy to retrieve.
  * @return {Promise<IVacancy | null>} A promise that resolves to the vacancy object if found, or null otherwise.
  */
-export default async function getVacancyById(
-  locale: string,
-  id: number
-): Promise<IVacancy | null> {
+export default async function getVacancyById(locale: string, id: number): Promise<IVacancy | null> {
   try {
     const { data } = await axios.get(`/api/vacancies/${id}`, {
       params: {
@@ -26,9 +23,7 @@ export default async function getVacancyById(
       id: data.data.id,
       image: env.CMS_URL + data.data.attributes.image.data.attributes.url,
       title: data.data.attributes.title,
-      video: data.data.attributes.video.data
-        ? env.CMS_URL + data.data.attributes.video.data.attributes.url
-        : null,
+      video: data.data.attributes.video.data ? env.CMS_URL + data.data.attributes.video.data.attributes.url : null,
     };
   } catch (error) {
     return null;

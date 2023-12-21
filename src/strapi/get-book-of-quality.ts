@@ -7,9 +7,7 @@ import axios from '@/utils/axios-cms';
  * @param {string} locale - The locale of the book.
  * @return {Promise<string | null>} - A promise that resolves to the URL of the book's quality file, or null if an error occurs.
  */
-export default async function getBookQuality(
-  locale: string
-): Promise<string | null> {
+export default async function getBookQuality(locale: string): Promise<string | null> {
   try {
     const { data } = await axios.get('/api/book-of-quality', {
       params: { locale, populate: '*' },

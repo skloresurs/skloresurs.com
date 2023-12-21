@@ -17,10 +17,7 @@ interface ITag {
  * @param {number} id - The ID of the post.
  * @return {Promise<IPostExtended | null>} A promise that resolves to an extended post object or null if the post was not found.
  */
-export default async function getPostById(
-  locale: string,
-  id: number
-): Promise<IPostExtended | null> {
+export default async function getPostById(locale: string, id: number): Promise<IPostExtended | null> {
   try {
     const { data } = await axios.get(`/api/posts/${id}`, {
       params: {

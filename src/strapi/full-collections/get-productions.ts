@@ -41,9 +41,7 @@ interface IProductionServer {
  * @param {string} locale - The locale to filter the productions by.
  * @return {Promise<IProduction[] | null>} A promise that resolves to an array of production objects or null if an error occurs.
  */
-export default async function getProductions(
-  locale: string
-): Promise<IProduction[] | null> {
+export default async function getProductions(locale: string): Promise<IProduction[] | null> {
   try {
     const { data } = await axios.get('/api/productions', {
       params: {
@@ -58,13 +56,9 @@ export default async function getProductions(
     const result = data.data.map((e: IProductionServer) => ({
       alt: e.attributes.production_alt?.data?.attributes
         ? {
-            description:
-              e.attributes.production_alt.data.attributes.description,
+            description: e.attributes.production_alt.data.attributes.description,
             title: e.attributes.production_alt.data.attributes.title,
-            video:
-              env.CMS_URL +
-              e.attributes.production_alt.data.attributes.video.data.attributes
-                .url,
+            video: env.CMS_URL + e.attributes.production_alt.data.attributes.video.data.attributes.url,
           }
         : null,
       description: e.attributes.description,

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useI18n } from '@/utils/i18n-client';
 
-export default function SearchFilter({ path }: Readonly<{ path: string }>) {
+export default function SearchFilter({ path }: { path: string }) {
   const [value, setValue] = useState<string>('');
   const query = useSearchParams();
   const router = useRouter();
@@ -35,14 +35,10 @@ export default function SearchFilter({ path }: Readonly<{ path: string }>) {
   };
 
   return (
-    <div className="flex flex-row gap-2">
-      <Input
-        placeholder={t('meta.filters.search')}
-        onChange={(e) => setValue(e.target.value)}
-        value={value}
-      />
-      <Button size="icon" className="aspect-square" onClick={search}>
-        <MdiMagnify className="h-5 w-5" />
+    <div className='flex flex-row gap-2'>
+      <Input placeholder={t('meta.filters.search')} onChange={(e) => setValue(e.target.value)} value={value} />
+      <Button size='icon' className='aspect-square' onClick={search}>
+        <MdiMagnify className='h-5 w-5' />
       </Button>
     </div>
   );

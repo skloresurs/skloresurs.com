@@ -29,9 +29,9 @@ export default async function Seminars() {
   const locale = getCurrentLocale();
   const data = await getSeminarPage(locale);
   return data ? (
-    <div className="mx-auto max-w-6xl px-5">
-      <h1 className="mb-5 text-center">{t('seminars.title')}</h1>
-      <div className="content">{parse(data)}</div>
+    <div className='mx-auto max-w-6xl px-5'>
+      <h1 className='mb-5 text-center'>{t('seminars.title')}</h1>
+      <div className='content'>{parse(data)}</div>
     </div>
   ) : (
     <ErrorLoaded />

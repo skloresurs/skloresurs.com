@@ -8,19 +8,13 @@ import { RangeSlider } from '@/components/ui/range-slider';
 import { useI18n } from '@/utils/i18n-client';
 
 export default function ProjectsFilterYear() {
-  const [values, setValues] = useState<number[]>([
-    2000,
-    new Date().getFullYear(),
-  ]);
+  const [values, setValues] = useState<number[]>([2000, new Date().getFullYear()]);
   const query = useSearchParams();
   const router = useRouter();
   const t = useI18n();
 
   useEffect(() => {
-    setValues([
-      +(query.get('year-from') ?? 2000),
-      +(query.get('year-to') ?? new Date().getFullYear()),
-    ]);
+    setValues([+(query.get('year-from') ?? 2000), +(query.get('year-to') ?? new Date().getFullYear())]);
   }, [query]);
 
   const search = () => {
@@ -46,9 +40,9 @@ export default function ProjectsFilterYear() {
 
   return (
     <>
-      <h3 className="text-center">{t('projects.filters.year.title')}</h3>
+      <h3 className='text-center'>{t('projects.filters.year.title')}</h3>
       <RangeSlider
-        className="mb-0"
+        className='mb-0'
         defaultValue={[2000, new Date().getFullYear()]}
         value={values}
         onValueChange={setValues}
@@ -57,7 +51,7 @@ export default function ProjectsFilterYear() {
         max={new Date().getFullYear()}
         step={1}
       />
-      <p className="text-center text-muted-foreground">
+      <p className='text-center text-muted-foreground'>
         {values[0] === values[1] ? values[0] : `${values[0]} - ${values[1]}`}
       </p>
     </>

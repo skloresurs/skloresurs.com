@@ -9,10 +9,8 @@ import Partners from './Partners';
 export default async function PartnersServer() {
   const partners = await getPartners();
   return (
-    <div className="mt-6">
-      <div className="mx-auto max-w-6xl px-6">
-        {partners && <Partners partners={partners} />}
-      </div>
+    <div className='mt-6'>
+      <div className='mx-auto max-w-6xl px-6'>{partners && <Partners partners={partners} />}</div>
     </div>
   );
 }

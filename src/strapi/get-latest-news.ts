@@ -15,9 +15,7 @@ interface IPostServer {
  * @param {string} locale - The desired locale for the news posts.
  * @return {Promise<IPost[] | null>} A promise that resolves to an array of IPost objects or null if an error occurs.
  */
-export default async function getLatestNews(
-  locale: string
-): Promise<IPost[] | null> {
+export default async function getLatestNews(locale: string): Promise<IPost[] | null> {
   try {
     const { data } = await axios.get('/api/posts', {
       params: {

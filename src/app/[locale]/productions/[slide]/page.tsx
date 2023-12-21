@@ -8,11 +8,7 @@ import ProductionsText from '@/components/productions/ProductionsText';
 import getProductions from '@/strapi/full-collections/get-productions';
 import { getCurrentLocale } from '@/utils/i18n-server';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slide: string };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slide: string } }): Promise<Metadata> {
   const productions = await getProductions(getCurrentLocale());
   const data = productions?.find((e) => e.order === +params.slide);
   return {
@@ -25,11 +21,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Productions({
-  params,
-}: Readonly<{
-  params: { slide: string };
-}>) {
+export default async function Productions({ params }: { params: { slide: string } }) {
   const productions = await getProductions(getCurrentLocale());
   const data = productions?.find((e) => e.order === +params.slide);
 
@@ -39,14 +31,8 @@ export default async function Productions({
 
   return (
     <>
-      <video
-        className="absolute inset-0 -z-50 h-full w-full object-cover"
-        src={data.video}
-        autoPlay
-        muted
-        loop
-      />
-      <div className="absolute inset-0 -z-40 h-full w-full bg-gradient-to-r from-black" />
+      <video className='absolute inset-0 -z-50 h-full w-full object-cover' src={data.video} autoPlay muted loop />
+      <div className='absolute inset-0 -z-40 h-full w-full bg-gradient-to-r from-black' />
       <I18nProvider>
         <ProductionsText data={data} />
         <ProductionsPlaylist productions={productions} slide={+params.slide} />

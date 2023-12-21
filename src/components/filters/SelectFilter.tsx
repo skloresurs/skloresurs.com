@@ -23,18 +23,10 @@ interface IProps {
   allTitle: string;
 }
 
-export default function SelectFilter({
-  data,
-  filterKey,
-  path,
-  title,
-  allTitle,
-}: Readonly<IProps>) {
+export default function SelectFilter({ data, filterKey, path, title, allTitle }: IProps) {
   const query = useSearchParams();
   const router = useRouter();
-  const [value, setValue] = React.useState<string>(
-    data.find((e) => e.id === query.get(filterKey))?.id ?? 'none'
-  );
+  const [value, setValue] = React.useState<string>(data.find((e) => e.id === query.get(filterKey))?.id ?? 'none');
 
   useEffect(() => {
     setValue(query.get(filterKey) ?? 'none');
@@ -58,14 +50,14 @@ export default function SelectFilter({
 
   return (
     <Select value={value} onValueChange={search}>
-      <SelectTrigger className="w-full">
+      <SelectTrigger className='w-full'>
         <SelectValue placeholder={title} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           <SelectLabel>{title}</SelectLabel>
-          <ScrollArea className="h-[250px]">
-            <SelectItem value="none">{allTitle}</SelectItem>
+          <ScrollArea className='h-[250px]'>
+            <SelectItem value='none'>{allTitle}</SelectItem>
             {data.map((e) => (
               <SelectItem value={e.id.toString()} key={e.id}>
                 {e.title}

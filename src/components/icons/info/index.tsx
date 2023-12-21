@@ -9,13 +9,7 @@ import InfoTypes from './InfoTypes';
 
 const classNames = 'h-7 w-7';
 
-export type InfoIconsType =
-  | 'area'
-  | 'employees'
-  | 'location'
-  | 'products'
-  | 'projects'
-  | 'types';
+export type InfoIconsType = 'area' | 'employees' | 'location' | 'products' | 'projects' | 'types';
 
 const icons = {
   area: <InfoArea className={classNames} />,

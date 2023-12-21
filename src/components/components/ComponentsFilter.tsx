@@ -14,24 +14,21 @@ interface IProps {
   manufacturers: IManufacturer[];
 }
 
-export default function ComponentsFilter({
-  categories,
-  manufacturers,
-}: Readonly<IProps>) {
+export default function ComponentsFilter({ categories, manufacturers }: IProps) {
   const t = useI18n();
   const router = useRouter();
   return (
-    <div className="w-full py-2 md:w-[250px]">
-      <h2 className="mb-5 text-center">{t('meta.filters.title')}</h2>
-      <div className="flex flex-col gap-3">
-        <SearchFilter path="/components" />
+    <div className='w-full py-2 md:w-[250px]'>
+      <h2 className='mb-5 text-center'>{t('meta.filters.title')}</h2>
+      <div className='flex flex-col gap-3'>
+        <SearchFilter path='/components' />
         <SelectFilter
           data={categories.map((e) => ({
             id: e.id.toString(),
             title: e.title,
           }))}
-          filterKey="category"
-          path="/components"
+          filterKey='category'
+          path='/components'
           title={t('components.categories.title')}
           allTitle={t('components.categories.all')}
         />
@@ -40,16 +37,12 @@ export default function ComponentsFilter({
             id: e.id.toString(),
             title: e.title,
           }))}
-          filterKey="manufacturer"
-          path="/components"
+          filterKey='manufacturer'
+          path='/components'
           title={t('components.manufacturer.title')}
           allTitle={t('components.manufacturer.all')}
         />
-        <Button
-          variant="destructive"
-          className="mt-5"
-          onClick={() => router.push('/components')}
-        >
+        <Button variant='destructive' className='mt-5' onClick={() => router.push('/components')}>
           {t('meta.filters.reset')}
         </Button>
       </div>

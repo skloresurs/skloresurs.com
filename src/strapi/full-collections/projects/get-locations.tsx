@@ -14,9 +14,7 @@ interface IProjectLocationServer {
  * @param {string} locale - The locale for which to retrieve the project locations.
  * @return {Promise<ILocation[] | null>} The locations of projects as an array of ILocation objects, or null if an error occurs.
  */
-export default async function getProjectLocations(
-  locale: string
-): Promise<ILocation[] | null> {
+export default async function getProjectLocations(locale: string): Promise<ILocation[] | null> {
   try {
     const { data } = await axios.get('/api/projects-locations', {
       params: {

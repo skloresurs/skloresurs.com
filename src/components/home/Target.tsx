@@ -10,34 +10,27 @@ interface ITargetItem {
   index: number;
   icon: ReactNode;
 }
-async function TargetItem({ icon, index, id }: Readonly<ITargetItem>) {
+async function TargetItem({ icon, index, id }: ITargetItem) {
   const t = await getI18n();
   return (
     <div
-      className="flex flex-col gap-4 px-6"
-      data-aos="fade-up"
-      data-aos-anchor-placement="top-bottom"
+      className='flex flex-col gap-4 px-6'
+      data-aos='fade-up'
+      data-aos-anchor-placement='top-bottom'
       data-aos-delay={index * 50}
     >
-      <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary p-1 text-black">
-        {icon}
-      </div>
-      <p className="text-xl">{t(`home.target.${id}`)}</p>
+      <div className='flex h-10 w-10 items-center justify-center rounded-md bg-primary p-1 text-black'>{icon}</div>
+      <p className='text-xl'>{t(`home.target.${id}`)}</p>
     </div>
   );
 }
 
 export default function Target() {
   return (
-    <div id="target" className="mt-6 w-full bg-background-alternative py-6">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+    <div id='target' className='mt-6 w-full bg-background-alternative py-6'>
+      <div className='mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-3'>
         {Object.keys(InfoIcons).map((e, i) => (
-          <TargetItem
-            key={e}
-            index={i}
-            id={e as InfoIconsType}
-            icon={InfoIcons[e as InfoIconsType]}
-          />
+          <TargetItem key={e} index={i} id={e as InfoIconsType} icon={InfoIcons[e as InfoIconsType]} />
         ))}
       </div>
     </div>

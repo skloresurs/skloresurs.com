@@ -23,9 +23,7 @@ interface IVacancyServer {
  * @param {string} locale - The locale used to filter vacancies.
  * @return {Promise<IVacancy[] | null>} A promise that resolves to an array of vacancies or null if an error occurred.
  */
-export default async function getVacancies(
-  locale: string
-): Promise<IVacancy[] | null> {
+export default async function getVacancies(locale: string): Promise<IVacancy[] | null> {
   try {
     const { data } = await axios.get('/api/vacancies', {
       params: {

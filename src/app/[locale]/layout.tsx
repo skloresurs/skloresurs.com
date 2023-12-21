@@ -5,6 +5,7 @@ import { Raleway } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import type { ReactNode } from 'react';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 import AOSInit from '@/components/Aos';
 import Footer from '@/components/Footer';
@@ -49,8 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
     },
     other: {
-      'geo.placename':
-        'вулиця Семидубська, 105, Дубно, Рівненська область, 35600',
+      'geo.placename': 'вулиця Семидубська, 105, Дубно, Рівненська область, 35600',
       'geo.position': '50.393393898987426, 25.77552926677272',
       'geo.region': 'Рівненська область',
     },
@@ -75,45 +75,46 @@ export const viewport: Viewport = {
   width: 'device-width',
 };
 
-export default async function RootLayout({
-  params: { locale },
-  children,
-}: Readonly<{
-  params: { locale: string };
+interface IProps {
   children: ReactNode;
-}>) {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function RootLayout({ params, children }: IProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Corporation',
     alternateName: 'Skloresurs',
     logo: `${NEXT_PUBLIC_BASE_URL}/logo.png`,
     name: 'Склоресурс',
-    sameAs: [
-      'https://www.facebook.com/skloresurs',
-      'https://www.instagram.com/skloresurs/',
-    ],
+    sameAs: ['https://www.facebook.com/skloresurs', 'https://www.instagram.com/skloresurs/'],
     url: 'https://skloresurs.com/',
   };
 
   return (
-    <html lang={locale}>
+    <html lang={params.locale}>
       <head>
         <script
-          key="structured-data"
-          type="application/ld+json"
+          key='structured-data'
+          type='application/ld+json'
           // eslint-disable-next-line react/no-danger, xss/no-mixed-html
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-        <meta name="og:image" content={`${NEXT_PUBLIC_BASE_URL}/card.png`} />
+        <meta name='og:image' content={`${NEXT_PUBLIC_BASE_URL}/card.png`} />
       </head>
       <AOSInit />
       <body
-        className={`mx-auto flex min-h-[100dvh] flex-col pb-6 duration-500 scrollbar-thin scrollbar-thumb-primary ${raleway.className}`}
+        className={twMerge(
+          'mx-auto flex min-h-[100dvh] flex-col pb-6 duration-500 scrollbar-thin scrollbar-thumb-primary',
+          raleway.className
+        )}
       >
-        <NextTopLoader showSpinner crawl color="#9ddbe2" />
+        <NextTopLoader showSpinner crawl color='#9ddbe2' />
         <GAnalytics />
         <NavBar />
-        <div className="flex-1">{children}</div>
+        <div className='flex-1'>{children}</div>
         <I18nProvider>
           <Footer />
         </I18nProvider>

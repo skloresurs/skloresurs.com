@@ -25,9 +25,6 @@ const createCmsAxiosInstance = (): AxiosInstance =>
  *
  * @returns {AxiosInstance} The Axios instance.
  */
-const axios =
-  process.env.NODE_ENV === 'development'
-    ? createCmsAxiosInstance()
-    : setupCache(createCmsAxiosInstance());
+const axios = process.env.NODE_ENV === 'development' ? createCmsAxiosInstance() : setupCache(createCmsAxiosInstance());
 
 export default axios;

@@ -16,14 +16,7 @@
     "elements": [
       {
         "title": "Triplex",
-        "children": [
-          "Impact-resistant",
-          "Bulletproof",
-          "Smart Triplex",
-          "With Heating",
-          "Decorative",
-          "Curved"
-        ]
+        "children": ["Impact-resistant", "Bulletproof", "Smart Triplex", "With Heating", "Decorative", "Curved"]
       },
       { "title": "With Sandblasted Treatment (artistic frosting)" },
       { "title": "Enamel-coated" },

@@ -8,9 +8,7 @@ interface IProjectCategoryServer {
   };
 }
 
-export default async function getProjectCategories(
-  locale: string
-): Promise<IGlassCategory[] | null> {
+export default async function getProjectCategories(locale: string): Promise<IGlassCategory[] | null> {
   try {
     const { data } = await axios.get('/api/project-glass-types', {
       params: {

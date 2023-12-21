@@ -1,6 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable tailwindcss/no-custom-classname */
-
 'use client';
 
 import 'keen-slider/keen-slider.min.css';
@@ -59,17 +56,19 @@ export default function Partners({ partners }: Readonly<IProps>) {
     },
   });
   return (
-    <div ref={sliderRef} className="keen-slider">
+    // eslint-disable-next-line tailwindcss/no-custom-classname
+    <div ref={sliderRef} className='keen-slider'>
       {partners.map((e) => (
-        <div key={e.id} className="keen-slider__slide">
+        // eslint-disable-next-line tailwindcss/no-custom-classname
+        <div key={e.id} className='keen-slider__slide'>
           <Image
             src={e.url}
             alt={e.title}
             title={e.title}
             width={512}
             height={512}
-            loading="lazy"
-            className="select-none rounded-md object-contain"
+            loading='lazy'
+            className='select-none rounded-md object-contain'
           />
         </div>
       ))}

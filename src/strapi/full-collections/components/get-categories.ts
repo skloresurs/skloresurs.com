@@ -8,9 +8,7 @@ interface IComponentCategoryServer {
   };
 }
 
-export default async function getComponentCategories(
-  locale: string
-): Promise<ICategory[] | null> {
+export default async function getComponentCategories(locale: string): Promise<ICategory[] | null> {
   try {
     const { data } = await axios.get('/api/component-categories', {
       params: { locale },

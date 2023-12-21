@@ -1,6 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable react/prop-types */
-
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -14,15 +11,10 @@ interface IProps {
   href: string;
 }
 
-export default function CustomPagination({
-  totalPages,
-  href,
-}: Readonly<IProps>) {
+export default function CustomPagination({ totalPages, href }: Readonly<IProps>) {
   const router = useRouter();
   const query = useSearchParams();
-  const [page, setPage] = useState<number>(
-    (Number(query.get('page')) || 1) - 1
-  );
+  const [page, setPage] = useState<number>((Number(query.get('page')) || 1) - 1);
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
@@ -47,26 +39,26 @@ export default function CustomPagination({
       middlePagesSiblingCount={1}
       edgePageCount={1}
       totalPages={totalPages}
-      className="mt-12"
+      className='mt-12'
     >
-      <nav className="flex grow justify-center">
-        <ul className="flex items-center gap-1">
+      <nav className='flex grow justify-center'>
+        <ul className='flex items-center gap-1'>
           <Pagination.PrevButton
             onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })}
-            className="flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50"
+            className='flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
           >
-            <MdiArrowLeftBold className="h-6 w-6" />
+            <MdiArrowLeftBold className='h-6 w-6' />
           </Pagination.PrevButton>
           <Pagination.PageButton
-            activeClassName="bg-primary text-black"
-            inactiveClassName=""
-            className="flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50"
+            activeClassName='bg-primary text-black'
+            inactiveClassName=''
+            className='flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
           />
           <Pagination.NextButton
             onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })}
-            className="flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50"
+            className='flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
           >
-            <MdiArrowRightBold className="h-6 w-6" />
+            <MdiArrowRightBold className='h-6 w-6' />
           </Pagination.NextButton>
         </ul>
       </nav>

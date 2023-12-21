@@ -25,38 +25,27 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Delivery() {
   const t = await getI18n();
   return (
-    <div className="mx-auto max-w-6xl px-5">
-      <h1 className="mb-5 text-center">{t('delivery.title')}</h1>
-      <div className="relative h-[200px] sm:h-[400px]">
+    <div className='mx-auto max-w-6xl px-5'>
+      <h1 className='mb-5 text-center'>{t('delivery.title')}</h1>
+      <div className='relative h-[200px] sm:h-[400px]'>
         <Image
-          src="/delivery/glass1.png"
-          alt="cars"
+          src='/delivery/glass1.png'
+          alt='cars'
           width={1000}
           height={400}
-          className="absolute left-0 h-full w-full max-w-[1000px] overflow-x-hidden"
+          className='absolute left-0 h-full w-full max-w-[1000px] overflow-x-hidden'
         />
         <Image
-          src="/delivery/cars.png"
-          alt="cars"
+          src='/delivery/cars.png'
+          alt='cars'
           width={800}
           height={352}
-          className="absolute -bottom-10 left-3 w-full min-w-[400px] max-w-[800px]"
+          className='absolute -bottom-10 left-3 w-full min-w-[400px] max-w-[800px]'
         />
-        <Image
-          src="/delivery/clouds.png"
-          alt="clouds"
-          width={500}
-          height={172}
-          className="absolute right-0"
-        />
+        <Image src='/delivery/clouds.png' alt='clouds' width={500} height={172} className='absolute right-0' />
       </div>
-      <div className="content relative ml-auto mt-6 max-w-[600px] p-6 pt-12 md:mt-[-50px]">
-        <Image
-          src="/delivery/glass2.png"
-          alt="glass"
-          fill
-          className="relative z-30"
-        />
+      <div className='content relative ml-auto mt-6 max-w-[600px] p-6 pt-12 md:mt-[-50px]'>
+        <Image src='/delivery/glass2.png' alt='glass' fill className='relative z-30' />
         <p>{t('delivery.p1')}</p>
         <p>{t('delivery.p2')}</p>
         <br />

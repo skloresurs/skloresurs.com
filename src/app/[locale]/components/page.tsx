@@ -32,18 +32,12 @@ export default async function Components() {
   const manufacturers = await getComponentManufacturers(getCurrentLocale());
 
   return categories && manufacturers ? (
-    <div className="mx-auto w-full max-w-6xl px-5">
-      <h1 className="mb-5 text-center">{t('components.title')}</h1>
+    <div className='mx-auto w-full max-w-6xl px-5'>
+      <h1 className='mb-5 text-center'>{t('components.title')}</h1>
       <I18nProvider>
-        <div className="flex h-full flex-col gap-3 md:flex-row">
-          <ComponentsFilter
-            categories={categories}
-            manufacturers={manufacturers}
-          />
-          <Separator
-            orientation="vertical"
-            className="hidden h-auto md:block"
-          />
+        <div className='flex h-full flex-col gap-3 md:flex-row'>
+          <ComponentsFilter categories={categories} manufacturers={manufacturers} />
+          <Separator orientation='vertical' className='hidden h-auto md:block' />
           <ComponentsClient />
         </div>
       </I18nProvider>

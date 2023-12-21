@@ -13,7 +13,7 @@ interface IProps {
 export default function CertificatesGallery({ images }: Readonly<IProps>) {
   return (
     <ImageGallery
-      additionalClass="mx-auto md:absolute md:-bottom-16 md:right-4 max-w-[300px] lg:max-w-[400px] relative"
+      additionalClass='mx-auto md:absolute md:-bottom-16 md:right-4 max-w-[300px] lg:max-w-[400px] relative'
       items={images}
       lazyLoad
       autoPlay
@@ -24,12 +24,12 @@ export default function CertificatesGallery({ images }: Readonly<IProps>) {
       renderItem={(item) => (
         <Image
           src={item.original}
-          loading="lazy"
-          alt="Certificate"
-          title="Certificate"
-          width="400"
-          height="900"
-          className="object-contain"
+          loading='lazy'
+          alt='Certificate'
+          title='Certificate'
+          width='400'
+          height='900'
+          className='object-contain'
         />
       )}
     />
