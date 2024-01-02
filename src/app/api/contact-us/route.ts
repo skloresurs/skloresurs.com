@@ -1,16 +1,15 @@
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
-import moment from 'moment-timezone';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import { env } from '@/env.mjs';
 import axios from '@/utils/axios-cms';
 
-const SCOPES = [
-  'https://www.googleapis.com/auth/spreadsheets',
-  'https://www.googleapis.com/auth/drive.file',
-];
+const SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive.file'];
 const {
   SPREADSHEET_ID,
   RECAPTCHA_SECRET,
@@ -23,12 +22,7 @@ const TELEGRAM_API_ROUTE = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 
 const missingOptionalParams = 'Не вказано';
 
-function GenerateTelegramMessage(
-  username: string,
-  email: string,
-  phone: string | null,
-  message: string
-) {
+function GenerateTelegramMessage(username: string, email: string, phone: string | null, message: string) {
   return `🔔 Нове сповіщення з сайту
 🧑 Від: ${username}
 📧 E-mail: ${email}
@@ -40,13 +34,10 @@ ${message}`;
 
 export async function POST(request: NextRequest) {
   try {
-    const { username, email, phone, message, additional, captcha } =
-      await request.json();
+    const { username, email, phone, message, additional, captcha } = await request.json();
 
     const { data } = await axios
-      .post(
-        `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${captcha}`
-      )
+      .post(`https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${captcha}`)
       .catch(() => ({ data: { success: false } }));
     if (!data.success) {
       return NextResponse.json(
@@ -66,6 +57,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    dayjs.extend(utc);
+    dayjs.extend(timezone);
+
     const jwt = new JWT({
       email: GOOGLE_SERVICE_ACCOUNT_EMAIL,
       key: GOOGLE_PRIVATE_KEY,
@@ -77,23 +71,16 @@ export async function POST(request: NextRequest) {
     await sheet?.addRow({
       'E-mail': email,
       "Ім'я": username,
-      Дата: `${moment(new Date())
-        .tz('Europe/Kiev')
-        .format('DD.MM.YYYY HH:mm')}`,
+      Дата: `${dayjs.tz(new Date(), 'Europe/Kyiv').format('DD.MM.YYYY HH:mm')}`,
       'Номер телефону': `'${phone?.toString() ?? missingOptionalParams}`,
       Повідомлення: message.replace('=', '≈'),
       'Як дізнались': additional ?? missingOptionalParams,
     });
 
-    const { data: createTopicResponse } = await axios.post(
-      `${TELEGRAM_API_ROUTE}/createForumTopic`,
-      {
-        chat_id: TELEGRAM_CHAT_ID,
-        name: `${username} ${moment(new Date())
-          .tz('Europe/Kiev')
-          .format('DD.MM.YYYY HH:mm')}`,
-      }
-    );
+    const { data: createTopicResponse } = await axios.post(`${TELEGRAM_API_ROUTE}/createForumTopic`, {
+      chat_id: TELEGRAM_CHAT_ID,
+      name: `${username} ${dayjs.tz(new Date(), 'Europe/Kyiv').format('DD.MM.YYYY HH:mm')}`,
+    });
 
     await axios.post(`${TELEGRAM_API_ROUTE}/sendMessage`, {
       chat_id: TELEGRAM_CHAT_ID,
