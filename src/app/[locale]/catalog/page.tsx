@@ -35,15 +35,23 @@ export default async function Catalog() {
       <h1 className='mb-2 text-center'>{t('catalog.title')}</h1>
       <div className='flex flex-col gap-5 md:flex-row md:justify-between md:gap-3'>
         <div className='flex max-w-[400px] flex-col items-center gap-3 md:w-1/2'>
-          <Image src='/double-glazing.png' alt={translatedData['double-glazing'].title} width='200' height='200' />
-          <h2 className='uppercase'>{translatedData['double-glazing'].title}</h2>
+          <Image
+            src='/double-glazing.png'
+            alt={translatedData['double-glazing'].title}
+            width='200'
+            height='200'
+            data-aos='fade-right'
+          />
+          <h2 className='uppercase' data-aos='fade-right'>
+            {translatedData['double-glazing'].title}
+          </h2>
           <ul className='flex w-full flex-col gap-3'>
             {translatedData['double-glazing'].elements.map((e, i) => (
               <h3
                 className='m-0 p-0 text-xl'
                 key={e.title}
                 data-aos='fade-right'
-                data-aos-delay={50 * Math.ceil(i / 2)}
+                data-aos-delay={50 + 50 * Math.ceil(i / 2)}
               >
                 {e.title}
               </h3>
@@ -51,8 +59,10 @@ export default async function Catalog() {
           </ul>
         </div>
         <div className='flex max-w-[400px] flex-col items-center gap-3  md:w-1/2'>
-          <Image src='/monoglass.png' alt={translatedData.mono.title} width='275' height='275' />
-          <h2 className='uppercase'>{translatedData.mono.title}</h2>
+          <Image src='/monoglass.png' alt={translatedData.mono.title} width='275' height='275' data-aos='fade-left' />
+          <h2 className='uppercase' data-aos='fade-left'>
+            {translatedData.mono.title}
+          </h2>
           <ul className='flex w-full flex-col gap-3'>
             {translatedData.mono.elements.map((e, i) =>
               e.children ? (
@@ -62,7 +72,7 @@ export default async function Catalog() {
                   className='m-0 p-0 text-xl'
                   key={e.title}
                   data-aos='fade-left'
-                  data-aos-delay={50 * Math.ceil(i / 2)}
+                  data-aos-delay={50 + 50 * Math.ceil(i / 2)}
                 >
                   {e.title}
                 </h3>
