@@ -38,8 +38,13 @@ export default async function Catalog() {
           <Image src='/double-glazing.png' alt={translatedData['double-glazing'].title} width='200' height='200' />
           <h2 className='uppercase'>{translatedData['double-glazing'].title}</h2>
           <ul className='flex w-full flex-col gap-3'>
-            {translatedData['double-glazing'].elements.map((e) => (
-              <h3 className='m-0 p-0 text-xl' key={e.title}>
+            {translatedData['double-glazing'].elements.map((e, i) => (
+              <h3
+                className='m-0 p-0 text-xl'
+                key={e.title}
+                data-aos='fade-right'
+                data-aos-delay={50 * Math.ceil(i / 2)}
+              >
                 {e.title}
               </h3>
             ))}
@@ -49,11 +54,16 @@ export default async function Catalog() {
           <Image src='/monoglass.png' alt={translatedData.mono.title} width='275' height='275' />
           <h2 className='uppercase'>{translatedData.mono.title}</h2>
           <ul className='flex w-full flex-col gap-3'>
-            {translatedData.mono.elements.map((e) =>
+            {translatedData.mono.elements.map((e, i) =>
               e.children ? (
-                <CollapsibleItem key={e.title} item={e} />
+                <CollapsibleItem key={e.title} item={e} index={i} />
               ) : (
-                <h3 className='m-0 p-0 text-xl' key={e.title}>
+                <h3
+                  className='m-0 p-0 text-xl'
+                  key={e.title}
+                  data-aos='fade-left'
+                  data-aos-delay={50 * Math.ceil(i / 2)}
+                >
                   {e.title}
                 </h3>
               )

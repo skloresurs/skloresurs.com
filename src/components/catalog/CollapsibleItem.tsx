@@ -8,13 +8,16 @@ interface IProps {
     title: string;
     children: string[];
   };
+  index: number;
 }
 
-export default async function CollapsibleItem({ item }: IProps) {
+export default async function CollapsibleItem({ item, index }: IProps) {
   return (
     <Collapsible key={item.title}>
       <CollapsibleTrigger className='flex w-full flex-row items-center justify-between gap-2 duration-300 hover:text-muted-foreground'>
-        <h3 className='m-0 p-0 text-xl'>{item.title}</h3>
+        <h3 className='m-0 p-0 text-xl' data-aos='fade-left' data-aos-delay={50 * Math.ceil(index / 2)}>
+          {item.title}
+        </h3>
         <MdiChevronDown className='text-xl' />
       </CollapsibleTrigger>
       <CollapsibleContent className='CollapsibleContent'>
