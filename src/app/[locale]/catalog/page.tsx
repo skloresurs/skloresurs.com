@@ -1,7 +1,7 @@
 import '@/app/strapi.css';
 
-import type { Metadata } from 'next';
 import Image from 'next/image';
+import { Metadata } from 'next/types';
 import React from 'react';
 
 import CollapsibleItem from '@/components/catalog/CollapsibleItem';
@@ -33,7 +33,7 @@ export default async function Catalog() {
   return (
     <div className='mx-auto w-full max-w-6xl px-5'>
       <h1 className='mb-2 text-center'>{t('catalog.title')}</h1>
-      <div className='flex flex-col gap-5 md:flex-row md:justify-between md:gap-3'>
+      <div className='flex flex-col gap-5 text-center md:flex-row md:justify-between md:gap-3'>
         <div className='flex max-w-[400px] flex-col items-center gap-3 md:w-1/2'>
           <Image
             src='/double-glazing.png'
@@ -46,13 +46,8 @@ export default async function Catalog() {
             {translatedData['double-glazing'].title}
           </h2>
           <ul className='flex w-full flex-col gap-3'>
-            {translatedData['double-glazing'].elements.map((e, i) => (
-              <h3
-                className='m-0 p-0 text-xl'
-                key={e.title}
-                data-aos='fade-right'
-                data-aos-delay={50 + 50 * Math.ceil(i / 2)}
-              >
+            {translatedData['double-glazing'].elements.map((e) => (
+              <h3 className='m-0 p-0 text-xl' key={e.title} data-aos='fade-right'>
                 {e.title}
               </h3>
             ))}
@@ -64,16 +59,11 @@ export default async function Catalog() {
             {translatedData.mono.title}
           </h2>
           <ul className='flex w-full flex-col gap-3'>
-            {translatedData.mono.elements.map((e, i) =>
+            {translatedData.mono.elements.map((e) =>
               e.children ? (
-                <CollapsibleItem key={e.title} item={e} index={i} />
+                <CollapsibleItem key={e.title} item={e} />
               ) : (
-                <h3
-                  className='m-0 p-0 text-xl'
-                  key={e.title}
-                  data-aos='fade-left'
-                  data-aos-delay={50 + 50 * Math.ceil(i / 2)}
-                >
+                <h3 className='m-0 p-0 text-xl' key={e.title} data-aos='fade-left'>
                   {e.title}
                 </h3>
               )
