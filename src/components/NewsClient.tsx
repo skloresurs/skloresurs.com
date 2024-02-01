@@ -34,9 +34,9 @@ function Post({ data }: { data: IPostExtended }) {
           className='object-cover duration-300 group-hover:rotate-3 group-hover:scale-110 group-hover:blur-sm'
         />
         {data.category === 'video' ? (
-          <MdiVideo className='absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 opacity-0 drop-shadow-lg duration-300 group-hover:opacity-100' />
+          <MdiVideo className='absolute left-1/2 top-1/2 size-10 -translate-x-1/2 -translate-y-1/2 opacity-0 drop-shadow-lg duration-300 group-hover:opacity-100' />
         ) : (
-          <MdiEye className='absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 opacity-0 drop-shadow-lg duration-300 group-hover:opacity-100' />
+          <MdiEye className='absolute left-1/2 top-1/2 size-10 -translate-x-1/2 -translate-y-1/2 opacity-0 drop-shadow-lg duration-300 group-hover:opacity-100' />
         )}
       </div>
       <div className='mb-3 flex flex-row items-start gap-4 duration-300 group-hover:text-primary'>
@@ -48,7 +48,7 @@ function Post({ data }: { data: IPostExtended }) {
         >
           {data.title}
         </h2>
-        <MdiArrowTopRightThick className='h-6 w-6' />
+        <MdiArrowTopRightThick className='size-6' />
       </div>
       <p
         className='line-clamp-2 text-muted-foreground'

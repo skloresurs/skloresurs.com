@@ -98,14 +98,14 @@ export default function ProjectsClient() {
                 </div>
                 <div className='flex flex-col gap-1 text-sm text-muted-foreground'>
                   <div className='flex flex-row items-center gap-1'>
-                    <MdiEarth className='h-4 w-4 min-w-[16px]' />
+                    <MdiEarth className='size-4 min-w-[16px]' />
                     {e.location.title}
                   </div>
                   <div className='flex flex-row items-center gap-1'>
-                    <MdiGlassdoor className='h-4 w-4 min-w-[16px]' /> {e.glass}
+                    <MdiGlassdoor className='size-4 min-w-[16px]' /> {e.glass}
                   </div>
                   <div className='flex flex-row items-center gap-1'>
-                    <MdiCalendar className='h-4 w-4 min-w-[16px]' /> {e.year}
+                    <MdiCalendar className='size-4 min-w-[16px]' /> {e.year}
                   </div>
                 </div>
                 <h2 className='mb-2 text-base lg:text-lg '>{e.title}</h2>

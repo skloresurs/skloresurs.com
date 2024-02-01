@@ -38,7 +38,7 @@ export default function SearchFilter({ path }: { path: string }) {
     <div className='flex flex-row gap-2'>
       <Input placeholder={t('meta.filters.search')} onChange={(e) => setValue(e.target.value)} value={value} />
       <Button size='icon' className='aspect-square' onClick={search}>
-        <MdiMagnify className='h-5 w-5' />
+        <MdiMagnify className='size-5' />
       </Button>
     </div>
   );

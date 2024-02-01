@@ -18,7 +18,7 @@ export default async function Vacancy({ data }: { data: IVacancy }) {
       data-aos-anchor-placement='top-bottom'
     >
       <CardHeader className='pb-2'>
-        <div className='relative h-16 w-16'>
+        <div className='relative size-16'>
           <Image
             src={data.image}
             alt={data.title}

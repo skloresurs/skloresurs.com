@@ -8,15 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HighError/skloresurs-webiste"
+    "url": "https://github.com/skloresurs/website"
   },
+  "browserslist": [
+    "defaults",
+    "not op_mini all"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "next lint -f mo",
+    "format": "next lint -f mo --fix",
     "check-types": "tsc --noEmit --pretty",
     "prepare": "husky install"
   },

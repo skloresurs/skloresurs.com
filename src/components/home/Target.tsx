@@ -19,7 +19,7 @@ async function TargetItem({ icon, index, id }: ITargetItem) {
       data-aos-anchor-placement='top-bottom'
       data-aos-delay={index * 50}
     >
-      <div className='flex h-10 w-10 items-center justify-center rounded-md bg-primary p-1 text-black'>{icon}</div>
+      <div className='flex size-10 items-center justify-center rounded-md bg-primary p-1 text-black'>{icon}</div>
       <p className='text-xl'>{t(`home.target.${id}`)}</p>
     </div>
   );

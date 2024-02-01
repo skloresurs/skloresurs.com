@@ -25,7 +25,7 @@ export default async function Hero() {
         <p className='px-6 pb-10 text-3xl uppercase md:text-5xl'>Glass Processing</p>
       </div>
       <div
-        className='relative h-full w-full max-w-[500px] md:mt-8 md:aspect-[3/4]'
+        className='relative size-full max-w-[500px] md:mt-8 md:aspect-[3/4]'
         data-aos='fade-left'
         data-aos-anchor-placement='top-bottom'
       >

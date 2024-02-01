@@ -31,8 +31,8 @@ export default async function Productions({ params }: { params: { slide: string 
 
   return (
     <>
-      <video className='absolute inset-0 -z-50 h-full w-full object-cover' src={data.alt.video} autoPlay muted loop />
-      <div className='absolute inset-0 -z-40 h-full w-full bg-gradient-to-r from-black' />
+      <video className='absolute inset-0 -z-50 size-full object-cover' src={data.alt.video} autoPlay muted loop />
+      <div className='absolute inset-0 -z-40 size-full bg-gradient-to-r from-black' />
       <I18nProvider>
         <ProductionsText data={data} alt />
       </I18nProvider>

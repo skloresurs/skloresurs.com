@@ -45,20 +45,20 @@ export default function CustomPagination({ totalPages, href }: Readonly<IProps>)
         <ul className='flex items-center gap-1'>
           <Pagination.PrevButton
             onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })}
-            className='flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
+            className='flex aspect-square size-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
           >
-            <MdiArrowLeftBold className='h-6 w-6' />
+            <MdiArrowLeftBold className='size-6' />
           </Pagination.PrevButton>
           <Pagination.PageButton
             activeClassName='bg-primary text-black'
             inactiveClassName=''
-            className='flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
+            className='flex aspect-square size-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
           />
           <Pagination.NextButton
             onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })}
-            className='flex aspect-square h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
+            className='flex aspect-square size-10 cursor-pointer items-center justify-center rounded-full border-2 border-border duration-300 hover:bg-primary/50'
           >
-            <MdiArrowRightBold className='h-6 w-6' />
+            <MdiArrowRightBold className='size-6' />
           </Pagination.NextButton>
         </ul>
       </nav>
