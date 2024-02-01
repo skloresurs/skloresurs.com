@@ -8,10 +8,17 @@
     // Next.js
     "next/core-web-vitals",
 
-    // Base
+    // Airbnb
     "airbnb",
     "airbnb-typescript",
+    "eslint-config-airbnb/hooks",
+
+    // TypeScript
     "plugin:@typescript-eslint/recommended",
+
+    // React
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
 
     // Extended
@@ -19,14 +26,24 @@
     "plugin:unicorn/recommended",
 
     // Security
-    "plugin:security/recommended",
+    "plugin:security/recommended-legacy",
     "plugin:xss/recommended",
 
-    // Others
+    // UI and css
     "plugin:tailwindcss/recommended",
-    "plugin:jsonc/recommended-with-jsonc",
+    "mantine",
+
+    // Browser Compability
+    "plugin:compat/recommended",
+
+    // Others
+    "plugin:lodash/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:promise/recommended",
+    "plugin:drizzle/recommended",
+
+    // Prettier
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -38,7 +55,16 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["import", "@typescript-eslint", "react", "no-secrets", "simple-import-sort", "prettier"],
+  "plugins": [
+    "import",
+    "@typescript-eslint",
+    "no-secrets",
+    "simple-import-sort",
+    "prettier",
+    "lodash",
+    "compat",
+    "zod"
+  ],
   "root": true,
   "settings": {
     "import/resolver": {
@@ -67,7 +93,6 @@
       }
     ],
 
-    // Disable no-duplicate-string rule for server error message
     "sonarjs/no-duplicate-string": "off",
 
     // Next.js rules for API routes
@@ -82,10 +107,20 @@
         "jsx": "never",
         "ts": "never",
         "tsx": "never",
-        "json": "always",
         "mjs": "always"
       }
     ],
+
+    // lodash
+    "lodash/import-scope": [2, "member"],
+    "lodash/prefer-lodash-method": [2, { "ignoreObjects": ["router", "window.location"] }],
+
+    // zod
+    "zod/prefer-enum": 2,
+    "zod/require-strict": 2,
+
+    // drizzle
+    "drizzle/enforce-delete-with-where": ["error", { "drizzleObjectName": ["db"] }],
 
     // The following rules are disabled due to them being considered unduly restrictive or unhelpful.
     "unicorn/no-array-for-each": "off",

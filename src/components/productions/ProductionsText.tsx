@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
-import Typed from 'react-typed';
+import { ReactTyped } from 'react-typed';
 import { twMerge } from 'tailwind-merge';
 
 import type IProduction from '@/types/Production';
@@ -20,10 +20,10 @@ export default function ProductionsText({ data, alt }: IProps) {
   return (
     <div className='absolute inset-x-6 top-1/2 flex -translate-y-1/2 flex-col gap-8 md:right-1/2 lg:right-2/3'>
       <h1>
-        <Typed cursorChar='' strings={[alt ? data.alt.title : data.title]} typeSpeed={40} />
+        <ReactTyped cursorChar='' strings={[alt ? data.alt.title : data.title]} typeSpeed={40} />
       </h1>
       <p>
-        <Typed cursorChar='' strings={[alt ? '' : data.description]} typeSpeed={5} />
+        <ReactTyped cursorChar='' strings={[alt ? '' : data.description]} typeSpeed={5} />
       </p>
       {data.alt && !alt && (
         <Link
