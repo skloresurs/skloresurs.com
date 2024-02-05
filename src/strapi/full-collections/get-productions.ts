@@ -16,6 +16,13 @@ interface IProductionServer {
         };
       };
     };
+    video_av1: {
+      data?: {
+        attributes: {
+          url: string;
+        };
+      };
+    };
     order: number;
     production_alt: {
       data: {
@@ -48,8 +55,9 @@ export default async function getProductions(locale: string): Promise<IProductio
         'filters[order][$gte]': 0,
         locale,
         'populate[0]': 'video',
-        'populate[1]': 'production_alt',
-        'populate[2]': 'production_alt.video',
+        'populate[1]': 'video_av1',
+        'populate[2]': 'production_alt',
+        'populate[3]': 'production_alt.video',
       },
     });
 
@@ -65,6 +73,7 @@ export default async function getProductions(locale: string): Promise<IProductio
       order: e.attributes.order,
       title: e.attributes.title,
       video: env.CMS_URL + e.attributes.video.data.attributes.url,
+      video_av1: e.attributes.video_av1.data ? env.CMS_URL + e.attributes.video_av1.data.attributes.url : null,
     }));
     return orderBy(result, ['order'], ['asc']);
   } catch (error) {
