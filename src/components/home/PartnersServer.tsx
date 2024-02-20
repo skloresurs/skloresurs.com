@@ -1,6 +1,6 @@
 import React from 'react';
 
-import getPartners from '@/strapi/full-collections/get-partners';
+import getPartners from '@/strapi/get-partners';
 
 import Partners from './Partners';
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
 import Vacancy from '@/components/Vacancy';
-import getVacancies from '@/strapi/full-collections/get-vacancies';
+import getVacancies from '@/strapi/vacancy/get-vacancies';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {

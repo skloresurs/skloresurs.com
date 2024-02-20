@@ -3,7 +3,7 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { buttonVariants } from '@/components/ui/button';
-import getLatestNews from '@/strapi/get-latest-news';
+import getLatestNews from '@/strapi/news/get-latest-news';
 import { type IPost } from '@/types/Post';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 

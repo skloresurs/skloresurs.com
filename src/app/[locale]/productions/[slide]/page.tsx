@@ -5,7 +5,7 @@ import React from 'react';
 import I18nProvider from '@/components/I18nProvider';
 import ProductionsPlaylist from '@/components/productions/ProductionsPlaylist';
 import ProductionsText from '@/components/productions/ProductionsText';
-import getProductions from '@/strapi/full-collections/get-productions';
+import getProductions from '@/strapi/get-productions';
 import { getCurrentLocale } from '@/utils/i18n-server';
 
 export async function generateMetadata({ params }: { params: { slide: string } }): Promise<Metadata> {
@@ -31,9 +31,9 @@ export default async function Productions({ params }: { params: { slide: string 
 
   return (
     <>
-      <video className='absolute inset-0 -z-50 size-full object-cover' autoPlay muted loop >
+      <video className='absolute inset-0 -z-50 size-full object-cover' autoPlay muted loop>
         <source type='video/webm; codecs="av01.0.04M.08"; profiles="isom,av01,iso2,mp41"' src={data.video_av1} />
-        <source type="video/mp4" src={data.video} />
+        <source type='video/mp4' src={data.video} />
       </video>
       <div className='absolute inset-0 -z-40 size-full bg-gradient-to-r from-black' />
       <I18nProvider>

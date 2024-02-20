@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 
 import { Badge } from '@/components/ui/badge';
-import getPostById from '@/strapi/get-news-by-id';
+import getPostById from '@/strapi/news/get-news-by-id';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 import getPostTagColor from '@/utils/post-tag-colors';
 

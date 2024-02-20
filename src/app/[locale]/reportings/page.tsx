@@ -3,7 +3,7 @@ import React from 'react';
 
 import ErrorLoaded from '@/components/ErrorLoad';
 import Reporting from '@/components/Reporting';
-import getReportings from '@/strapi/full-collections/get-reportings';
+import getReportings from '@/strapi/get-reportings';
 import { getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {

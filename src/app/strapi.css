@@ -38,5 +38,5 @@ h6 {
 
 .content p,
 ul {
-  @apply py-1;
+  @apply py-1 list-inside;
 }

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
-import getVacancyById from '@/strapi/get-vacancy-by-id';
+import getVacancyById from '@/strapi/vacancy/get-vacancy-by-id';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {

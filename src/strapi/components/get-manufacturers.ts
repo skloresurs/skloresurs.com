@@ -9,9 +9,7 @@ interface IComponentManufacturerServer {
   };
 }
 
-export default async function getComponentManufacturers(
-  locale: string
-): Promise<IManufacturer[] | null> {
+export default async function getComponentManufacturers(locale: string): Promise<IManufacturer[] | null> {
   try {
     const { data } = await axios.get('/api/component-manufacturers', {
       params: { locale },

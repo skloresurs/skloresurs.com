@@ -43,7 +43,7 @@
     "plugin:drizzle/recommended",
 
     // Prettier
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

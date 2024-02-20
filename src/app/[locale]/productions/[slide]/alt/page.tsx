@@ -5,7 +5,7 @@ import React from 'react';
 import I18nProvider from '@/components/I18nProvider';
 import ProductionsPlaylist from '@/components/productions/ProductionsPlaylist';
 import ProductionsText from '@/components/productions/ProductionsText';
-import getProductions from '@/strapi/full-collections/get-productions';
+import getProductions from '@/strapi/get-productions';
 import { getCurrentLocale } from '@/utils/i18n-server';
 
 export async function generateMetadata({ params }: { params: { slide: string } }): Promise<Metadata> {

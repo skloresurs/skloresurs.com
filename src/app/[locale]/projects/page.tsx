@@ -6,8 +6,8 @@ import I18nProvider from '@/components/I18nProvider';
 import ProjectsClient from '@/components/projects/ProjectsClient';
 import ProjectsFilter from '@/components/projects/ProjectsFilter';
 import { Separator } from '@/components/ui/separator';
-import getProjectCategories from '@/strapi/full-collections/projects/get-categories';
-import getProjectLocations from '@/strapi/full-collections/projects/get-locations';
+import getProjectCategories from '@/strapi/projects/get-categories';
+import getProjectLocations from '@/strapi/projects/get-locations';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {

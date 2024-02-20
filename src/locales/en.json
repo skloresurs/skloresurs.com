@@ -1,8 +1,7 @@
 {
+  "back": "Back",
   "catalog": {
     "description": "Open our catalog to explore the range of products for creating unique designer solutions.",
-    "exterior": "Exterior",
-    "interior": "Interior",
     "title": "Catalog"
   },
   "components": {

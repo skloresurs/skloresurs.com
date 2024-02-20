@@ -6,8 +6,8 @@ import ComponentsFilter from '@/components/components/ComponentsFilter';
 import ErrorLoaded from '@/components/ErrorLoad';
 import I18nProvider from '@/components/I18nProvider';
 import { Separator } from '@/components/ui/separator';
-import getComponentCategories from '@/strapi/full-collections/components/get-categories';
-import getComponentManufacturers from '@/strapi/full-collections/components/get-manufacturers';
+import getComponentCategories from '@/strapi/components/get-categories';
+import getComponentManufacturers from '@/strapi/components/get-manufacturers';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
 export async function generateMetadata(): Promise<Metadata> {
