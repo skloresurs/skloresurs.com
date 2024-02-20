@@ -1,5 +1,6 @@
 import '../globals.css';
 
+import { GoogleTagManager } from '@next/third-parties/google';
 import type { Metadata, Viewport } from 'next';
 import { Raleway } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
@@ -102,6 +103,7 @@ export default async function RootLayout({ params, children }: IProps) {
           // eslint-disable-next-line react/no-danger, xss/no-mixed-html
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
+
         <meta name='og:image' content={`${NEXT_PUBLIC_BASE_URL}/card.png`} />
       </head>
       <AOSInit />
@@ -119,6 +121,7 @@ export default async function RootLayout({ params, children }: IProps) {
           <Footer />
         </I18nProvider>
       </body>
+      {process.env.NODE_ENV === 'production' && <GoogleTagManager gtmId={env.NEXT_PUBLIC_GTM_ID} />}
     </html>
   );
 }
