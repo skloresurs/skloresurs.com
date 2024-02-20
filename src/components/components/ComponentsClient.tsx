@@ -38,36 +38,24 @@ export default function ComponentsClient() {
   }, [getComponents]);
 
   return (
-    <div className="flex-1 py-2">
+    <div className='flex-1 py-2'>
       {isLoading && (
-        <div className="w-full">
-          <div className="relative mx-auto aspect-square w-[400px] max-w-[100%]">
-            <Image
-              src="/loading.svg"
-              alt="loading"
-              title="loading"
-              fill
-              className="object-contain"
-            />
+        <div className='w-full'>
+          <div className='relative mx-auto aspect-square w-[400px] max-w-[100%]'>
+            <Image src='/loading.svg' alt='loading' title='loading' fill className='object-contain' />
           </div>
         </div>
       )}
       {!isLoading && components.length === 0 && (
-        <div className="w-full">
-          <div className="relative mx-auto aspect-square w-[400px] max-w-[100%]">
-            <Image
-              src="/neutral-face.svg"
-              alt="missing"
-              title='missing "Components"'
-              fill
-              className="object-contain"
-            />
+        <div className='w-full'>
+          <div className='relative mx-auto aspect-square w-[400px] max-w-[100%]'>
+            <Image src='/neutral-face.svg' alt='missing' title='missing "Components"' fill className='object-contain' />
           </div>
-          <h2 className="text-center">{t('components.none')}</h2>
+          <h2 className='text-center'>{t('components.none')}</h2>
         </div>
       )}
       {!isLoading && components.length > 0 && (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3'>
           {components.map((e) => (
             <ComponentCard key={e.id} component={e} />
           ))}

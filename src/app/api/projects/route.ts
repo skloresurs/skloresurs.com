@@ -82,9 +82,7 @@ export async function GET(request: NextRequest) {
         data: data.data.map((project: IProjectServer) => ({
           glass: project.attributes.glass,
           id: project.id,
-          images: project.attributes.images.data.map(
-            (projectImage) => env.CMS_URL + projectImage.attributes.url
-          ),
+          images: project.attributes.images.data.map((projectImage) => env.CMS_URL + projectImage.attributes.url),
           location: {
             id: project.attributes.location.data.id,
             title: project.attributes.location.data.attributes.title,
