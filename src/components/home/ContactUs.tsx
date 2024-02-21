@@ -29,7 +29,7 @@ export default async function ContactUs() {
       >
         <Image
           // eslint-disable-next-line no-secrets/no-secrets
-          src={`https://maps.googleapis.com/maps/api/staticmap?center=Skloresurs&zoom=13&scale=2&size=400x400&maptype=roadmap&format=png&key=${env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&markers=size:mid%7Ccolor:0x9ddbe2%7Clabel:%7CSkloresurs`}
+          src={`https://maps.googleapis.com/maps/api/staticmap?center=Склоресурс&zoom=13&scale=2&size=400x400&maptype=roadmap&format=png&key=${env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&markers=size:mid%7Ccolor:0x9ddbe2%7Clabel:%7CСклоресурс`}
           alt='map'
           fill
           className='aspect-square object-contain'

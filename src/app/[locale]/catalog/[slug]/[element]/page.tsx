@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation';
 import { Metadata } from 'next/types';
 import React from 'react';
 
+import ContactUs from '@/components/home/ContactUs';
 import getCatalogBySlug from '@/strapi/catalog/get-catalog-by-slug';
 import { getCurrentLocale, getI18n } from '@/utils/i18n-server';
 
@@ -49,6 +50,7 @@ export default async function Catalog({ params }: { params: { slug: string; elem
       <Link href={`/catalog/${params.slug}`} className='mt-8 text-primary duration-300 hover:text-muted-foreground'>
         {`<< ${t('back')}`}
       </Link>
+      <ContactUs />
     </div>
   );
 }
