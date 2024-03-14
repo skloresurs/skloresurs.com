@@ -67,5 +67,6 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-no-bind': 'off',
+    'sonarjs/no-duplicate-string': 'off',
   },
 };
