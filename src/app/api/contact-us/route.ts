@@ -69,12 +69,12 @@ export async function POST(request: NextRequest) {
     await doc.loadInfo();
     const sheet = doc.sheetsByTitle['Відгуки'];
     await sheet?.addRow({
-      'E-mail': email,
-      "Ім'я": username,
+      'E-mail': `="${email}"`,
+      "Ім'я": `="${username}"`,
       Дата: `${dayjs.tz(new Date(), 'Europe/Kyiv').format('DD.MM.YYYY HH:mm')}`,
-      'Номер телефону': `'${phone?.toString() ?? missingOptionalParams}`,
-      Повідомлення: message.replace('=', '≈'),
-      'Як дізнались': additional ?? missingOptionalParams,
+      'Номер телефону': `="${phone?.toString() ?? missingOptionalParams}"`,
+      Повідомлення: `="${message}"`,
+      'Як дізнались': `="${additional ?? missingOptionalParams}"`,
     });
 
     const { data: createTopicResponse } = await axios.post(`${TELEGRAM_API_ROUTE}/createForumTopic`, {
