@@ -1,6 +1,7 @@
 import '../globals.css';
 
 import { GoogleTagManager } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
 import { Raleway } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
@@ -106,6 +107,7 @@ export default async function RootLayout({ params, children }: IProps) {
 
         <meta name='og:image' content={`${NEXT_PUBLIC_BASE_URL}/card.png`} />
       </head>
+      <Analytics />
       <AOSInit />
       <body
         className={twMerge(
