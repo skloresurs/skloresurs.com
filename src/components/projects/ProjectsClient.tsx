@@ -50,14 +50,14 @@ export default function ProjectsClient() {
     <div className='flex-1 py-2'>
       {isLoading && (
         <div className='w-full'>
-          <div className='relative mx-auto aspect-square w-[400px] max-w-[100%]'>
+          <div className='relative mx-auto aspect-square w-[400px] max-w-full'>
             <Image src='/loading.svg' alt='loading' title='loading' fill className='object-contain' />
           </div>
         </div>
       )}
       {!isLoading && projectsCount === 0 && (
         <div className='w-full'>
-          <div className='relative mx-auto aspect-square w-[400px] max-w-[100%]'>
+          <div className='relative mx-auto aspect-square w-[400px] max-w-full'>
             <Image src='/neutral-face.svg' alt='missing' title='missing' fill className='object-contain' />
           </div>
           <h2 className='text-center'>{t('projects.none')}</h2>
@@ -79,7 +79,6 @@ export default function ProjectsClient() {
                     items={e.images.map((image) => ({ original: image }))}
                     lazyLoad
                     showBullets
-                    showFullscreenButton={false}
                     showPlayButton={false}
                     showThumbnails={false}
                     slideInterval={5000}
@@ -89,9 +88,9 @@ export default function ProjectsClient() {
                         loading='lazy'
                         alt={e.title}
                         title={e.title}
-                        width='700'
-                        height='700'
-                        className='object-cover '
+                        width={1080}
+                        height={1080}
+                        className='mx-auto object-contain'
                       />
                     )}
                   />

@@ -25,7 +25,6 @@
     "p3": "Our drivers have years of experience and are well-versed in the routes, allowing us to reduce delivery time and ensure the highest quality of service.",
     "title": "Delivery of Products"
   },
-
   "footer": {
     "address": {
       "p1": "Ukraine",
@@ -80,7 +79,10 @@
         }
       },
       "telephone": "Telephone",
-      "title": { "default": "Contact ", "primary": "us" }
+      "title": {
+        "default": "Contact ",
+        "primary": "us"
+      }
     },
     "hero": {
       "main": {

@@ -1,4 +1,5 @@
 import '../globals.css';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';

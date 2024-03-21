@@ -30,8 +30,14 @@ module.exports = {
 
     // Prettier
     'plugin:prettier/recommended',
+
+    // Regexp
+    'plugin:regexp/recommended',
+
+    // Others
+    'plugin:jsonc/base',
   ],
-  plugins: ['no-secrets', 'simple-import-sort'],
+  plugins: ['json-format', 'no-secrets', 'simple-import-sort', 'unused-imports'],
   root: true,
   settings: {
     'import/resolver': {
@@ -61,6 +67,16 @@ module.exports = {
 
     // Remove unused imports
     '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      {
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+      },
+    ],
 
     // Others
     'import/prefer-default-export': 'off',
