@@ -43,10 +43,6 @@ const servicesMenu: IMenuItem[] = [
     id: 'components',
   },
   {
-    href: '/catalog',
-    id: 'catalog',
-  },
-  {
     href: '/delivery',
     id: 'delivery',
   },
@@ -95,6 +91,11 @@ export default function NavBarMenu() {
         <NavigationMenuItem className='hidden md:block'>
           <NavigationMenuLink href='/productions' className={navigationMenuTriggerStyle()}>
             {t('navbar.menu.production.title')}
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem className='hidden md:block'>
+          <NavigationMenuLink href='/catalog' className={navigationMenuTriggerStyle()}>
+            {t('navbar.menu.catalog.title')}
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem className='hidden md:block'>

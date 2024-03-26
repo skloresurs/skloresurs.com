@@ -1,9 +1,13 @@
 'use client';
 
+import 'react-medium-image-zoom/dist/styles.css';
+
+import Autoplay from 'embla-carousel-autoplay';
+import { map } from 'lodash';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react';
-import ImageGallery from 'react-image-gallery';
+import Zoom from 'react-medium-image-zoom';
 
 import { MdiCalendar, MdiEarth, MdiGlassdoor } from '@/components/icons/mdi';
 import type IProject from '@/types/Projects';
@@ -11,6 +15,7 @@ import axios from '@/utils/axios-cache';
 import { GenerateProjectLink } from '@/utils/generate-links';
 import { useCurrentLocale, useI18n } from '@/utils/i18n-client';
 
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel';
 import CustomPagination from '../ui/pagination';
 
 export default function ProjectsClient() {
@@ -74,26 +79,36 @@ export default function ProjectsClient() {
                 data-aos-anchor-placement='top-bottom'
               >
                 <div className='relative aspect-square w-full overflow-hidden rounded-lg'>
-                  <ImageGallery
-                    additionalClass='absolute object-cover overflow-hidden relative h-full'
-                    items={e.images.map((image) => ({ original: image }))}
-                    lazyLoad
-                    showBullets
-                    showPlayButton={false}
-                    showThumbnails={false}
-                    slideInterval={5000}
-                    renderItem={(item) => (
-                      <Image
-                        src={item.original}
-                        loading='lazy'
-                        alt={e.title}
-                        title={e.title}
-                        width={1080}
-                        height={1080}
-                        className='mx-auto object-contain'
-                      />
-                    )}
-                  />
+                  <Carousel
+                    className='aspect-square size-full'
+                    opts={{
+                      loop: true,
+                    }}
+                    plugins={[
+                      Autoplay({
+                        delay: 5000,
+                      }),
+                    ]}
+                  >
+                    <CarouselContent>
+                      {map(e.images, (image) => (
+                        <CarouselItem>
+                          <Zoom key={image}>
+                            <Image
+                              src={image}
+                              alt={e.title}
+                              title={e.title}
+                              width={1024}
+                              height={1024}
+                              loading='eager'
+                            />
+                          </Zoom>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className='left-4' />
+                    <CarouselNext className='right-4' />
+                  </Carousel>
                 </div>
                 <div className='flex flex-col gap-1 text-sm text-muted-foreground'>
                   <div className='flex flex-row items-center gap-1'>
