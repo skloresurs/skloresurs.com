@@ -159,6 +159,12 @@ export default function NavBarMenu() {
             >
               {t(`navbar.menu.production.title`)}
             </NavigationMenuLink>
+            <NavigationMenuLink
+              href='/catalog'
+              className='flex w-full min-w-max flex-row items-center gap-2 rounded-md px-3 py-2 duration-300 hover:bg-muted'
+            >
+              {t(`navbar.menu.catalog.title`)}
+            </NavigationMenuLink>
             <Separator />
             {servicesMenu.map((item) => (
               <NavigationMenuLink
