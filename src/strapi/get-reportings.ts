@@ -1,6 +1,6 @@
-import { env } from "@/env.mjs";
-import type IReporting from "@/types/Reporting";
-import axios from "@/utils/axios-cms";
+import { env } from '@/env.mjs';
+import type IReporting from '@/types/Reporting';
+import axios from '@/utils/axios-cms';
 
 interface IReportingServer {
   attributes: {
@@ -28,10 +28,10 @@ interface IReportingServer {
  */
 export default async function getReportings(): Promise<IReporting[] | null> {
   try {
-    const { data } = await axios.get("/api/reportings", {
+    const { data } = await axios.get('/api/reportings', {
       params: {
-        populate: "*",
-        "sort[0]": "year:desc",
+        populate: '*',
+        'sort[0]': 'year:desc',
       },
     });
     return data.data.map((e: IReportingServer) => ({
